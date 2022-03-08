@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "refactor-prettier": "npx prettier ./ -w",
+    "refactor-prettier": "npx prettier ./ -w && git add .",
     "prepare-husky": "husky install"
   },
   "dependencies": {
@@ -21,14 +21,7 @@
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
     "typescript": "4.6.2"
-  },
-  "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "npm run refactor-prettier",
-      "git add ."
-    ]
   }
 }
