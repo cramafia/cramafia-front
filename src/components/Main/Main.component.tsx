@@ -11,7 +11,6 @@ import {
   Image,
   ProcessHeading,
   ProcessSubHeading,
-  Separator,
 } from './Main.styles'
 import Process1 from '../../assets/images/process1.png'
 import Process2 from '../../assets/images/process2.png'
