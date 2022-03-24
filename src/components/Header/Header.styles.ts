@@ -4,12 +4,11 @@ import { ThemeType } from '../../theme/color'
 import { getTypography, Typography } from '../../theme/typography'
 import { getColor, Color } from '../../theme/color'
 import { getUnitAsPixels } from '../../theme/layout'
-import { pixelate } from '../../theme/helpers'
 
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 84px;
+  height: ${getUnitAsPixels(10.5)};
   align-items: center;
   border-bottom: solid rgba(255, 255, 255, 0.5);
 `
@@ -35,7 +34,7 @@ export const NavItem = styled(Button)`
 `
 
 export const Play = styled(NavItem)`
-  padding: 0 30px;
+  padding: 0 ${getUnitAsPixels(4)};
   margin-right: ${getUnitAsPixels(3)};
   border: solid ${getColor(Color.GREEN_100)};
   :hover {

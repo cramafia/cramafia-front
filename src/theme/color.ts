@@ -4,21 +4,25 @@ export enum Theme {
 }
 
 export enum Color {
-  BLACK = 'BLACK',
+  BLACK = `BLACK`,
   WHITE = 'WHITE',
   GREEN_100 = 'GREEN_100',
   RED_500 = 'RED_500',
   RED_100 = 'RED_100',
+  GRAY_200 = 'GRAY_200',
+  GRAY_400 = 'GRAY_400',
 }
 
 export type ThemeType = {
   background: {
     primary: string
     secondary: string
+    opposite: string
   }
   color: {
     primary: string
     secondary: string
+    opposite: string
   }
 }
 
@@ -38,6 +42,8 @@ const colors: { [key in Color]: string } = {
   [Color.GREEN_100]: '#49bfa5',
   [Color.RED_500]: '#840101',
   [Color.RED_100]: '#d7273d',
+  [Color.GRAY_400]: '#666666',
+  [Color.GRAY_200]: '#949999',
 }
 
 const themes: { [key in Theme]: ThemeType } = {
@@ -45,20 +51,24 @@ const themes: { [key in Theme]: ThemeType } = {
     background: {
       primary: getColor(Color.BLACK),
       secondary: getColor(Color.BLACK),
+      opposite: getColor(Color.WHITE),
     },
     color: {
       primary: getColor(Color.WHITE),
       secondary: getColor(Color.WHITE),
+      opposite: getColor(Color.BLACK),
     },
   },
   [Theme.WHITE]: {
     background: {
       primary: getColor(Color.WHITE),
       secondary: getColor(Color.WHITE),
+      opposite: getColor(Color.BLACK),
     },
     color: {
       primary: getColor(Color.BLACK),
       secondary: getColor(Color.BLACK),
+      opposite: getColor(Color.WHITE),
     },
   },
 }
