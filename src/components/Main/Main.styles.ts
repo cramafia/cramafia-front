@@ -41,12 +41,12 @@ export const Action = styled(Button)`
   ${getTypography(Typography.BODY_REGULAR)}
   display: flex;
   align-self: ${({ align }: PositionProps) => align || 'flex-start'};
-  border: solid ${getColor(Color.RED_100)};
+  border: 1px solid ${getColor(Color.RED_100)};
   border-radius: ${getUnitAsPixels()};
   background: ${getColor(Color.RED_100)};
   padding: ${getUnitAsPixels(3)} ${getUnitAsPixels(3)};
   :hover {
-    border: solid ${getColor(Color.RED_100)};
+    border: 1px solid ${getColor(Color.RED_100)};
     background: inherit;
     color: ${getColor(Color.RED_100)};
   }
