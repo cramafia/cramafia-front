@@ -83,6 +83,7 @@ export const MessageButton = styled(Button)`
 `
 
 export const CheckButton = styled(Button)`
+  ${getTypography(Typography.BODY_SMALL)}
   padding: ${getUnitAsPixels(2)} ${getUnitAsPixels(5)};
   border-radius: ${getUnitAsPixels()};
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};

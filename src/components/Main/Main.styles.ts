@@ -25,7 +25,7 @@ export const Slogan = styled.div`
 `
 
 export const Heading = styled.div`
-  ${getTypography(Typography.HEADING_1)}
+  ${getTypography(Typography.HEADING_2)}
   text-align: ${({ align }: PositionProps) => align || 'flex-start'};
 `
 

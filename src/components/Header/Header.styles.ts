@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   height: ${getUnitAsPixels(10.5)};
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `
 
 export const Navbar = styled(Nav)`
