@@ -8,6 +8,7 @@ export enum Typography {
   SUB_HEADING_1 = 'SUB_HEADING_1',
   BODY_REGULAR = 'BODY_REGULAR',
   BODY_SMALL = 'BODY_SMALL',
+  BODY_MIN = 'BODY_MIN',
 }
 
 export const getTypography = (t: Typography) => {
@@ -82,5 +83,10 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     ${getMediaQuery(ScreenSize.XLARGE)} {
       font-size: 18px;
     }
+  `,
+  [Typography.BODY_MIN]: css`
+    font-family: ${getFont(Font.SANS)};
+    font-weight: 400;
+    font-size: 12px;
   `,
 }
