@@ -2,9 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const GlobalStyles = createGlobalStyle`
-
-    a{
+    a {
         text-decoration: none;
+    }
+    li {
+        list-style-type: none;
     }
 `
 
