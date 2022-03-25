@@ -18,7 +18,7 @@ export const Login: FunctionComponent = () => {
       <LoginInput placeholder="Никнейм/Email" />
       <LoginInput type="password" placeholder="Пароль" />
       <HelperButtons>
-        <SubText hoverStyles={true}>Забыли пароль?</SubText>
+        <SubText>Забыли пароль?</SubText>
         <RememberUser>
           <CheckBox />
           <SubText>Запомнить меня</SubText>
