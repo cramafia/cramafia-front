@@ -1,17 +1,17 @@
 import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
+import { Color, getColor } from '../../../theme/color'
 import {
+  getUnitAsPixels,
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
-  getUnitAsPixels,
 } from '../../../theme/layout'
-import { Color, getColor } from '../../../theme/color'
 import { getTypography, Typography } from '../../../theme/typography'
 
-export const LoginContainer = styled.div`
-  width: 335px;
-  height: 308px;
+export const RegisterContainer = styled.div`
   background-color: ${getColor(Color.DARK_LIGHT_300)};
+  width: 540px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ export const MainText = styled.span`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)}
 `
 
-export const LoginInput = styled(Form.Control)`
+export const RegisterInput = styled(Form.Control)`
   width: 100%;
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
@@ -34,19 +34,12 @@ export const LoginInput = styled(Form.Control)`
   }
 `
 
-export const SubText = styled.span`
-  ${getTypography(Typography.NAVIGATION)}
-  :hover {
-    color: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
-      hoverStyles ? getColor(Color.BLUE_100) : ''};
-    cursor: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
-      hoverStyles ? 'pointer' : ''};
-  }
-`
-
-export const RememberUser = styled.div`
+export const HelperButtons = styled.div`
   display: flex;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
 export const CheckBox = styled(Form.Check)`
@@ -54,20 +47,6 @@ export const CheckBox = styled(Form.Check)`
   cursor: pointer;
 `
 
-export const SubmiteButton = styled(Button)`
-  width: 100%;
-  border-radius: ${getUnitAsPixels()};
-  background: ${getColor(Color.YELLOW_100)};
-  color: ${getColor(Color.BLACK)};
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-`
-
-export const HelperButtons = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-`
 export const MinText = styled.span`
   ${getTypography(Typography.BODY_MIN)}
   font-weight: 500;
@@ -84,11 +63,24 @@ export const MinText = styled.span`
       isBorder?: boolean
       hoverStyles?: boolean
     }) => (hoverStyles ? getColor(Color.BLUE_100) : '')};
-    cursor: ${({
-      hoverStyles = false,
-    }: {
-      isBorder?: boolean
-      hoverStyles?: boolean
-    }) => (hoverStyles ? 'pointer' : '')};
+  }
+`
+
+export const SubmiteButton = styled(Button)`
+  width: 100%;
+  border-radius: ${getUnitAsPixels()};
+  background: ${getColor(Color.YELLOW_100)};
+  color: ${getColor(Color.BLACK)};
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
+  :hover,
+  :focus {
+    background: ${getColor(Color.BLUE_100)};
+    color: ${getColor(Color.BLACK)};
+  }
+`
+
+export const TextContainer = styled.div`
+  > span {
+    cursor: pointer;
   }
 `

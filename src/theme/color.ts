@@ -14,6 +14,7 @@ export enum Color {
   YELLOW_100 = 'YELLOW_100',
   DARK_LIGHT_300 = 'DARK_LIGHT_300',
   DARK_LIGHT_200 = 'DARK_LIGHT_200',
+  BLUE_100 = 'BLUE_100',
 }
 
 export type ThemeType = {
@@ -50,6 +51,7 @@ const colors: { [key in Color]: string } = {
   [Color.YELLOW_100]: '#F9DC38',
   [Color.DARK_LIGHT_300]: '#191C22',
   [Color.DARK_LIGHT_200]: '#303238',
+  [Color.BLUE_100]: '#49BFA5',
 }
 
 const themes: { [key in Theme]: ThemeType } = {
