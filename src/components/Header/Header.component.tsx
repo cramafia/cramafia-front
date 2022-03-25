@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { NavItem, Navbar, Play, HeaderContainer } from './Header.styles'
 import Link from 'next/link'
 import { openModal } from '../../redux/reducers/global.reducer'
@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { ModalSize } from '../../theme/layout'
 import { ModalType } from '../Modal/Modal.types'
 
-export const Header: FunctionComponent = () => {
+export const Header: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal({ type, size: ModalSize.SMALL }))

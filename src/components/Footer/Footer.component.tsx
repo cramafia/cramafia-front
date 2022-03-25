@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import {
   BottomFooter,
   FooterContainer,
@@ -20,7 +20,7 @@ import Facebook from '../../assets/icons/facebook.svg'
 import Twitch from '../../assets/icons/twitch.svg'
 import Youtube from '../../assets/icons/youtube.svg'
 
-export const Footer: FunctionComponent = () => {
+export const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <TopFooter>
