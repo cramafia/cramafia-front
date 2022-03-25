@@ -3,12 +3,11 @@ import {
   LoginContainer,
   MainText,
   LoginInput,
-  Description,
+  HelperButtons,
   SubText,
   RememberUser,
   CheckBox,
   SubmiteButton,
-  RegisterAccount,
   MinText,
 } from './Login.styles'
 
@@ -18,18 +17,18 @@ export const Login: FunctionComponent = () => {
       <MainText>Войти</MainText>
       <LoginInput placeholder="Никнейм/Email" />
       <LoginInput type="password" placeholder="Пароль" />
-      <Description>
+      <HelperButtons>
         <SubText>Забыли пароль?</SubText>
         <RememberUser>
           <CheckBox />
           <SubText>Запомнить меня</SubText>
         </RememberUser>
-      </Description>
+      </HelperButtons>
       <SubmiteButton variant="warning">Войти</SubmiteButton>
-      <RegisterAccount>
+      <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
         <MinText isBorder={true}>Зарегистрировать аккаунт</MinText>
-      </RegisterAccount>
+      </HelperButtons>
     </LoginContainer>
   )
 }

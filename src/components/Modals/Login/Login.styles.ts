@@ -31,13 +31,6 @@ export const LoginInput = styled(Form.Control)`
   font-weight: 550;
 `
 
-export const Description = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-`
-
 export const SubText = styled.span`
   ${getTypography(Typography.NAVIGATION)}
 `
@@ -59,10 +52,11 @@ export const SubmiteButton = styled(Button)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
-export const RegisterAccount = styled.div`
+export const HelperButtons = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 export const MinText = styled.span`
   ${getTypography(Typography.BODY_MIN)}
