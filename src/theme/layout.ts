@@ -1,5 +1,4 @@
 import { pixelate } from './helpers'
-import { ReactNode } from 'react'
 
 export enum ScreenSize {
   MOBAIL = 'MOBAIL',

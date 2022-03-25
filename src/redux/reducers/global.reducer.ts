@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import React, { FunctionComponent } from 'react'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ModalPayloadType } from '../../components/Modal'
 import { getModal } from '../../components/Modals'
 
 type initialStateType = {
   modal: {
-    ModalContent: ReactNode
+    ModalContent: React.FC
   } | null
 }
 

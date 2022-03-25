@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import React from 'react'
 import { ThemeType } from '../color'
 
 export interface ThemeGlobalProps {
-  children: ReactNode
+  children: React.FC
   theme: ThemeType
 }

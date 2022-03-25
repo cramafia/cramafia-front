@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
+import React from 'react'
 
 export interface PageProps {
-  children: ReactNode
+  children: React.FC
 }

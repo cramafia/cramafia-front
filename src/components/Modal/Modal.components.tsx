@@ -1,12 +1,12 @@
-import React, { SyntheticEvent } from 'react'
+import React, { SyntheticEvent, Fragment } from 'react'
 import { Wrapper, Content, Cross } from './Modal.styles'
 import { useSelector, useDispatch } from 'react-redux'
 import { stateType } from '../../redux/store'
 import { closeModal } from '../../redux/reducers/global.reducer'
 
-export const Modal = () => {
+export const Modal: React.FC = () => {
   const modal = useSelector((state: stateType) => state.global.modal)
-  const ModalContent = modal?.ModalContent
+  const ModalContent = modal?.ModalContent || Fragment
   const dispatch = useDispatch()
   const onClose = () => {
     dispatch(closeModal())
