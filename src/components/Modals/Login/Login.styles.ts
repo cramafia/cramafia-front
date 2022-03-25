@@ -9,8 +9,6 @@ import { Color, getColor } from '../../../theme/color'
 import { getTypography, Typography } from '../../../theme/typography'
 
 export const LoginContainer = styled.div`
-  width: 335px;
-  height: 308px;
   background-color: ${getColor(Color.DARK_LIGHT_300)};
   display: flex;
   flex-direction: column;
