@@ -3,6 +3,9 @@ import Head from 'next/head'
 import GlobalStyles from '../global.styles'
 import { getTheme, Theme } from '../theme/color'
 import { ThemeGlobal } from '../theme/ThemeGlobal'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
+import { Modal } from '../components/Modal'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,10 +14,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>My page title</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <ThemeGlobal theme={getTheme(Theme.BLACK)}>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ThemeGlobal>
+      <Provider store={store}>
+        <ThemeGlobal theme={getTheme(Theme.BLACK)}>
+          <Modal />
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </ThemeGlobal>
+      </Provider>
     </>
   )
 }

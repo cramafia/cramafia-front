@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import {
   LoginContainer,
   MainText,
@@ -11,7 +11,7 @@ import {
   MinText,
 } from './Login.styles'
 
-export const Login: FunctionComponent = () => {
+export const Login: React.FC = () => {
   return (
     <LoginContainer>
       <MainText>Войти</MainText>

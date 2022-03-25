@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import {
   MainContainer,
   Heading,
@@ -16,7 +16,7 @@ import Process1 from '../../assets/images/process1.png'
 import Process2 from '../../assets/images/process2.png'
 import Process3 from '../../assets/images/process3.png'
 
-export const Main: FunctionComponent = () => {
+export const Main: React.FC = () => {
   return (
     <MainContainer>
       <Slogan>ИГРАЙ. ДУМАЙ. ПОБЕЖДАЙ.</Slogan>
