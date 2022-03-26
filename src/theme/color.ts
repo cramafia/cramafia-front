@@ -13,6 +13,8 @@ export enum Color {
   YELLOW_100 = 'YELLOW_100',
   BLUE_100 = 'BLUE_100',
   DARK_BLUE_500 = 'DARK_BLUE_500',
+  DARK_LIGHT_500 = 'DARK_LIGHT_500',
+  DARK_LIGHT_400 = 'DARK_LIGHT_400',
   DARK_LIGHT_300 = 'DARK_LIGHT_300',
   DARK_LIGHT_200 = 'DARK_LIGHT_200',
   GRAY_200 = 'GRAY_200',
@@ -56,6 +58,8 @@ const colors: { [key in Color]: string } = {
   [Color.DARK_LIGHT_300]: '#191C22',
   [Color.DARK_LIGHT_200]: '#303238',
   [Color.GRAY_100]: '#babbbd',
+  [Color.DARK_LIGHT_500]: '#141414',
+  [Color.DARK_LIGHT_400]: '#0F0F0F',
 }
 
 const themes: { [key in Theme]: ThemeType } = {
