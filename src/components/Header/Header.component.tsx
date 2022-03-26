@@ -15,9 +15,7 @@ export const Header: React.FC = () => {
     <HeaderContainer>
       <div>LOGO</div>
       <Navbar sticky="top">
-        <Play>
-          <Link href="/">Играть</Link>
-        </Play>
+        <Play onClick={onOpen.bind(this, ModalType.LOGIN)}>Играть</Play>
         <NavItem>
           <Link href="/rooms">Смотреть</Link>
         </NavItem>

@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { getUnitAsPixels } from '../../theme/layout'
+import {
+  getUnitAsPixels,
+  getModalSizeAsPixels,
+  ModalSize,
+} from '../../theme/layout'
 import { getColor, Color } from '../../theme/color'
 import CrossIcon from '../../assets/icons/cross.svg'
 
@@ -20,8 +24,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   position: fixed;
   border-radius: ${getUnitAsPixels()};
-  width: 500px;
-  height: 400px;
+  width: ${getModalSizeAsPixels(ModalSize.SMALL)};
   padding: ${getUnitAsPixels(4)} ${getUnitAsPixels(4)};
   background: ${getColor(Color.DARK_BLUE_500)};
 `
