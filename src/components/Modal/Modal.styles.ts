@@ -6,7 +6,6 @@ import {
 } from '../../theme/layout'
 import { getColor, Color } from '../../theme/color'
 import CrossIcon from '../../assets/icons/cross.svg'
-import { useSelector } from 'react-redux'
 
 export const Wrapper = styled.div`
   display: flex;

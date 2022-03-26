@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ModalPayloadType } from '../../components/Modal'
 import { getModal } from '../../components/Modals'
-import { getModalSizeAsPixels, ModalSize } from '../../theme/layout'
+import { ModalSize } from '../../theme/layout'
 
 type initialStateType = {
   modal: {

@@ -38,9 +38,7 @@ export const Login: React.FC = () => {
         <MinText>Нет аккаунта?</MinText>
         <MinText
           isButton={true}
-          onClick={() => {
-            onOpen(ModalType.REGISTER, ModalSize.SMALL)
-          }}
+          onClick={onOpen.bind(this, ModalType.REGISTER, ModalSize.SMALL)}
         >
           Зарегистрировать аккаунт
         </MinText>
