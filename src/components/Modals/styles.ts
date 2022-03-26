@@ -68,3 +68,16 @@ export const SubmiteButton = styled(Button)`
     border-color: ${getColor(Color.BLUE_100)};
   }
 `
+
+export const MinText = styled.span`
+  ${getTypography(Typography.BODY_MIN)}
+  font-weight: 500;
+  border-bottom: ${({ isButton = false }: { isButton?: boolean }) =>
+    isButton ? '1px solid' : '0px'};
+  :hover {
+    color: ${({ isButton = false }: { isButton?: boolean }) =>
+      isButton ? getColor(Color.BLUE_100) : getColor(Color.WHITE)};
+    cursor: ${({ isButton = false }: { isButton?: boolean }) =>
+      isButton ? 'pointer' : 'initial'};
+  }
+`

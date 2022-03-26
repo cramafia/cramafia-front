@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { CenteredContainer } from '../../../styles'
 import {
   CheckBox,
   HelperButtons,
@@ -7,8 +8,8 @@ import {
   ModalInput,
   SubmiteButton,
   SubText,
+  MinText,
 } from '../styles'
-import { RememberUser, MinText } from './Login.styles'
 
 export const Login: FunctionComponent = () => {
   return (
@@ -17,18 +18,16 @@ export const Login: FunctionComponent = () => {
       <ModalInput placeholder="Никнейм/Email" />
       <ModalInput type="password" placeholder="Пароль" />
       <HelperButtons>
-        <SubText>Забыли пароль?</SubText>
-        <RememberUser>
+        <MinText isButton={true}>Забыли пароль?</MinText>
+        <CenteredContainer align="center">
           <CheckBox />
           <SubText>Запомнить меня</SubText>
-        </RememberUser>
+        </CenteredContainer>
       </HelperButtons>
       <SubmiteButton variant="warning">Войти</SubmiteButton>
       <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
-        <MinText isBorder={true} hoverStyles={true}>
-          Зарегистрировать аккаунт
-        </MinText>
+        <MinText isButton={true}>Зарегистрировать аккаунт</MinText>
       </HelperButtons>
     </ModalContainer>
   )

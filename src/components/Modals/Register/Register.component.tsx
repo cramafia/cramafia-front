@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import { MinText, TextContainer } from './Register.styles'
 
 import {
   ModalContainer,
@@ -8,6 +7,7 @@ import {
   HelperButtons,
   CheckBox,
   SubmiteButton,
+  MinText,
 } from '../styles'
 
 export const Register: FunctionComponent = () => {
@@ -20,23 +20,21 @@ export const Register: FunctionComponent = () => {
       <ModalInput placeholder="Повторите пароль" />
       <HelperButtons>
         <CheckBox />
-        <TextContainer>
+        <div>
           <MinText>Я согласен с </MinText>
-          <MinText isBorder={true}>
+          <MinText isButton={true}>
             Правилами пользовтельского соглашения
           </MinText>
           <MinText> и </MinText>
-          <MinText isBorder={true}>
+          <MinText isButton={true}>
             правилами обработки персональных данных
           </MinText>
-        </TextContainer>
+        </div>
       </HelperButtons>
       <SubmiteButton>Зарегистрироваться</SubmiteButton>
       <HelperButtons>
         <MinText>Есть аккаунт?</MinText>
-        <MinText isBorder={true} hoverStyles={true}>
-          Авторизироваться
-        </MinText>
+        <MinText isButton={true}>Авторизироваться</MinText>
       </HelperButtons>
     </ModalContainer>
   )
