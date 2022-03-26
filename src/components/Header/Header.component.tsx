@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
       <Navbar sticky="top">
         <Play onClick={onOpen.bind(this, ModalType.LOGIN)}>Играть</Play>
         <NavItem>
-          <Link href="/rooms">Смотреть</Link>
+          <Link href="/watch">Смотреть</Link>
         </NavItem>
         <NavItem>
           <Link href="/rules">Правила</Link>
