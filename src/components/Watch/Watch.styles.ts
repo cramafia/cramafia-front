@@ -34,27 +34,17 @@ export const GameContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: ${getUnitAsPixels()};
 `
 
 export const GamesTable = styled(Table)`
-  background-color: ${getColor(Color.DARK_LIGHT_400)};
-  border-radius: ${getUnitAsPixels()};
+  background: ${getColor(Color.DARK_LIGHT_400)};
   padding: ${getUnitAsPixels(3)};
   ${getTypography(Typography.NAVIGATION)}
   text-align: center;
   thead {
     background-color: ${getColor(Color.DARK_LIGHT_500)};
   }
-  tbody {
-    :last-child {
-      border-bottom: none;
-    }
-  }
-  > tbody > tr {
+  tbody > tr {
     border-bottom: 1px solid ${getColor(Color.DARK_LIGHT_500)};
-    :last-child {
-      border-bottom: none;
-    }
   }
 `
