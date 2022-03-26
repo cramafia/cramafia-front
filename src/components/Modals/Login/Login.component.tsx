@@ -1,22 +1,21 @@
 import React, { FunctionComponent } from 'react'
 import {
-  LoginContainer,
-  MainText,
-  LoginInput,
-  HelperButtons,
-  SubText,
-  RememberUser,
   CheckBox,
+  HelperButtons,
+  MainText,
+  ModalContainer,
+  ModalInput,
   SubmiteButton,
-  MinText,
-} from './Login.styles'
+  SubText,
+} from '../styles'
+import { RememberUser, MinText } from './Login.styles'
 
 export const Login: FunctionComponent = () => {
   return (
-    <LoginContainer>
+    <ModalContainer>
       <MainText>Войти</MainText>
-      <LoginInput placeholder="Никнейм/Email" />
-      <LoginInput type="password" placeholder="Пароль" />
+      <ModalInput placeholder="Никнейм/Email" />
+      <ModalInput type="password" placeholder="Пароль" />
       <HelperButtons>
         <SubText>Забыли пароль?</SubText>
         <RememberUser>
@@ -31,6 +30,6 @@ export const Login: FunctionComponent = () => {
           Зарегистрировать аккаунт
         </MinText>
       </HelperButtons>
-    </LoginContainer>
+    </ModalContainer>
   )
 }

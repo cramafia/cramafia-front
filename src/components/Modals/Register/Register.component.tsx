@@ -1,23 +1,23 @@
 import React, { FunctionComponent } from 'react'
+import { MinText, TextContainer } from './Register.styles'
+
 import {
-  RegisterContainer,
+  ModalContainer,
   MainText,
+  ModalInput,
   HelperButtons,
   CheckBox,
-  RegisterInput,
-  MinText,
   SubmiteButton,
-  TextContainer,
-} from './Register.styles'
+} from '../styles'
 
 export const Register: FunctionComponent = () => {
   return (
-    <RegisterContainer>
+    <ModalContainer>
       <MainText>Зарегистрироваться</MainText>
-      <RegisterInput placeholder="Введите никнейм (Логин)" />
-      <RegisterInput placeholder="Введите е-mail" />
-      <RegisterInput placeholder="Придумайте пароль" />
-      <RegisterInput placeholder="Повторите пароль" />
+      <ModalInput placeholder="Введите никнейм (Логин)" />
+      <ModalInput placeholder="Введите е-mail" />
+      <ModalInput placeholder="Придумайте пароль" />
+      <ModalInput placeholder="Повторите пароль" />
       <HelperButtons>
         <CheckBox />
         <TextContainer>
@@ -38,6 +38,6 @@ export const Register: FunctionComponent = () => {
           Авторизироваться
         </MinText>
       </HelperButtons>
-    </RegisterContainer>
+    </ModalContainer>
   )
 }

@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
           <Link href="/rules">Правила</Link>
         </NavItem>
         <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>
+        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
           Регистрация
         </NavItem>
       </Navbar>

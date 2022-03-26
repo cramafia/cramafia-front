@@ -9,4 +9,5 @@ export interface ModalPayloadType {
 
 export enum ModalType {
   LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
 }
