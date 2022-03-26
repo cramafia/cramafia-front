@@ -8,8 +8,8 @@ import { ModalType } from '../Modal/Modal.types'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
-  const onOpen = (type: ModalType) => {
-    dispatch(openModal({ type, size: ModalSize.SMALL }))
+  const onOpen = (type: ModalType, size: ModalSize) => {
+    dispatch(openModal({ type, size }))
   }
   return (
     <HeaderContainer>
@@ -22,8 +22,12 @@ export const Header: React.FC = () => {
         <NavItem>
           <Link href="/rules">Правила</Link>
         </NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
+        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN, ModalSize.SMALL)}>
+          Вход
+        </NavItem>
+        <NavItem
+          onClick={onOpen.bind(this, ModalType.REGISTER, ModalSize.SMALL)}
+        >
           Регистрация
         </NavItem>
       </Navbar>

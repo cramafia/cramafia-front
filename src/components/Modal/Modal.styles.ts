@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   position: fixed;
   border-radius: ${getUnitAsPixels()};
-  width: ${getModalSizeAsPixels(ModalSize.SMALL)};
+  width: ${({ size }: { size: ModalSize }) => getModalSizeAsPixels(size)};
   padding: ${getUnitAsPixels(4)} ${getUnitAsPixels(4)};
   background: ${getColor(Color.DARK_BLUE_500)};
 `

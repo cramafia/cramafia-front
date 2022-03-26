@@ -7,6 +7,7 @@ import { closeModal } from '../../redux/reducers/global.reducer'
 export const Modal: React.FC = () => {
   const modal = useSelector((state: stateType) => state.global.modal)
   const ModalContent = modal?.ModalContent || Fragment
+  const ModalSize = modal?.size
   const dispatch = useDispatch()
   const onClose = () => {
     dispatch(closeModal())
@@ -19,7 +20,7 @@ export const Modal: React.FC = () => {
   return (
     modal && (
       <Wrapper onClick={onClose}>
-        <Content onClick={stopPropogation}>
+        <Content onClick={stopPropogation} size={modal?.size}>
           <Cross onClick={onClose} />
           <ModalContent />
         </Content>
