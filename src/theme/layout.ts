@@ -21,11 +21,7 @@ export enum ModalSize {
   SMALL = 'SMALL',
   MEDIUM = 'MEDIUM',
   LARGE = 'LARGE',
-}
-
-export type ModalSizeType = {
-  width: number
-  height: number
+  XLARGE = 'XLARGE',
 }
 
 export const unit: number = 8
@@ -36,6 +32,10 @@ export const getMediaQuery = (size: ScreenSize): string => {
 
 export const getUnitAsPixels = (multiplier: number = 1): string => {
   return pixelate(unit * multiplier)
+}
+
+export const getModalSizeAsPixels = (t: ModalSize): string => {
+  return pixelate(modalSizes[t])
 }
 
 export const getVerticalSpacingAsPixels = (
@@ -60,21 +60,10 @@ const verticalSpacing: { [key in VerticalSpacingType]: number } = {
   [ScreenSize.XLARGE]: 192,
 }
 
-const modalSizes: { [key in ModalSize]: ModalSizeType } = {
-  [ModalSize.MOBAIL]: {
-    width: 300,
-    height: 300,
-  },
-  [ModalSize.SMALL]: {
-    width: 600,
-    height: 600,
-  },
-  [ModalSize.MEDIUM]: {
-    width: 900,
-    height: 900,
-  },
-  [ModalSize.LARGE]: {
-    width: 1200,
-    height: 1200,
-  },
+const modalSizes: { [key in ModalSize]: number } = {
+  [ModalSize.MOBAIL]: 300,
+  [ModalSize.SMALL]: 500,
+  [ModalSize.MEDIUM]: 700,
+  [ModalSize.LARGE]: 900,
+  [ModalSize.XLARGE]: 1100,
 }

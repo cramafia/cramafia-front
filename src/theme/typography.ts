@@ -12,7 +12,7 @@ export enum Typography {
   BODY_MIN = 'BODY_MIN',
 }
 
-export const getTypography = (t: Typography) => {
+export const getTypography = (t: Typography): FlattenSimpleInterpolation => {
   return typography[t]
 }
 

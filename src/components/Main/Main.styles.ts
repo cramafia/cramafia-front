@@ -9,6 +9,10 @@ import {
   VerticalSpacingType,
 } from '../../theme/layout'
 import { Button } from 'react-bootstrap'
+import {
+  getNormilizeComponentAsStyle,
+  NormilizeComponents,
+} from '../../theme/normilize'
 
 export const MainContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.LARGE)};
@@ -37,6 +41,7 @@ export const SubHeading = styled.div`
 `
 
 export const Action = styled(Button)`
+  ${getNormilizeComponentAsStyle(NormilizeComponents.BUTTON)}
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   ${getTypography(Typography.BODY_REGULAR)}
   display: flex;

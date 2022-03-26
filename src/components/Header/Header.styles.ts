@@ -4,6 +4,10 @@ import { ThemeType } from '../../theme/color'
 import { getTypography, Typography } from '../../theme/typography'
 import { getColor, Color } from '../../theme/color'
 import { getUnitAsPixels } from '../../theme/layout'
+import {
+  getNormilizeComponentAsStyle,
+  NormilizeComponents,
+} from '../../theme/normilize'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -18,14 +22,17 @@ export const Navbar = styled(Nav)`
 `
 
 export const NavItem = styled(Button)`
+  ${getNormilizeComponentAsStyle(NormilizeComponents.BUTTON)}
   margin-right: ${getUnitAsPixels(1.5)};
   border: none;
+  border-bottom: 1px solid transparent;
   background: inherit;
   :hover {
     background: inherit;
-    border: none;
     border-radius: 0;
-    border-bottom: 1px solid ${getColor(Color.WHITE)};
+    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+    border-bottom-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.color.primary};
   }
   a {
     ${getTypography(Typography.NAVIGATION)}
