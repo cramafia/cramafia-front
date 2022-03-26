@@ -1,34 +1,34 @@
 import React from 'react'
+import { CenteredContainer } from '../../../styles'
 import {
-  LoginContainer,
-  MainText,
-  LoginInput,
-  HelperButtons,
-  SubText,
-  RememberUser,
   CheckBox,
+  HelperButtons,
+  MainText,
+  ModalContainer,
+  ModalInput,
   SubmiteButton,
+  SubText,
   MinText,
-} from './Login.styles'
+} from '../styles'
 
 export const Login: React.FC = () => {
   return (
-    <LoginContainer>
+    <ModalContainer>
       <MainText>Войти</MainText>
-      <LoginInput placeholder="Никнейм/Email" />
-      <LoginInput type="password" placeholder="Пароль" />
+      <ModalInput placeholder="Никнейм/Email" />
+      <ModalInput type="password" placeholder="Пароль" />
       <HelperButtons>
-        <SubText>Забыли пароль?</SubText>
-        <RememberUser>
+        <MinText isButton={true}>Забыли пароль?</MinText>
+        <CenteredContainer align="center">
           <CheckBox />
           <SubText>Запомнить меня</SubText>
-        </RememberUser>
+        </CenteredContainer>
       </HelperButtons>
       <SubmiteButton variant="warning">Войти</SubmiteButton>
       <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
-        <MinText isBorder={true}>Зарегистрировать аккаунт</MinText>
+        <MinText isButton={true}>Зарегистрировать аккаунт</MinText>
       </HelperButtons>
-    </LoginContainer>
+    </ModalContainer>
   )
 }
