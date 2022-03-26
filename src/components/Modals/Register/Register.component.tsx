@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 
 import {
   ModalContainer,
@@ -10,7 +10,7 @@ import {
   MinText,
 } from '../styles'
 
-export const Register: FunctionComponent = () => {
+export const Register: React.FC = () => {
   return (
     <ModalContainer>
       <MainText>Зарегистрироваться</MainText>

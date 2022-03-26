@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { CenteredContainer } from '../../../styles'
 import {
   CheckBox,
@@ -11,7 +11,7 @@ import {
   MinText,
 } from '../styles'
 
-export const Login: FunctionComponent = () => {
+export const Login: React.FC = () => {
   return (
     <ModalContainer>
       <MainText>Войти</MainText>
