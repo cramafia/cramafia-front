@@ -25,6 +25,7 @@ export const NavItem = styled(Button)`
   ${getNormilizeComponentAsStyle(NormilizeComponents.BUTTON)}
   margin-right: ${getUnitAsPixels(1.5)};
   border: none;
+  padding: ${getUnitAsPixels(0.5)} ${getUnitAsPixels(2.5)};
   border-bottom: 1px solid transparent;
   background: inherit;
   :hover {
@@ -37,6 +38,7 @@ export const NavItem = styled(Button)`
   a {
     ${getTypography(Typography.NAVIGATION)}
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+    padding: ${getUnitAsPixels(1.5)};
   }
 `
 
