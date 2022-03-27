@@ -12,11 +12,8 @@ import Link from 'next/link'
 import { openModal } from '../../redux/reducers/global.reducer'
 import { useDispatch } from 'react-redux'
 import { getModal } from '../Modals'
-import { ModalSize } from '../../theme/layout'
 import { ModalType } from '../Modals'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
-import styled from 'styled-components'
-import { TransformStreamDefaultController } from 'stream/web'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()

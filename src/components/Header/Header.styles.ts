@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { Nav, Button, Navbar, Offcanvas } from 'react-bootstrap'
-import { getTheme, Theme, ThemeType } from '../../theme/color'
+import { Button, Navbar, Offcanvas } from 'react-bootstrap'
+import { ThemeType } from '../../theme/color'
 import { getTypography, Typography } from '../../theme/typography'
 import { getColor, Color } from '../../theme/color'
-import { getUnitAsPixels } from '../../theme/layout'
+import { getMediaQuery, getUnitAsPixels, ScreenSize } from '../../theme/layout'
 import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
@@ -37,14 +37,14 @@ export const StyledNavbar = styled(Navbar)`
   ${({ isExpand, theme }: { isExpand?: boolean; theme: ThemeType }) =>
     (isExpand &&
       `
-  display: flex;
-  @media only screen and (max-width: 1000px) {
   display: none;
+  ${getMediaQuery(ScreenSize.LARGE)} {
+  display: flex;
 } 
 `) ||
-    `display: none;
-  @media only screen and (max-width: 1000px) {
-  display: flex;
+    `display: flex;
+  ${getMediaQuery(ScreenSize.LARGE)} {
+  display: none;
   `};
 `
 
@@ -85,10 +85,9 @@ export const SideBar = styled(Navbar.Offcanvas)`
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.primary};
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary} !important;
-  .offcanvas-body > div {
+  button {
     :first-child {
-      width: 50%;
-      margin-left: 22.5%;
+      margin: auto;
     }
   }
 `
