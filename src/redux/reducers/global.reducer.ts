@@ -1,14 +1,9 @@
-import React from 'react'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ModalPayloadType } from '../../components/Modal'
-import { getModal } from '../../components/Modals'
+import { ModalPayloadType } from '../../types'
 import { ModalSize } from '../../theme/layout'
 
 type initialStateType = {
-  modal: {
-    ModalContent: React.FC
-    size: ModalSize
-  } | null
+  modal: ModalPayloadType | null
 }
 
 const initialState: initialStateType = {
@@ -20,13 +15,19 @@ const globalReducer = createSlice({
   initialState,
   reducers: {
     openModal(state, action: PayloadAction<ModalPayloadType>) {
-      state.modal = {
-        ModalContent: getModal(action.payload.type),
-        size: action.payload.size || ModalSize.SMALL,
+      return {
+        ...state,
+        modal: {
+          ModalContent: action.payload.ModalContent,
+          size: action.payload.size || ModalSize.SMALL,
+        },
       }
     },
     closeModal(state) {
-      state.modal = null
+      return {
+        ...state,
+        modal: null,
+      }
     },
   },
 })
