@@ -90,7 +90,8 @@ export const CheckButton = styled(Button)`
   background: ${({ theme }: { theme: ThemeType }) => theme.background.primary};
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   font-weight: 550;
-  :hover {
+  :hover,
+  :focus {
     border-color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
       theme.background.primary};
