@@ -27,7 +27,7 @@ export const Content = styled.div`
   width: ${({ size }: { size: ModalSize }) => getModalSizeAsPixels(size)};
   padding: ${getUnitAsPixels(4)} ${getUnitAsPixels(4)};
   background: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary == '#000'
+    theme.background.primary === getColor(Color.BLACK)
       ? getColor(Color.DARK_BLUE_500)
       : getColor(Color.WHITE)};
 `
