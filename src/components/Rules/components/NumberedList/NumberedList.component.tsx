@@ -9,7 +9,7 @@ export const NumberedList = ({ text }: NumberedListProps) => {
     if (_.isString(text)) {
       try {
         return `${text}`
-          ?.replaceAll('\n', '')
+          ?.replace(/\n/g, '')
           ?.split(';')
           ?.map((str: string) => str.trim())
           ?.filter((str: string) => !!str)
