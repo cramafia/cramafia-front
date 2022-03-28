@@ -15,7 +15,7 @@ export const NumberedList = ({ text }: NumberedListProps) => {
   return (
     <List>
       {list.map((item, idx) => (
-        <ListItem>
+        <ListItem key={idx}>
           {idx + 1}. {item}
         </ListItem>
       ))}
