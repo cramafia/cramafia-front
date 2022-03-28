@@ -6,15 +6,15 @@ import { List, ListItem } from './NumberedList.styles'
 export const NumberedList = ({ text }: NumberedListProps) => {
   const splitText = (): string[] => {
     return String(text)
-      .replaceAll('\n', '')
-      .split(';')
-      .map((str) => str.trim())
-      .filter((str) => !!str)
+      ?.replaceAll('\n', '')
+      ?.split(';')
+      ?.map((str) => str.trim())
+      ?.filter((str) => !!str)
   }
   const list = useMemo(splitText, [text])
   return (
     <List>
-      {list.map((item, idx) => (
+      {list?.map((item, idx) => (
         <ListItem key={idx}>
           {idx + 1}. {item}
         </ListItem>
