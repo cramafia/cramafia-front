@@ -26,7 +26,7 @@ export const ModalInput = styled(Form.Control)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === '#000'
+    theme.background.primary === getColor(Color.BLACK)
       ? getColor(Color.DARK_LIGHT_200)
       : getColor(Color.WHITE)};
   border-color: ${getColor(Color.DARK_LIGHT_200)};
@@ -35,7 +35,7 @@ export const ModalInput = styled(Form.Control)`
     border-color: ${getColor(Color.DARK_LIGHT_200)};
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === '#000'
+      theme.background.primary === getColor(Color.BLACK)
         ? getColor(Color.DARK_LIGHT_200)
         : getColor(Color.WHITE)};
   }
