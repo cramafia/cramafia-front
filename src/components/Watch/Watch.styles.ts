@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Color, getColor } from '../../theme/color'
+import { Color, getColor, ThemeType } from '../../theme/color'
 import {
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
@@ -42,9 +42,26 @@ export const GamesTable = styled(Table)`
   ${getTypography(Typography.NAVIGATION)}
   text-align: center;
   thead {
-    background-color: ${getColor(Color.DARK_LIGHT_500)};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.DARK_LIGHT_500)
+        : getColor(Color.WHITE)};
   }
-  tbody > tr {
-    border-bottom: 1px solid ${getColor(Color.DARK_LIGHT_500)};
+  tbody {
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.DARK_LIGHT_400)
+        : getColor(Color.WHITE)};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.WHITE)
+        : getColor(Color.GRAY_200)};
+  }
+  tr {
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.background.primary === getColor(Color.BLACK)
+          ? getColor(Color.DARK_LIGHT_500)
+          : getColor(Color.WHITE_300)};
   }
 `
