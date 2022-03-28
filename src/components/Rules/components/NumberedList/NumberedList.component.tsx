@@ -7,11 +7,16 @@ import _ from 'lodash'
 export const NumberedList = ({ text }: NumberedListProps) => {
   const splitText = (): string[] => {
     if (_.isString(text)) {
-      return `${text}`
-        ?.replaceAll('\n', '')
-        ?.split(';')
-        ?.map((str: string) => str.trim())
-        ?.filter((str: string) => !!str)
+      try {
+        return `${text}`
+          ?.replaceAll('\n', '')
+          ?.split(';')
+          ?.map((str: string) => str.trim())
+          ?.filter((str: string) => !!str)
+      } catch (e) {
+        console.log(e)
+        return []
+      }
     }
     return []
   }
