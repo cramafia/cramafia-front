@@ -17,11 +17,11 @@ export enum TextType {
   TEXT_2_5 = 'TEXT_2_5',
 }
 
-export const getText = (t: TextType): ReactNode => {
+export const getText = (t: TextType): ReactNode | string => {
   return texts[t]
 }
 
-const texts: { [key in TextType]: ReactNode } = {
+const texts: { [key in TextType]: ReactNode | string } = {
   [TextType.TEXT_1_1]: (
     <>
       В игре принимают участие десять человек. <br />
