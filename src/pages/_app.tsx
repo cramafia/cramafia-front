@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Provider store={store}>
-        <ThemeGlobal theme={getTheme(Theme.BLACK)}>
+        <ThemeGlobal theme={getTheme(Theme.WHITE)}>
           <Modal />
           <GlobalStyles />
           <Component {...pageProps} />
