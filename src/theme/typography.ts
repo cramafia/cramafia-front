@@ -6,6 +6,7 @@ export enum Typography {
   NAVIGATION = 'NAVIGATION',
   HEADING_1 = 'HEADING_1',
   HEADING_2 = 'HEADING_2',
+  HEADING_3 = 'HEADING_3',
   SUB_HEADING_1 = 'SUB_HEADING_1',
   BODY_REGULAR = 'BODY_REGULAR',
   BODY_SMALL = 'BODY_SMALL',
@@ -57,6 +58,22 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
 
     ${getMediaQuery(ScreenSize.XLARGE)} {
       font-size: 70px;
+    }
+  `,
+  [Typography.HEADING_3]: css`
+    font-family: ${getFont(Font.SANS)};
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+
+    ${getMediaQuery(ScreenSize.LARGE)} {
+      font-size: 30px;
+    }
+
+    ${getMediaQuery(ScreenSize.XLARGE)} {
+      font-size: 40px;
     }
   `,
   [Typography.SUB_HEADING_1]: css`

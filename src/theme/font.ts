@@ -1,5 +1,6 @@
 export enum Font {
   SANS = 'SANS',
+  INTER = 'INTER',
 }
 
 export const getFont = (font: Font): string => {
@@ -8,4 +9,5 @@ export const getFont = (font: Font): string => {
 
 const fonts: { [key in Font]: string } = {
   [Font.SANS]: `"Noto Sans", sans-serif`,
+  [Font.INTER]: `Inter`,
 }
