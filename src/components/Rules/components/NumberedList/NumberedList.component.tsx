@@ -6,19 +6,11 @@ import _ from 'lodash'
 
 export const NumberedList = ({ text }: NumberedListProps) => {
   const splitText = (): string[] => {
-    if (_.isString(text)) {
-      try {
-        return `${text}`
-          ?.replace(/\n/g, '')
-          ?.split(';')
-          ?.map((str: string) => str.trim())
-          ?.filter((str: string) => !!str)
-      } catch (e) {
-        console.log(e)
-        return []
-      }
-    }
-    return []
+    return text
+      .replace(/\n/g, '')
+      .split(';')
+      .map((str: string) => str.trim())
+      .filter((str: string) => !!str)
   }
   const list = useMemo(splitText, [text])
   return (
