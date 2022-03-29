@@ -42,11 +42,10 @@ export interface ImageProps {
   alt: string
 }
 
-export const getImage = (t: ImageType): ReactNode => {
-  return <img {...images[t]} />
-}
-
-export const getImageWithSize = (t: ImageType, s: ImageSize): ReactNode => {
+export const getImage = (
+  t: ImageType,
+  s: ImageSize = ImageSize.MEDIUM
+): ReactNode => {
   return <img {...images[t]} width={getImageSizeAsPixels(s)} />
 }
 

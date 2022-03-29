@@ -14,8 +14,8 @@ export const TextImage = ({
 }: TextImageProps) => {
   return (
     <Container float={float}>
-      <ImageContainer float={float} imageSize={imageSize}>
-        {getImage(imageName)}
+      <ImageContainer float={float}>
+        {getImage(imageName, imageSize)}
       </ImageContainer>
       <Text>{children}</Text>
     </Container>

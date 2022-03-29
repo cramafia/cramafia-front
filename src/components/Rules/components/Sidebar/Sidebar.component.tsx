@@ -7,7 +7,7 @@ import {
   ListItem,
   ListItemLink,
 } from './Sidebar.styles'
-import { AnchorObjectType, AnchorType, getAnchors } from '../../anchors'
+import { AnchorObjectType, AnchorType, getAnchors } from '../../helpers/anchors'
 import { useSelector } from 'react-redux'
 import { stateType } from 'src/redux/store'
 import { useDispatch } from 'react-redux'
