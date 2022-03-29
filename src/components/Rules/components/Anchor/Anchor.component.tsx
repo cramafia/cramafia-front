@@ -21,6 +21,7 @@ export const Anchor = ({ anchor }: { anchor: AnchorType }) => {
       dispatch(removeUnvisibleAnchor(anchor))
     }
   }, [isVisible])
+
   return (
     <>
       <a name={getAnchor(anchor).anchor} />

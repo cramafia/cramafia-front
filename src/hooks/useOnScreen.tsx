@@ -19,7 +19,7 @@ export function useOnScreen<T extends Element>(
       observer.observe(ref.current)
     }
     return () => {
-      observer.unobserve(ref.current)
+      observer.disconnect()
     }
   }, [])
 
