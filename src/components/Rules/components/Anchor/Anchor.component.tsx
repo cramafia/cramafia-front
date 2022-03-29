@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useOnScreen } from 'src/hooks/useOnScreen'
 import { useDispatch } from 'react-redux'
-import { getAnchor, AnchorType } from '../../anchors'
+import { getAnchor, AnchorType } from '../../helpers/anchors'
 import { AnchorObserver } from './Anchor.styles'
 import {
   addVisibleAnchor,

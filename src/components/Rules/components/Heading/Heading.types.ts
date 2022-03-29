@@ -1,4 +1,4 @@
-import { AnchorType } from '../../anchors'
+import { AnchorType } from '../../helpers/anchors'
 
 export interface HeadingProps {
   text?: string

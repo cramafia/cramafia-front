@@ -2,7 +2,7 @@ import React from 'react'
 
 import { HeadingProps } from './Heading.types'
 import { Container, Text, ListItem } from './Heading.styles'
-import { getAnchor } from '../../anchors'
+import { getAnchor } from '../../helpers/anchors'
 
 export const Heading = ({
   text,

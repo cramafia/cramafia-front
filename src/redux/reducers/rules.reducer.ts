@@ -1,6 +1,9 @@
 import { Action } from '@/components/Main/Main.styles'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AnchorType, sortByAnchorId } from '../../components/Rules/anchors'
+import {
+  AnchorType,
+  sortByAnchorId,
+} from '../../components/Rules/helpers/anchors'
 
 type InitialStateType = {
   anchors: AnchorType[] | []
