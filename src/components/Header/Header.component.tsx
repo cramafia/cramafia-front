@@ -23,9 +23,11 @@ export const Header: React.FC = () => {
 
   return (
     <HeaderContainer>
+      <Logo>
+        <Link href="/">Cramafia</Link>
+      </Logo>
       <StyledNavbar expand={false} isExpand={false}>
         <Container fluid>
-          <Logo href="">Logo</Logo>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <SideBar
             id="offcanvasNavbar"
@@ -57,7 +59,6 @@ export const Header: React.FC = () => {
       </StyledNavbar>
 
       <StyledNavbar expand={true} isExpand={true}>
-        <Logo href="">Logo</Logo>
         <Play onClick={onOpen.bind(this, ModalType.LOGIN)}>Играть</Play>
         <NavItem>
           <Link href="/watch">Смотреть</Link>

@@ -17,17 +17,20 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `
 
-export const Logo = styled(Navbar.Brand)`
-  width: 50%;
-  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary} !important;
+export const Logo = styled.div`
+  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   :hover {
     cursor: pointer;
+  }
+  a {
+    ${getTypography(Typography.BODY_REGULAR)}
+    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+    padding: ${getUnitAsPixels(1.5)};
   }
 `
 
 export const StyledNavbar = styled(Navbar)`
   display: flex;
-  width: 100%;
   justify-content: space-between;
   color: ${getColor(Color.WHITE)} !important;
   flex-wrap: nowrap;
