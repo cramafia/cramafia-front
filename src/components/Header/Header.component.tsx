@@ -21,12 +21,32 @@ export const Header: React.FC = () => {
     dispatch(openModal(getModal(type)))
   }
 
+  const NavContent = () => {
+    return (
+      <>
+        <Play>
+          <Link href="/game-search">Играть</Link>
+        </Play>
+        <NavItem>
+          <Link href="/watch">Смотреть</Link>
+        </NavItem>
+        <NavItem>
+          <Link href="/rules">Правила</Link>
+        </NavItem>
+        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
+        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
+          Регистрация
+        </NavItem>
+      </>
+    )
+  }
+
   return (
     <HeaderContainer>
       <Logo>
         <Link href="/">Cramafia</Link>
       </Logo>
-      <StyledNavbar expand={false} isExpand={false}>
+      <StyledNavbar expand={false}>
         <Container fluid>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <SideBar
@@ -39,37 +59,15 @@ export const Header: React.FC = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Play onClick={onOpen.bind(this, ModalType.LOGIN)}>Играть</Play>
-                <NavItem>
-                  <Link href="/watch">Смотреть</Link>
-                </NavItem>
-                <NavItem>
-                  <Link href="/rules">Правила</Link>
-                </NavItem>
-                <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>
-                  Вход
-                </NavItem>
-                <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
-                  Регистрация
-                </NavItem>
+                <NavContent />
               </Nav>
             </Offcanvas.Body>
           </SideBar>
         </Container>
       </StyledNavbar>
 
-      <StyledNavbar expand={true} isExpand={true}>
-        <Play onClick={onOpen.bind(this, ModalType.LOGIN)}>Играть</Play>
-        <NavItem>
-          <Link href="/watch">Смотреть</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/rules">Правила</Link>
-        </NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
-          Регистрация
-        </NavItem>
+      <StyledNavbar expand={true}>
+        <NavContent />
       </StyledNavbar>
     </HeaderContainer>
   )
