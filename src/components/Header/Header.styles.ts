@@ -37,8 +37,8 @@ export const StyledNavbar = styled(Navbar)`
   div > button {
     background-color: ${getColor(Color.WHITE)} !important;
   }
-  ${({ isExpand, theme }: { isExpand?: boolean; theme: ThemeType }) =>
-    (isExpand &&
+  ${({ expand }: { expand?: boolean; theme: ThemeType }) =>
+    (expand &&
       `
   display: none;
   ${getMediaQuery(ScreenSize.LARGE)} {
@@ -55,7 +55,6 @@ export const NavItem = styled(Button)`
   ${getNormilizeComponentAsStyle(NormilizeComponents.BUTTON)}
   margin-right: ${getUnitAsPixels(1.5)};
   border: none;
-  padding: ${getUnitAsPixels(0.5)} ${getUnitAsPixels(2.5)};
   border-bottom: 1px solid transparent;
   background: inherit;
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
@@ -69,7 +68,7 @@ export const NavItem = styled(Button)`
   a {
     ${getTypography(Typography.NAVIGATION)}
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
-    padding: ${getUnitAsPixels(1.5)};
+    padding: ${getUnitAsPixels(1)} ${getUnitAsPixels(3)};
   }
 `
 
