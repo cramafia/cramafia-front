@@ -5,10 +5,12 @@ import { Sidebar } from './components/Sidebar'
 import { Heading } from './components/Heading'
 import { Anchor } from './components/Anchor'
 import { blocks, BlockType } from './helpers/blocks'
+import { Scroll } from './components/Scroll'
 
 export const Rules: React.FC = () => {
   return (
     <RulesContainer>
+      <Scroll />
       <Sidebar />
       <Content>
         {blocks.map(({ id, spacer, anchor, heading, content }: BlockType) => (
