@@ -1,7 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { ModalSize } from '../../../theme/layout'
-import { openModal } from '../../../redux/reducers/global.reducer'
+import {
+  openModal,
+  openAlert,
+  closeAlert,
+} from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 
@@ -19,6 +23,10 @@ export const Register: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
+  }
+  const onSubmit = (type: string, title: string, text: string) => {
+    dispatch(openAlert({ type, title, text }))
+    const closeAlertHandler = setTimeout(() => dispatch(closeAlert()), 4000)
   }
   return (
     <ModalContainer>
@@ -40,7 +48,16 @@ export const Register: React.FC = () => {
           </MinText>
         </div>
       </HelperButtons>
-      <SubmiteButton>Зарегистрироваться</SubmiteButton>
+      <SubmiteButton
+        onClick={onSubmit.bind(
+          this,
+          'danger',
+          'Error',
+          'Авторизация находится в разработке'
+        )}
+      >
+        Зарегистрироваться
+      </SubmiteButton>
       <HelperButtons>
         <MinText>Есть аккаунт?</MinText>
         <MinText isButton={true} onClick={onOpen.bind(this, ModalType.LOGIN)}>

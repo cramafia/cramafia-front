@@ -1,7 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { CenteredContainer } from '../../../styles'
-import { openModal } from '../../../redux/reducers/global.reducer'
+import {
+  openModal,
+  openAlert,
+  closeAlert,
+} from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { ModalSize } from '../../../theme/layout'
 import { getModal } from '..'
@@ -22,6 +26,10 @@ export const Login: React.FC = () => {
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
   }
+  const onSubmit = (type: string, title: string, text: string) => {
+    dispatch(openAlert({ type, title, text }))
+    const closeAlertHandler = setTimeout(() => dispatch(closeAlert()), 4000)
+  }
   return (
     <ModalContainer>
       <MainText>Войти</MainText>
@@ -34,7 +42,17 @@ export const Login: React.FC = () => {
           <SubText>Запомнить меня</SubText>
         </CenteredContainer>
       </HelperButtons>
-      <SubmiteButton variant="warning">Войти</SubmiteButton>
+      <SubmiteButton
+        variant="warning"
+        onClick={onSubmit.bind(
+          this,
+          'success',
+          'Мертвые родственники',
+          'раз два три четыре пять - у Данилки здохла мать'
+        )}
+      >
+        Войти
+      </SubmiteButton>
       <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
         <MinText

@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ModalPayloadType } from '../../types'
+import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '../../theme/layout'
 import { Theme } from '../../theme/color'
 
 type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
+  alert: AlertPayloadType | null
 }
 
 const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
+  alert: null,
 }
 
 const globalReducer = createSlice({
@@ -24,6 +26,24 @@ const globalReducer = createSlice({
           ModalContent: action.payload.ModalContent,
           size: action.payload.size || ModalSize.SMALL,
         },
+      }
+    },
+
+    openAlert(state, action: PayloadAction<AlertPayloadType>) {
+      return {
+        ...state,
+        alert: {
+          type: action.payload.type,
+          title: action.payload.title,
+          text: action.payload.text,
+        },
+      }
+    },
+
+    closeAlert(state) {
+      return {
+        ...state,
+        alert: null,
       }
     },
 
@@ -43,5 +63,7 @@ const globalReducer = createSlice({
   },
 })
 
-export const { openModal, closeModal, switchTheme } = globalReducer.actions
+export const { openModal, closeModal, openAlert, closeAlert, switchTheme } =
+  globalReducer.actions
+
 export default globalReducer.reducer
