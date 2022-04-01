@@ -1,5 +1,12 @@
 import styled from 'styled-components'
-import { Button, Navbar, Offcanvas } from 'react-bootstrap'
+import {
+  Button,
+  ButtonGroup,
+  ButtonToolbar,
+  Form,
+  Navbar,
+  Offcanvas,
+} from 'react-bootstrap'
 import { ThemeType } from '../../theme/color'
 import { getTypography, Typography } from '../../theme/typography'
 import { getColor, Color } from '../../theme/color'
@@ -27,6 +34,8 @@ export const Logo = styled.div`
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     padding: ${getUnitAsPixels(1.5)};
   }
+  display: flex;
+  align-items: center;
 `
 
 export const StyledNavbar = styled(Navbar)`
@@ -96,4 +105,20 @@ export const SideBar = styled(Navbar.Offcanvas)`
 
 export const SideBarTitle = styled(Offcanvas.Title)`
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+`
+
+export const ThemeSwitcher = styled(Form.Check)`
+  margin-left: ${getUnitAsPixels()};
+  width: ${getUnitAsPixels(10)};
+  cursor: pointer;
+  .form-check-input {
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.opposite};
+    border: none;
+    color: white !important;
+    transition: background-position 0.5s ease-in-out;
+    height: ${getUnitAsPixels(3)};
+    width: ${getUnitAsPixels(6)};
+    border-radius: 15px;
+  }
 `

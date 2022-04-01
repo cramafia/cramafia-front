@@ -19,6 +19,8 @@ import Telegram from '../../assets/icons/telegram.svg'
 import Facebook from '../../assets/icons/facebook.svg'
 import Twitch from '../../assets/icons/twitch.svg'
 import Youtube from '../../assets/icons/youtube.svg'
+import { Button } from 'react-bootstrap'
+import { getTheme, Theme } from '../../theme/color'
 
 export const Footer: React.FC = () => {
   return (

@@ -7,18 +7,24 @@ import {
   StyledNavbar,
   SideBar,
   SideBarTitle,
+  ThemeSwitcher,
 } from './Header.styles'
 import Link from 'next/link'
-import { openModal } from '../../redux/reducers/global.reducer'
+import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
 import { useDispatch } from 'react-redux'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
+import { Container, Navbar, Offcanvas, Nav, Button } from 'react-bootstrap'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
+  }
+
+  const switchThemeR = () => {
+    console.log(123)
+    dispatch(switchTheme())
   }
 
   const NavContent = () => {
@@ -45,6 +51,11 @@ export const Header: React.FC = () => {
     <HeaderContainer>
       <Logo>
         <Link href="/">Cramafia</Link>
+        <ThemeSwitcher
+          type="switch"
+          id="custom-switch"
+          onClick={switchThemeR}
+        />
       </Logo>
       <StyledNavbar expand={false}>
         <Container fluid>
@@ -65,7 +76,6 @@ export const Header: React.FC = () => {
           </SideBar>
         </Container>
       </StyledNavbar>
-
       <StyledNavbar expand={true}>
         <NavContent />
       </StyledNavbar>
