@@ -119,6 +119,6 @@ export const ThemeSwitcher = styled(Form.Check)`
     transition: background-position 0.5s ease-in-out;
     height: ${getUnitAsPixels(3)};
     width: ${getUnitAsPixels(6)};
-    border-radius: 15px;
+    border-radius: ${getUnitAsPixels(2)};
   }
 `

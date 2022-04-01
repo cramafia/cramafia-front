@@ -18,7 +18,6 @@ import Twitch from '@/assets/icons/twitch.svg'
 import Visa from '@/assets/icons/visa.svg'
 import Vk from '@/assets/icons/vk.svg'
 import Youtube from '@/assets/icons/youtube.svg'
-import Moon from '@/assets/icons/moon.svg'
 
 export enum IconType {
   ALCOHOL = 'ALCOHOL',
@@ -41,7 +40,6 @@ export enum IconType {
   VISA = 'VISA',
   VK = 'VK',
   YOUTUBE = 'YOUTUBE',
-  MOON = 'MOON',
 }
 
 export const getIcon = (t: IconType): Function => {
@@ -69,5 +67,4 @@ const icons: { [key in IconType]: Function } = {
   [IconType.VISA]: Visa,
   [IconType.VK]: Vk,
   [IconType.YOUTUBE]: Youtube,
-  [IconType.MOON]: Moon,
 }

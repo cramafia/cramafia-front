@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ModalPayloadType } from '../../types'
 import { ModalSize } from '../../theme/layout'
-import { getTheme, Theme, ThemeType } from '../../theme/color'
+import { Theme } from '../../theme/color'
 
 type initialStateType = {
   modal: ModalPayloadType | null
@@ -28,7 +28,6 @@ const globalReducer = createSlice({
     },
 
     switchTheme(state) {
-      console.log(state.theme)
       return {
         ...state,
         theme: state.theme == 'BLACK' ? Theme.WHITE : Theme.BLACK,

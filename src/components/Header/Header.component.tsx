@@ -14,7 +14,7 @@ import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
 import { useDispatch } from 'react-redux'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { Container, Navbar, Offcanvas, Nav, Button } from 'react-bootstrap'
+import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
@@ -22,8 +22,7 @@ export const Header: React.FC = () => {
     dispatch(openModal(getModal(type)))
   }
 
-  const switchThemeR = () => {
-    console.log(123)
+  const switchThemeHandler = () => {
     dispatch(switchTheme())
   }
 
@@ -54,7 +53,7 @@ export const Header: React.FC = () => {
         <ThemeSwitcher
           type="switch"
           id="custom-switch"
-          onClick={switchThemeR}
+          onClick={switchThemeHandler}
         />
       </Logo>
       <StyledNavbar expand={false}>
