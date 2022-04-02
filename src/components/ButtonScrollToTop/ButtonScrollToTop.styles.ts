@@ -1,5 +1,8 @@
 import { getUnitAsPixels } from '@/theme/layout'
 import styled from 'styled-components'
+import ArrowToTop from '@/assets/icons/arrowToTop.svg'
+import { ThemeType } from '@/theme/color'
+import { show } from '@/theme/animation'
 
 export const ScrollContainer = styled.div`
   position: fixed;
@@ -7,9 +10,19 @@ export const ScrollContainer = styled.div`
   align-items: center;
   left: 1%;
   top: 1%;
+  animation: ${show} 1s ease;
   cursor: pointer;
-  opacity: ${({ active }: { active: boolean }) => (active ? 1 : 0)};
   span {
     margin-left: ${getUnitAsPixels()};
+  }
+  :hover {
+    opacity: 0.7;
+  }
+`
+
+export const Arrow = styled(ArrowToTop)`
+  width: 10px;
+  path {
+    fill: ${({ theme }: { theme: ThemeType }) => theme.background.opposite};
   }
 `

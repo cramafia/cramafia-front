@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollContainer } from './ButtonScrollToTop.styles'
+import { ScrollContainer, Arrow } from './ButtonScrollToTop.styles'
 import ToTopButton from '@/assets/icons/toTopButton.svg'
+import ArrowToTop from '@/assets/icons/arrowToTop.svg'
 
 export const ButtonScrollToTop: React.FC = () => {
-  const [isActive, setIsActive] = useState(false)
+  const [isShow, setIsShow] = useState(false)
 
   const onScroll = () => {
-    window.pageYOffset > 200 ? setIsActive(true) : setIsActive(false)
+    window.pageYOffset > 200 ? setIsShow(true) : setIsShow(false)
   }
 
   const scrollToTop = () => {
@@ -21,10 +22,12 @@ export const ButtonScrollToTop: React.FC = () => {
     }
   }, [])
 
-  return (
-    <ScrollContainer active={isActive} onClick={scrollToTop}>
-      <ToTopButton />
+  return isShow ? (
+    <ScrollContainer onClick={scrollToTop}>
+      <Arrow width={10} />
       <span>Наверх</span>
     </ScrollContainer>
+  ) : (
+    <></>
   )
 }
