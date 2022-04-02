@@ -29,14 +29,10 @@ const globalReducer = createSlice({
       }
     },
 
-    openAlert(state, action: PayloadAction<AlertPayloadType>) {
+    addAlert(state, action: PayloadAction<AlertPayloadType>) {
       return {
         ...state,
-        alert: {
-          type: action.payload.type,
-          title: action.payload.title,
-          text: action.payload.text,
-        },
+        alert: action.payload,
       }
     },
 
@@ -63,7 +59,7 @@ const globalReducer = createSlice({
   },
 })
 
-export const { openModal, closeModal, openAlert, closeAlert, switchTheme } =
+export const { openModal, closeModal, addAlert, closeAlert, switchTheme } =
   globalReducer.actions
 
 export default globalReducer.reducer

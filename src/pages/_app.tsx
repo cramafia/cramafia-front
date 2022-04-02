@@ -5,7 +5,7 @@ import { ThemeGlobal } from '../theme/ThemeGlobal'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 import { Modal } from '../components/Modal'
-import { Alert } from '../components/Alerts/Alert'
+import { Alert } from '../components/Alert'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
