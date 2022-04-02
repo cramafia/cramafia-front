@@ -15,6 +15,7 @@ export const LobbiesTable = () => {
           <th>Игроки</th>
         </tr>
       </thead>
+
       <tbody>
         {lobbies.content.map(({ id, type, name, players, status }) => (
           <tr key={id}>
@@ -22,7 +23,9 @@ export const LobbiesTable = () => {
             <th>{name}</th>
             <th>{type}</th>
             <th>{status}</th>
-            <th>{players}</th>
+            <th>
+              <span>{players} из 11</span>
+            </th>
           </tr>
         ))}
       </tbody>
