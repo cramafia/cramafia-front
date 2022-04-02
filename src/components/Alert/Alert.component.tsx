@@ -7,8 +7,7 @@ import {
   AlertText,
   AlertComponentHeading,
 } from './Alert.styles'
-import { addAlert, closeAlert } from '../../redux/reducers/global.reducer'
-import { AlertType } from './Alert.types'
+import { closeAlert } from '../../redux/reducers/global.reducer'
 
 export const Alert: React.FC = () => {
   const dispatch = useDispatch()
@@ -18,7 +17,7 @@ export const Alert: React.FC = () => {
   }
 
   useEffect(() => {
-    const alertInterval = setTimeout(() => dispatch(closeAlert()), 200000)
+    const alertInterval = setTimeout(() => dispatch(closeAlert()), 4000)
     return () => {
       clearTimeout(alertInterval)
     }

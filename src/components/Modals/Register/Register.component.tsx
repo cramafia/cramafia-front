@@ -1,11 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { ModalSize } from '../../../theme/layout'
-import {
-  openModal,
-  addAlert,
-  closeAlert,
-} from '../../../redux/reducers/global.reducer'
+import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 

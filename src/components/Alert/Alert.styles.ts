@@ -1,4 +1,3 @@
-import { Color, getColor, ThemeType } from '@/theme/color'
 import { getUnitAsPixels } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
 import { Alert } from 'react-bootstrap'

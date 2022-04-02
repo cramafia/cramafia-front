@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { CenteredContainer } from '../../../styles'
-import { openModal, addAlert } from '../../../redux/reducers/global.reducer'
+import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 
