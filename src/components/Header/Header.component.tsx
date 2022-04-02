@@ -15,6 +15,8 @@ import { useDispatch } from 'react-redux'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
+import { ButtonLink } from '../ButtonLink'
+import { getIcon, IconType } from '../Icon'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
@@ -49,7 +51,7 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <Link href="/">Cramafia</Link>
+        <ButtonLink href="/">{getIcon(IconType.LOGO_TRANSPARENT)()}</ButtonLink>
         <ThemeSwitcher
           type="switch"
           id="custom-switch"

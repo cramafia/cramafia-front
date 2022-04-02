@@ -34,6 +34,17 @@ export const Logo = styled.div`
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     padding: ${getUnitAsPixels(1.5)};
   }
+  & > div:first-child {
+    position: relative;
+    width: 150px;
+    svg {
+      width: ${getUnitAsPixels(30)};
+      position: absolute;
+      top: -90px;
+      left: -40px;
+      z-index: 0;
+    }
+  }
   display: flex;
   align-items: center;
 `
@@ -110,6 +121,7 @@ export const SideBarTitle = styled(Offcanvas.Title)`
 export const ThemeSwitcher = styled(Form.Check)`
   margin-left: ${getUnitAsPixels()};
   width: ${getUnitAsPixels(10)};
+  z-index: 1;
   cursor: pointer;
   .form-check-input {
     background-color: ${({ theme }: { theme: ThemeType }) =>
