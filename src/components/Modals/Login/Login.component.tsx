@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import { CenteredContainer } from '../../../styles'
 import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
-import { ModalSize } from '../../../theme/layout'
 import { getModal } from '..'
 
 import {
@@ -22,6 +21,7 @@ export const Login: React.FC = () => {
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
   }
+
   return (
     <ModalContainer>
       <MainText>Войти</MainText>
