@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { ModalSize } from '../../../theme/layout'
 import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
@@ -20,6 +19,7 @@ export const Register: React.FC = () => {
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
   }
+
   return (
     <ModalContainer>
       <MainText>Зарегистрироваться</MainText>
