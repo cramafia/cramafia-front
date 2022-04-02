@@ -10,6 +10,7 @@ export enum ScreenSize {
 }
 
 export enum VerticalSpacingType {
+  MIN = 'MIN',
   SMALL = 'SMALL',
   MEDIUM = 'MEDIUM',
   LARGE = 'LARGE',
@@ -66,10 +67,11 @@ const breakpoints: { [key in ScreenSize]: number } = {
 }
 
 const verticalSpacing: { [key in VerticalSpacingType]: number } = {
-  [ScreenSize.SMALL]: 24,
-  [ScreenSize.MEDIUM]: 48,
-  [ScreenSize.LARGE]: 96,
-  [ScreenSize.XLARGE]: 192,
+  [VerticalSpacingType.MIN]: 8,
+  [VerticalSpacingType.SMALL]: 24,
+  [VerticalSpacingType.MEDIUM]: 48,
+  [VerticalSpacingType.LARGE]: 96,
+  [VerticalSpacingType.XLARGE]: 192,
 }
 
 const modalSizes: { [key in ModalSize]: number } = {

@@ -1,23 +1,42 @@
 import React from 'react'
 
 import { LobbiesTable } from '../LobbiesTable'
-import { GameSearchContainer, Row, Col, NewGame } from './GameSearch.styles'
+import {
+  GameSearchContainer,
+  TableHeaderRow,
+  TableHeaderCol,
+  NewGame,
+  ToLobbie,
+  ToLobbieContainer,
+} from './GameSearch.styles'
 import { ButtonLink } from '../ButtonLink'
+import { Search } from './components/Search'
+import { Row, Col } from 'react-bootstrap'
 
 export const GameSearch = () => {
   return (
     <GameSearchContainer>
       <div>
         <Row>
-          <Col>Игры в лобби</Col>
-          <Col>
+          <Col md="6">
+            <Search />
+          </Col>
+          <Col md="6"></Col>
+        </Row>
+        <TableHeaderRow>
+          <TableHeaderCol>Игры в лобби</TableHeaderCol>
+          <TableHeaderCol>
             <ButtonLink href="/watch">
               <NewGame>Новая игра +</NewGame>
             </ButtonLink>
-          </Col>
-        </Row>
+          </TableHeaderCol>
+        </TableHeaderRow>
         <LobbiesTable />
-        <div></div>
+        <ToLobbieContainer>
+          <ButtonLink href="/watch">
+            <ToLobbie>Перейти в лобби</ToLobbie>
+          </ButtonLink>
+        </ToLobbieContainer>
       </div>
     </GameSearchContainer>
   )
