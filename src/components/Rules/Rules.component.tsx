@@ -5,12 +5,12 @@ import { Sidebar } from './components/Sidebar'
 import { Heading } from './components/Heading'
 import { Anchor } from './components/Anchor'
 import { blocks, BlockType } from './helpers/blocks'
-import { Scroll } from './components/Scroll'
+import { ButtonScrollToTop } from '../ButtonScrollToTop'
 
 export const Rules: React.FC = () => {
   return (
     <RulesContainer>
-      <Scroll />
+      <ButtonScrollToTop />
       <Sidebar />
       <Content>
         {blocks.map(({ id, spacer, anchor, heading, content }: BlockType) => (
