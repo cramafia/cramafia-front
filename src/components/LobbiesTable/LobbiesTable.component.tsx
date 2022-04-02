@@ -24,7 +24,7 @@ export const LobbiesTable = () => {
             <th>{type}</th>
             <th>{status}</th>
             <th>
-              <span>{players}</span>
+              <span>{players} из 11</span>
             </th>
           </tr>
         ))}

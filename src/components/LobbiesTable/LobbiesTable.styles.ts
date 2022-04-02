@@ -28,5 +28,12 @@ export const TableContainer = styled(Table)`
       border-bottom: 1px solid
         ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     }
+    tr {
+      &:hover {
+        background-color: ${getColor(Color.GREEN_100)};
+        box-shadow: 0 0 0 ${getUnitAsPixels()} ${getColor(Color.GREEN_100)};
+        border-radius: ${getUnitAsPixels()};
+      }
+    }
   }
 `
