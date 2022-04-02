@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '../../theme/layout'
 import { Theme } from '../../theme/color'
+import { AlertType } from '@/components/Alert/Alert.types'
 
 type initialStateType = {
   modal: ModalPayloadType | null
@@ -12,7 +13,7 @@ type initialStateType = {
 const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
-  alert: null,
+  alert: { type: AlertType.WARNING, title: 'ERROR', text: 'text' },
 }
 
 const globalReducer = createSlice({
