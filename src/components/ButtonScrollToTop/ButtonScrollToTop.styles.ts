@@ -8,8 +8,8 @@ export const ScrollContainer = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
-  left: 1%;
-  top: 1%;
+  left: ${getUnitAsPixels(2)};
+  top: ${getUnitAsPixels(2)};
   animation: ${show} 1s ease;
   cursor: pointer;
   span {
@@ -21,7 +21,7 @@ export const ScrollContainer = styled.div`
 `
 
 export const Arrow = styled(ArrowToTop)`
-  width: 10px;
+  width: ${getUnitAsPixels()};
   path {
     fill: ${({ theme }: { theme: ThemeType }) => theme.background.opposite};
   }
