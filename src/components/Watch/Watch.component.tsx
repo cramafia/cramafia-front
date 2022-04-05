@@ -14,7 +14,6 @@ export const Watch: React.FC = () => {
   return (
     <WatchContainer>
       <MainText>Игры Live</MainText>
-    
       <StreamsContainer>
         <Streams />
       </StreamsContainer>

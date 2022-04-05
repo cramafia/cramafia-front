@@ -39,4 +39,6 @@ export const GameContainer = styled.div`
 export const StreamsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 `
