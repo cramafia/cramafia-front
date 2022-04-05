@@ -14,10 +14,11 @@ export const Watch: React.FC = () => {
   return (
     <WatchContainer>
       <MainText>Игры Live</MainText>
-      <SubText>Текущие игры</SubText>
+    
       <StreamsContainer>
         <Streams />
       </StreamsContainer>
+      <SubText>Текущие игры</SubText>
       <GamesContainer>
         <LobbiesTable />
       </GamesContainer>
