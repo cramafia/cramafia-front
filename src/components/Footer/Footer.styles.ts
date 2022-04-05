@@ -12,6 +12,10 @@ export const FooterContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.LARGE)};
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary};
 `
 
 export const TopFooter = styled.div`
