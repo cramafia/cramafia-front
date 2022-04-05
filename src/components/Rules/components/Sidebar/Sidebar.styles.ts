@@ -31,7 +31,6 @@ export const Heading = styled.div`
 `
 
 export const List = styled.ul`
-  overflow-y: scroll;
   height: 70vh;
   padding: 0;
 `

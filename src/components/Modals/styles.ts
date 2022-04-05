@@ -45,7 +45,7 @@ export const SubText = styled.span`
   ${getTypography(Typography.NAVIGATION)}
   :hover {
     color: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
-      hoverStyles ? getColor(Color.BLUE_100) : ''};
+      hoverStyles ? getColor(Color.GREEN_100) : ''};
     cursor: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
       hoverStyles ? 'pointer' : ''};
   }
@@ -72,9 +72,9 @@ export const SubmiteButton = styled(Button)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   :hover,
   :focus {
-    background: ${getColor(Color.BLUE_100)};
+    background: ${getColor(Color.GREEN_100)};
     color: ${getColor(Color.BLACK)};
-    border-color: ${getColor(Color.BLUE_100)};
+    border-color: ${getColor(Color.GREEN_100)};
   }
 `
 
@@ -85,7 +85,7 @@ export const MinText = styled.span`
     isButton ? '1px solid' : '0px'};
   :hover {
     color: ${({ isButton = false }: { isButton?: boolean }) =>
-      isButton ? getColor(Color.BLUE_100) : getColor(Color.WHITE)};
+      isButton ? getColor(Color.GREEN_100) : getColor(Color.WHITE)};
     cursor: ${({ isButton = false }: { isButton?: boolean }) =>
       isButton ? 'pointer' : 'initial'};
   }
