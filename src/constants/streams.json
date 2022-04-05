@@ -1,0 +1,22 @@
+{
+  "content": [
+    {
+      "userName": "EBU",
+      "userIcon": "https://s00.yaplakal.com/pics/pics_original/6/4/9/9791946.jpg",
+      "streamnName": "Стрим 1",
+      "streamIcon": "https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg"
+    },
+    {
+      "userName": "EBUSOBAK",
+      "userIcon": "https://s00.yaplakal.com/pics/pics_original/6/4/9/9791946.jpg",
+      "streamnName": "Стрим 2",
+      "streamIcon": "https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg"
+    },
+    {
+      "userName": "EBUKOTOV",
+      "userIcon": "https://s00.yaplakal.com/pics/pics_original/6/4/9/9791946.jpg",
+      "streamnName": "Стрим 3",
+      "streamIcon": "https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg"
+    }
+  ]
+}
