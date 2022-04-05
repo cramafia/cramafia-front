@@ -1,13 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { StyledScroll } from './styles'
 
 const GlobalStyles = createGlobalStyle`
-    a {
-        text-decoration: none;
-    }
-    li {
-        list-style-type: none;
-    }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style-type: none;
+  }
+  ${StyledScroll}
 
 	html, body {
 		box-sizing: border-box;

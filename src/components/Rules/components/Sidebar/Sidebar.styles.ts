@@ -8,6 +8,7 @@ import {
 } from '../../../../theme/layout'
 import { getTypography, Typography } from '../../../../theme/typography'
 import { getColor, Color } from '../../../../theme/color'
+import { StyledScroll } from '../../../../styles'
 
 export const Wrapper = styled.div`
   height: calc(100vh - ${getUnitAsPixels(10.5)});
@@ -31,6 +32,8 @@ export const Heading = styled.div`
 `
 
 export const List = styled.ul`
+  overflow-y: scroll;
+  ${StyledScroll}
   height: 70vh;
   padding: 0;
 `
