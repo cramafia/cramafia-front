@@ -19,10 +19,12 @@ import Visa from '@/assets/icons/visa.svg'
 import Vk from '@/assets/icons/vk.svg'
 import Youtube from '@/assets/icons/youtube.svg'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'
-import Logo_transparent from '@/assets/icons/logo_transparent.svg'
+import Logo from '@/assets/icons/logo.svg'
+import Moon from '@/assets/icons/moon.svg'
+import Sun from '@/assets/icons/sun.svg'
 
 export enum IconType {
-  LOGO_TRANSPARENT = 'LOGO_TRANSPARENT',
+  LOGO = 'LOGO',
   ALCOHOL = 'ALCOHOL',
   CAMERA = 'CAMERA',
   DOCTOR = 'DOCTOR',
@@ -44,6 +46,8 @@ export enum IconType {
   VK = 'VK',
   YOUTUBE = 'YOUTUBE',
   ARROW_TO_TOP = 'ARROW_TO_TOP',
+  MOON = 'MOON',
+  SUN = 'SUN',
 }
 
 export const getIcon = (t: IconType): Function => {
@@ -51,7 +55,7 @@ export const getIcon = (t: IconType): Function => {
 }
 
 const icons: { [key in IconType]: Function } = {
-  [IconType.LOGO_TRANSPARENT]: Logo_transparent,
+  [IconType.LOGO]: Logo,
   [IconType.ALCOHOL]: Alcohol,
   [IconType.CAMERA]: Camera,
   [IconType.DOCTOR]: Doctor,
@@ -73,4 +77,6 @@ const icons: { [key in IconType]: Function } = {
   [IconType.VK]: Vk,
   [IconType.YOUTUBE]: Youtube,
   [IconType.ARROW_TO_TOP]: ArrowToTop,
+  [IconType.MOON]: Moon,
+  [IconType.SUN]: Sun,
 }

@@ -11,7 +11,7 @@ type initialStateType = {
 
 const initialState: initialStateType = {
   modal: null,
-  theme: Theme.BLACK,
+  theme: Theme.WHITE,
   alert: null,
 }
 

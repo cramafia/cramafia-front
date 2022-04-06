@@ -7,7 +7,6 @@ import {
   StyledNavbar,
   SideBar,
   SideBarTitle,
-  ThemeSwitcher,
 } from './Header.styles'
 import Link from 'next/link'
 import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
@@ -16,16 +15,13 @@ import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
 import { ButtonLink } from '../ButtonLink'
-import { getIcon, IconType } from '../Icon'
+import { ThemeSwitcher } from './../ThemeSwitcher'
+import { LogoText } from 'src/styles'
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
-  }
-
-  const switchThemeHandler = () => {
-    dispatch(switchTheme())
   }
 
   const NavContent = () => {
@@ -51,12 +47,11 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <ButtonLink href="/">{getIcon(IconType.LOGO_TRANSPARENT)()}</ButtonLink>
-        <ThemeSwitcher
-          type="switch"
-          id="custom-switch"
-          onClick={switchThemeHandler}
-        />
+        <ButtonLink href="/">
+          <LogoText>CRAMAFIA</LogoText>
+        </ButtonLink>
+
+        <ThemeSwitcher />
       </Logo>
       <StyledNavbar expand={false}>
         <Container fluid>

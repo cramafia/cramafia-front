@@ -12,6 +12,7 @@ import {
   CheckButton,
   SocialLinks,
 } from './Footer.styles'
+import { LogoText } from 'src/styles'
 
 import Instagram from '../../assets/icons/instagram.svg'
 import Vk from '../../assets/icons/vk.svg'
@@ -24,7 +25,7 @@ export const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <TopFooter>
-        <span>LOGO</span>
+        <LogoText>CRAMAFIA</LogoText>
         <List>
           <ListHeader>Основное</ListHeader>
           <ListItem>Лобби</ListItem>

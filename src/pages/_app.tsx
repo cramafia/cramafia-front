@@ -1,5 +1,8 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/theme/fonts/index.css'
+
 import GlobalStyles from '../global.styles'
 import { ThemeGlobal } from '../theme/ThemeGlobal'
 import { Provider } from 'react-redux'

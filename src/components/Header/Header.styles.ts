@@ -15,6 +15,7 @@ import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
 } from '../../theme/normilize'
+import { getFont, Font } from '@/theme/font'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -25,24 +26,24 @@ export const HeaderContainer = styled.div`
 `
 
 export const Logo = styled.div`
-  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+  color: linear-gradient(
+    90deg,
+    rgba(147, 13, 22, 1) 0%,
+    rgba(255, 127, 2, 1) 100%
+  );
   :hover {
     cursor: pointer;
   }
+
   a {
     ${getTypography(Typography.BODY_REGULAR)}
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     padding: ${getUnitAsPixels(1.5)};
   }
-  & > div:first-child {
-    position: relative;
-    width: 150px;
-    svg {
-      width: ${getUnitAsPixels(30)};
-      position: absolute;
-      top: -90px;
-      left: -40px;
-      z-index: 0;
+  svg {
+    path {
+      width: 150px;
+      height: 70px;
     }
   }
   display: flex;
