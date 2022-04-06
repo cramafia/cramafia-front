@@ -1,8 +1,9 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { useSelector } from 'react-redux'
+
 import { ThemeGlobalProps } from './ThemeGlobal.types'
 import { Wrapper } from './ThemeGlobal.styles'
-import { useSelector } from 'react-redux'
 import { stateType } from '../../redux/store'
 import { getTheme } from '../color'
 

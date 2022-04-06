@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { StyledScroll } from './styles'
 
 const GlobalStyles = createGlobalStyle`
+  * {
+    transition: all 0.25s linear;
+  }
   a {
     text-decoration: none;
   }
