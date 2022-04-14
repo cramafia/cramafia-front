@@ -22,7 +22,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   height: ${getUnitAsPixels(10.5)};
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? 'rgba(255, 255, 255, 0.1)'
+        : 'rgba(191, 191, 191, 0.5)}'};
 `
 
 export const Logo = styled.div`
