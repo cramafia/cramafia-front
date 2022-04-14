@@ -131,7 +131,7 @@ export const CreateGameButton = styled(Button)`
   width: 100%;
   height: ${getUnitAsPixels(7)};
   border-radius: ${getUnitAsPixels()};
-  background: ${getColor(Color.DARK_LIGHT_200)};
+  background: ${getColor(Color.GRAY_500)};
   color: ${getColor(Color.WHITE)};
   border: none;
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
