@@ -21,7 +21,7 @@ export const Content = styled.div`
     `
     width: 300px;
     position: fixed;
-    top: 10px;
+    top: 100px;
   `}
   animation: ${show} 1s ease;
 `

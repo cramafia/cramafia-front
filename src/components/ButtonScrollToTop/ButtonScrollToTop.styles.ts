@@ -9,7 +9,7 @@ export const ScrollContainer = styled.div`
   display: flex;
   align-items: center;
   left: ${getUnitAsPixels(2)};
-  top: ${getUnitAsPixels(2)};
+  top: ${getUnitAsPixels(13)};
   animation: ${show} 1s ease;
   cursor: pointer;
   span {
