@@ -25,7 +25,7 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid
     ${({ theme }: { theme: ThemeType }) =>
       theme.background.primary === getColor(Color.BLACK)
-        ? 'rgba(255, 255, 255, 0.1)'
+        ? getColorWithOpacity(Color.WHITE, Opacity._10)
         : getColorWithOpacity(Color.GRAY_400, Opacity._40)};
 `
 

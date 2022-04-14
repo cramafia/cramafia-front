@@ -27,6 +27,7 @@ export enum Color {
 
 export enum Opacity {
   _40 = '_40',
+  _10 = '_10',
 }
 
 export type ThemeType = {
@@ -60,11 +61,12 @@ export const getTheme = (theme: Theme): ThemeType => {
 
 const opacity: { [key in Opacity]: string } = {
   [Opacity._40]: '66',
+  [Opacity._10]: '1A',
 }
 
 const colors: { [key in Color]: string } = {
-  [Color.BLACK]: '#000',
-  [Color.WHITE]: '#FFF',
+  [Color.BLACK]: '#000000',
+  [Color.WHITE]: '#FFFFFF',
   [Color.WHITE_300]: '#F2F2F2',
   [Color.GREEN_100]: '#49bfa5',
   [Color.RED_500]: '#840101',
