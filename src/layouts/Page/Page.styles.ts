@@ -16,4 +16,5 @@ export const HeaderContainer = styled(Container)`
   top: 0px;
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.primary};
+  z-index: 9999;
 `
