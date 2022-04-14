@@ -7,9 +7,9 @@ import {
   Navbar,
   Offcanvas,
 } from 'react-bootstrap'
-import { ThemeType } from '../../theme/color'
+import { Opacity, ThemeType } from '../../theme/color'
 import { getTypography, Typography } from '../../theme/typography'
-import { getColor, Color } from '../../theme/color'
+import { getColor, Color, getColorWithOpacity } from '../../theme/color'
 import { getMediaQuery, getUnitAsPixels, ScreenSize } from '../../theme/layout'
 import {
   getNormilizeComponentAsStyle,
@@ -22,7 +22,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   height: ${getUnitAsPixels(10.5)};
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? 'rgba(255, 255, 255, 0.1)'
+        : getColorWithOpacity(Color.GRAY_400, Opacity._40)};
 `
 
 export const Logo = styled.div`

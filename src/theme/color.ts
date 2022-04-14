@@ -25,6 +25,10 @@ export enum Color {
   PURPLE_200 = 'PURPLE_200',
 }
 
+export enum Opacity {
+  _40 = '_40',
+}
+
 export type ThemeType = {
   background: {
     primary: string
@@ -42,10 +46,20 @@ export const getColor = (color: Color): string => {
   return colors[color]
 }
 
-export const getColorWithOpacity = (color: Color) => {}
+export const getColorWithOpacity = (color: Color, opacity: Opacity): string => {
+  return getColor(color) + getOpacity(opacity)
+}
+
+export const getOpacity = (_opacity: Opacity): string => {
+  return opacity[_opacity]
+}
 
 export const getTheme = (theme: Theme): ThemeType => {
   return themes[theme] || themes[Theme.WHITE]
+}
+
+const opacity: { [key in Opacity]: string } = {
+  [Opacity._40]: '66',
 }
 
 const colors: { [key in Color]: string } = {
