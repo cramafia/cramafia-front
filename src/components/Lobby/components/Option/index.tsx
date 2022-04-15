@@ -7,19 +7,13 @@ import { OptionProps } from './types'
 export const Option = ({
   text,
   currentGameType,
-  setCurrentGame,
+  onClick,
   gameType,
 }: OptionProps) => {
   const [selected, setSelected] = useState(false)
   useEffect(() => {
     setSelected(currentGameType.type === gameType)
   }, [currentGameType, gameType])
-
-  const onClick = (e: MouseEvent) => {
-    if (setCurrentGame) {
-      setCurrentGame(gameType)
-    }
-  }
 
   return (
     <OptionContainer selected={selected} onClick={onClick}>

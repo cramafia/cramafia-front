@@ -57,7 +57,7 @@ export const Lobby: React.FC = () => {
                   text={option.text}
                   gameType={option.type}
                   currentGameType={currentGameType}
-                  setCurrentGame={setCurrentGameType.bind(this, option)}
+                  onClick={setCurrentGameType.bind(this, option)}
                 />
               ))}
             </GameTypeContainer>
