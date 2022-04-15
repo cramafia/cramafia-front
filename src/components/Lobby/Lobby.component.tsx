@@ -17,39 +17,20 @@ import {
 } from './Lobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
-import { OptionType, SubOptionType } from './Lobby.types'
+import { OptionGameType, OptionType, SubOptionType } from './Lobby.types'
+import {
+  SubOptionId,
+  getAllSubOptionsIds,
+  getAllSubOptions,
+  getAllOptions,
+  getOption,
+} from './Lobby.types'
 
 export const Lobby: React.FC = () => {
-  const options: OptionType[] = [
-    {
-      text: ' Классика',
-      type: 'classic',
-      canEdit: [],
-      additionalText: 'Играйте по классическим правилам',
-    },
-    {
-      text: ' Кастомная',
-      type: 'custom',
-      canEdit: ['everyNight', 'allNominated', 'doctor'],
-      additionalText: 'Играйте по кастомным правилам',
-    },
-  ]
-  const [currentGameType, setCurrentGameType] = useState(options[0])
+  const [currentGameType, setCurrentGameType] = useState(
+    getOption(OptionGameType.CLASSIC)
+  )
 
-  const subOptions: SubOptionType[] = [
-    {
-      id: 'everyNight',
-      text: 'Мафия просыпается каждую ночь',
-    },
-    {
-      id: 'allNominated',
-      text: 'Все кандидатуры выставлены',
-    },
-    {
-      id: 'doctor',
-      text: 'Доктор в игре',
-    },
-  ]
   const CreateGame = () => {
     return (
       <CreateGameContainer>
@@ -70,24 +51,19 @@ export const Lobby: React.FC = () => {
           <GameSetting>
             <GameTypeContainer>
               <SubText>Тип игры:</SubText>
-              {options.map((option) => (
+              {getAllOptions().map((option) => (
                 <Option
                   key={nanoid()}
                   text={option.text}
                   gameType={option.type}
                   currentGameType={currentGameType}
-                  setCurrentGame={setCurrentGameType.bind(this, {
-                    text: option.text,
-                    type: option.type,
-                    canEdit: option.canEdit,
-                    additionalText: option.additionalText,
-                  })}
+                  setCurrentGame={setCurrentGameType.bind(this, option)}
                 />
               ))}
             </GameTypeContainer>
             <AdvancedSettings>
               <SubText>Дополнительные параметры игры:</SubText>
-              {subOptions.map((subOption) => (
+              {getAllSubOptions().map((subOption: SubOptionType) => (
                 <SubOption
                   key={nanoid()}
                   id={subOption.id}

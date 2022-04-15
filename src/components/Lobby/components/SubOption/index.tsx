@@ -10,6 +10,7 @@ export const SubOption = ({ text, id, currentGameType }: SubOptionProps) => {
 
   useEffect(() => {
     setCanEdit(currentGameType.canEdit.includes(id))
+
     setSelected(false)
   }, [currentGameType])
 
