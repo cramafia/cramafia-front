@@ -16,13 +16,9 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.div`
-  ${({ isFixed }: { isFixed: boolean }) =>
-    isFixed &&
-    `
-    width: 300px;
-    position: fixed;
-    top: 100px;
-  `}
+  width: 300px;
+  position: fixed;
+  top: 100px;
   animation: ${show} 1s ease;
 `
 //rgba(196, 196, 196, 0)
