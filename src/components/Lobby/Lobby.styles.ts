@@ -46,65 +46,6 @@ export const AdvancedSettings = styled.div`
   margin-left: 15%;
 `
 
-export const IconContainer = styled.span`
-  background-color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-`
-
-export const OptionContainer = styled.div`
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-  display: flex;
-  width: auto;
-  align-items: center;
-
-  ${({
-    gameType,
-    currentGame,
-    selected,
-  }: {
-    gameType: string | null
-    currentGame: string
-    selected: boolean
-  }) => {
-    return currentGame === 'classic' && gameType === null
-      ? `cursor: not-allowed;`
-      : `cursor: pointer;
-    :hover {
-      background-color: ${getColor(Color.GREEN_100)};
-      span {
-        color: ${getColor(Color.WHITE)};
-      }
-    }`
-  }};
-
-  background-color: ${({ selected }: { selected: boolean }) =>
-    selected ? getColor(Color.GREEN_100) : getColor(Color.GRAY_500)};
-  border-radius: ${getUnitAsPixels()};
-  min-width: 130px;
-  padding: ${getUnitAsPixels(2)};
-
-  svg {
-    path {
-      fill: ${({ selected }: { selected: boolean }) =>
-        selected ? getColor(Color.GREEN_100) : getColor(Color.WHITE)};
-    }
-  }
-`
-
-export const OptionText = styled.span`
-  margin-left: ${getUnitAsPixels()};
-  color: ${({ selected }: { selected: boolean }) =>
-    selected ? getColor(Color.WHITE) : getColor(Color.GRAY_100)};
-  ${getTypography(Typography.BODY_MIN)};
-  font-weight: 550;
-  font-size: 14px;
-`
-
 export const SubText = styled.span`
   ${getTypography(Typography.BODY_SMALL)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};

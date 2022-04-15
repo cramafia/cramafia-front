@@ -10,59 +10,52 @@ import {
   GameTypeContainer,
   AdvancedSettings,
   CreateGameContainer,
-  IconContainer,
-  OptionContainer,
-  OptionText,
   SubText,
   MinText,
   CreateGameButton,
 } from './Lobby.styles'
+import { Option } from './components/Option'
+import { SubOption } from './components/SubOption'
 
 export const Lobby: React.FC = () => {
-  const [currentGame, setCurrentGame] = useState('classic')
-  const Option = ({
-    text,
-    gameType,
-  }: {
-    text: string
-    gameType: string | null
-  }) => {
-    const [selected, setSelected] = useState(false)
-    useEffect(() => {
-      if (currentGame === gameType) setSelected(true)
-    }, [])
+  const options = [
+    {
+      text: ' Классика',
+      type: 'classic',
+      canEdit: [],
+      additionalText: 'Играйте по классическим правилам',
+    },
+    {
+      text: ' Кастомная',
+      type: 'custom',
+      canEdit: ['everyNight', 'allNominated', 'doctor'],
+      additionalText: 'Играйте по кастомным правилам',
+    },
+  ]
+  const [currentGameType, setCurrentGameType] = useState(options[0])
 
-    const onClick = (e: MouseEvent) => {
-      gameType ? setCurrentGame(gameType) : ''
-      if (currentGame != 'classic' && gameType === null) {
-        setSelected(!selected)
-      }
-    }
-
-    return (
-      <OptionContainer
-        selected={selected}
-        onClick={onClick}
-        gameType={gameType}
-        currentGame={currentGame}
-      >
-        <IconContainer>{getIcon(IconType.CHECKED)()}</IconContainer>
-        <OptionText selected={selected}>{text}</OptionText>
-      </OptionContainer>
-    )
-  }
-
+  const subOptions = [
+    {
+      id: 'everyNight',
+      text: 'Мафия просыпается каждую ночь',
+    },
+    {
+      id: 'allNominated',
+      text: 'Все кандидатуры выставлены',
+    },
+    {
+      id: 'doctor',
+      text: 'Доктор в игре',
+    },
+  ]
   const CreateGame = () => {
     return (
       <CreateGameContainer>
         <SubText>
-          Тип игры: {currentGame === 'classic' ? 'Классический' : 'Кастомный'}
+          Тип игры:
+          {currentGameType.text}
         </SubText>
-        <MinText>
-          {currentGame === 'classic'
-            ? 'Играйте по стандартным правилам'
-            : 'Играйте по кастомным правилам'}
-        </MinText>
+        <MinText>{currentGameType.additionalText}</MinText>
         <CreateGameButton>Создать игру</CreateGameButton>
       </CreateGameContainer>
     )
@@ -75,14 +68,29 @@ export const Lobby: React.FC = () => {
           <GameSetting>
             <GameTypeContainer>
               <SubText>Тип игры:</SubText>
-              <Option text="Классика" gameType="classic" />
-              <Option text="Кастомная" gameType="custom" />
+              {options.map((option) => (
+                <Option
+                  text={option.text}
+                  gameType={option.type}
+                  currentGameType={currentGameType}
+                  setCurrentGame={setCurrentGameType.bind(this, {
+                    text: option.text,
+                    type: option.type,
+                    canEdit: option.canEdit,
+                    additionalText: option.additionalText,
+                  })}
+                />
+              ))}
             </GameTypeContainer>
             <AdvancedSettings>
               <SubText>Дополнительные параметры игры:</SubText>
-              <Option text="Все кандидатуры выставлены" gameType={null} />
-              <Option text="Мафия просыпается каждую ночь" gameType={null} />
-              <Option text="Доктор в игре" gameType={null} />
+              {subOptions.map((subOption) => (
+                <SubOption
+                  id={subOption.id}
+                  text={subOption.text}
+                  currentGameType={currentGameType}
+                />
+              ))}
             </AdvancedSettings>
           </GameSetting>
           <CreateGame />
