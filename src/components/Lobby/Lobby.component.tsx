@@ -1,6 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
-import { getIcon, IconType } from '../Icon'
+import { nanoid } from 'nanoid'
 
+import { getIcon, IconType } from '../Icon'
 import { LobbiesTable } from '../LobbiesTable'
 import {
   NewGameContainer,
@@ -16,9 +17,10 @@ import {
 } from './Lobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
+import { OptionType, SubOptionType } from './Lobby.types'
 
 export const Lobby: React.FC = () => {
-  const options = [
+  const options: OptionType[] = [
     {
       text: ' Классика',
       type: 'classic',
@@ -34,7 +36,7 @@ export const Lobby: React.FC = () => {
   ]
   const [currentGameType, setCurrentGameType] = useState(options[0])
 
-  const subOptions = [
+  const subOptions: SubOptionType[] = [
     {
       id: 'everyNight',
       text: 'Мафия просыпается каждую ночь',
@@ -70,6 +72,7 @@ export const Lobby: React.FC = () => {
               <SubText>Тип игры:</SubText>
               {options.map((option) => (
                 <Option
+                  key={nanoid()}
                   text={option.text}
                   gameType={option.type}
                   currentGameType={currentGameType}
@@ -86,6 +89,7 @@ export const Lobby: React.FC = () => {
               <SubText>Дополнительные параметры игры:</SubText>
               {subOptions.map((subOption) => (
                 <SubOption
+                  key={nanoid()}
                   id={subOption.id}
                   text={subOption.text}
                   currentGameType={currentGameType}
