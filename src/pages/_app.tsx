@@ -21,6 +21,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeGlobal>
           <Modal />
           <Alert />
+          {/*TODO*/}
+          {/*@ts-ignore*/}
           <GlobalStyles />
           <Component {...pageProps} />
         </ThemeGlobal>
