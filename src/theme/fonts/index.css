@@ -39,3 +39,21 @@
   font-style: normal;
   src: local(''), url('Roboto-Light.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'ComfortaaMedium';
+  font-style: normal;
+  src: local(''), url('Comfortaa-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Reggae';
+  font-style: normal;
+  src: local(''), url('ReggaeOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PressStart';
+  font-style: normal;
+  src: local(''), url('PressStart2P-Regular.ttf') format('truetype');
+}

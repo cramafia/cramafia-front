@@ -19,7 +19,7 @@ export const getTypography = (t: Typography): FlattenSimpleInterpolation => {
 
 const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
   [Typography.HEADING_1]: css`
-    font-family: ${getFont(Font.BEBAS)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 26px;
     text-decoration: none;
@@ -35,7 +35,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.HEADING_2]: css`
-    font-family: ${getFont(Font.ROBOTTO)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 26px;
     text-decoration: none;
@@ -51,7 +51,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.HEADING_3]: css`
-    font-family: ${getFont(Font.ABRIL)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 20px;
     text-decoration: none;
@@ -67,7 +67,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.SUB_HEADING_1]: css`
-    font-family: ${getFont(Font.ROBOTTO)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 25px;
     text-decoration: none;
@@ -79,7 +79,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.BODY_REGULAR]: css`
-    font-family: ${getFont(Font.QUICKSAND)};
+    font-family: ${getFont(Font.PRESS_START)};
     font-weight: 400;
     font-size: 18px;
     line-height: 1.3;
