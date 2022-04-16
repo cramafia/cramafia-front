@@ -12,6 +12,13 @@ export const CenteredContainer = styled.div`
 `
 
 export const StyledScroll = css`
+  scrollbar-color: ${getColor(Color.DARK_BLUE_500)} ${getColor(Color.BLACK)};
+  scrollbar-width: thin;
+  :root {
+    scrollbar-color: ${getColor(Color.DARK_BLUE_500)} ${getColor(Color.BLACK)};
+    scrollbar-width: thin;
+  }
+
   ::-webkit-scrollbar {
     width: 5px;
   }
