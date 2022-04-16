@@ -79,7 +79,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.BODY_REGULAR]: css`
-    font-family: ${getFont(Font.PRESS_START)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 18px;
     line-height: 1.3;
@@ -94,7 +94,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.BODY_SMALL]: css`
-    font-family: ${getFont(Font.ROBOTTO_LIGHT)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 14px;
     line-height: 1.3;
@@ -109,7 +109,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.NAVIGATION]: css`
-    font-family: ${getFont(Font.ROBOTTO_LIGHT)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-size: 14px;
     line-height: 1.3;
     text-decoration: none;
@@ -119,7 +119,7 @@ const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
     }
   `,
   [Typography.BODY_MIN]: css`
-    font-family: ${getFont(Font.ROBOTTO_LIGHT)};
+    font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;
     font-size: 12px;
   `,
