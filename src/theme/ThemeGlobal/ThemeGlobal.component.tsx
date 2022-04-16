@@ -12,6 +12,8 @@ export const ThemeGlobal: React.FC<ThemeGlobalProps> = ({
 }: ThemeGlobalProps) => {
   const { theme } = useSelector((state: stateType) => state.global)
   return (
+    //TODO
+    //@ts-ignore
     <ThemeProvider theme={getTheme(theme)}>
       <Wrapper>{children}</Wrapper>
     </ThemeProvider>
