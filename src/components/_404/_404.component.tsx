@@ -7,7 +7,6 @@ import {
   NotFoundContainer,
   ContentContainer,
   TitleText,
-  Logo,
   Content,
   AdditionalInformation,
   _404Container,

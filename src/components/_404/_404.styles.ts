@@ -7,25 +7,24 @@ import {
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
 import styled from 'styled-components'
-import { scale, show } from '@/theme/animation'
+import { scale } from '@/theme/animation'
 
 export const NotFoundContainer = styled.div`
   height: 100vh;
+  width: 100%;
   padding: ${getUnitAsPixels(4)};
   background-image: url(//www.mantralabsglobal.com/wp-content/themes/spiral-child/images/error_404/white_grain.png),
     url(//www.mantralabsglobal.com/wp-content/themes/spiral-child/images/film_grain.png);
   background-color: ${getColor(Color.BLACK)};
+  display: flex;
 `
 
-export const Logo = styled.div`
-  position: absolute;
-`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  margin: auto;
 `
 
 export const TitleText = styled.div`
