@@ -57,3 +57,9 @@
   font-style: normal;
   src: local(''), url('PressStart2P-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'PoppinsBold';
+  font-style: normal;
+  src: local(''), url('Poppins-Bold.ttf') format('truetype');
+}

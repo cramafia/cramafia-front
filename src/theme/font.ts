@@ -11,6 +11,7 @@ export enum Font {
   COMFORTAA_MEDIUM = 'COMFORTAA_MEDIUM',
   REGGAE = 'REGGAE',
   PRESS_START = 'PRESS_START',
+  POPPINS_BOLD = 'POPPINS_BOLD',
 }
 
 export const getFont = (font: Font): string => {
@@ -30,4 +31,5 @@ const fonts: { [key in Font]: string } = {
   [Font.COMFORTAA_MEDIUM]: `ComfortaaMedium`,
   [Font.REGGAE]: `Reggae`,
   [Font.PRESS_START]: `PressStart`,
+  [Font.POPPINS_BOLD]: `PoppinsBold`,
 }
