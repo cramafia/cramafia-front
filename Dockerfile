@@ -1,15 +1,14 @@
-FROM node:16-alpine AS deps
+FROM node:16-alpine
 
-RUN mkdir /client
+WORKDIR /app
 
-WORKDIR /client
-
-COPY ./package.json /client
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn
 
-COPY . /client
+COPY . .
 
 RUN yarn build
 
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]

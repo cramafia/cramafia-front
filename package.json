@@ -11,6 +11,7 @@
     "prepare-husky": "husky install"
   },
   "dependencies": {
+    "@next/env": "^12.1.5",
     "@reduxjs/toolkit": "^1.8.0",
     "@types/lodash": "^4.14.180",
     "@types/nanoid": "^3.0.0",
