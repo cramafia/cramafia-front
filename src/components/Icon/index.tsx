@@ -20,6 +20,7 @@ import Vk from '@/assets/icons/vk.svg'
 import Youtube from '@/assets/icons/youtube.svg'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'
 import Checked from '@/assets/icons/checked.svg'
+import Astronaut from '@/assets/icons/astronaut.svg'
 
 export enum IconType {
   ALCOHOL = 'ALCOHOL',
@@ -44,6 +45,7 @@ export enum IconType {
   YOUTUBE = 'YOUTUBE',
   ARROW_TO_TOP = 'ARROW_TO_TOP',
   CHECKED = 'CHECKED',
+  ASTRONAUT = 'ASTRONAUT',
 }
 
 export const getIcon = (t: IconType): Function => {
@@ -73,4 +75,5 @@ const icons: { [key in IconType]: Function } = {
   [IconType.YOUTUBE]: Youtube,
   [IconType.ARROW_TO_TOP]: ArrowToTop,
   [IconType.CHECKED]: Checked,
+  [IconType.ASTRONAUT]: Astronaut,
 }
