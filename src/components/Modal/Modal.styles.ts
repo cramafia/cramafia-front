@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   left: 0;
   height: 100vh;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.8);
 `
 

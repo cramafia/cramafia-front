@@ -45,7 +45,7 @@ export const SwitchItem = styled.span`
       : getColor(Color.WHITE_300)};
   cursor: pointer;
   transition: 0.6s;
-  z-index: 99;
+  z-index: 2;
   :before {
     position: absolute;
     left: 3px;

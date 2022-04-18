@@ -9,7 +9,7 @@ export const AlertContainer = styled.div`
   position: fixed;
   right: ${getUnitAsPixels()};
   top: ${getUnitAsPixels()};
-  z-index: 9999;
+  z-index: 10;
 `
 
 export const AlertComponent = styled(Alert)`
