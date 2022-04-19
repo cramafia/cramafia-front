@@ -1,7 +1,6 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
 
-import { getIcon, IconType } from '../Icon'
 import { LobbiesTable } from '../LobbiesTable'
 import {
   NewGameContainer,
@@ -14,19 +13,13 @@ import {
   SubText,
   MinText,
   CreateGameButton,
-} from './Lobby.styles'
+} from './CreateLobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
-import { OptionGameType, OptionType, SubOptionType } from './Lobby.types'
-import {
-  SubOptionId,
-  getAllSubOptionsIds,
-  getAllSubOptions,
-  getAllOptions,
-  getOption,
-} from './Lobby.types'
+import { OptionGameType, SubOptionType } from './CreateLobby.types'
+import { getAllSubOptions, getAllOptions, getOption } from './CreateLobby.types'
 
-export const Lobby: React.FC = () => {
+export const CreateLobby: React.FC = () => {
   const [currentGameType, setCurrentGameType] = useState(
     getOption(OptionGameType.CLASSIC)
   )
