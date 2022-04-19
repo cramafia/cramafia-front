@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
-} from '../../../../theme/layout'
-import { ThemeType, getColor, Color } from '../../../../theme/color'
-import { getTypography, Typography } from '../../../../theme/typography'
+} from '@/theme/layout'
+import { ThemeType, getColor, Color } from '@/theme/color'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const Container = styled.div`
   display: flex;

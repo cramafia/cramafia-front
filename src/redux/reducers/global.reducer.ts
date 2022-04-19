@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import { AlertPayloadType, ModalPayloadType } from '../../types'
-import { ModalSize } from '../../theme/layout'
-import { Theme } from '../../theme/color'
+import { ModalSize } from '@/theme/layout'
+import { Theme } from '@/theme/color'
 
 type initialStateType = {
   modal: ModalPayloadType | null

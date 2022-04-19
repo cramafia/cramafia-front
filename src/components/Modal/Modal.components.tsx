@@ -1,9 +1,10 @@
 import React, { SyntheticEvent, Fragment } from 'react'
-import { Wrapper, Content, Cross } from './Modal.styles'
 import { useSelector, useDispatch } from 'react-redux'
+
+import { Wrapper, Content, Cross } from './Modal.styles'
 import { stateType } from '../../redux/store'
 import { closeModal } from '../../redux/reducers/global.reducer'
-import { ModalSize } from '../../theme/layout'
+import { ModalSize } from '@/theme/layout'
 
 export const Modal: React.FC = () => {
   const modal = useSelector((state: stateType) => state.global.modal)

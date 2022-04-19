@@ -1,7 +1,8 @@
+import styled from 'styled-components'
+import { Alert } from 'react-bootstrap'
+
 import { getUnitAsPixels } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { Alert } from 'react-bootstrap'
-import styled from 'styled-components'
 import { AlertType, getAlertVariant } from './Alert.types'
 
 export const AlertContainer = styled.div`

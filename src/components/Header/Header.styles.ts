@@ -7,14 +7,15 @@ import {
   Navbar,
   Offcanvas,
 } from 'react-bootstrap'
-import { Opacity, ThemeType } from '../../theme/color'
-import { getTypography, Typography } from '../../theme/typography'
-import { getColor, Color, getColorWithOpacity } from '../../theme/color'
-import { getMediaQuery, getUnitAsPixels, ScreenSize } from '../../theme/layout'
+
+import { Opacity, ThemeType } from '@/theme/color'
+import { getTypography, Typography } from '@/theme/typography'
+import { getColor, Color, getColorWithOpacity } from '@/theme/color'
+import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
-} from '../../theme/normilize'
+} from '@/theme/normilize'
 import { getFont, Font } from '@/theme/font'
 
 export const HeaderContainer = styled.div`
@@ -90,9 +91,9 @@ export const NavItem = styled(Button)`
     border-bottom-color: ${({ theme }: { theme: ThemeType }) =>
       theme.color.primary};
   }
-  a {
-    ${getTypography(Typography.NAVIGATION)}
-    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+  ${getTypography(Typography.NAVIGATION)}
+  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+  div {
     padding: ${getUnitAsPixels(1)} ${getUnitAsPixels(3)};
   }
 `

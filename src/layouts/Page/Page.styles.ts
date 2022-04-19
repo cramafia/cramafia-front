@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
 
-import {
-  getVerticalSpacingAsPixels,
-  VerticalSpacingType,
-} from '../../theme/layout'
+import { getVerticalSpacingAsPixels, VerticalSpacingType } from '@/theme/layout'
 import { ThemeType } from '@/theme/color'
 
 export const PageContainer = styled.div`

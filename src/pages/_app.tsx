@@ -3,13 +3,13 @@ import '@/theme/fonts/index.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
-
-import GlobalStyles from '../global.styles'
-import { ThemeGlobal } from '../theme/ThemeGlobal'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
-import { Modal } from '../components/Modal'
-import { Alert } from '../components/Alert'
+
+import GlobalStyles from '../global.styles'
+import { ThemeGlobal } from '@/theme/ThemeGlobal'
+import { Modal } from '@/components/Modal'
+import { Alert } from '@/components/Alert'
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

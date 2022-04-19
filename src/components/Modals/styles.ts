@@ -84,8 +84,13 @@ export const MinText = styled.span`
   border-bottom: ${({ isButton = false }: { isButton?: boolean }) =>
     isButton ? '1px solid' : '0px'};
   :hover {
-    color: ${({ isButton = false }: { isButton?: boolean }) =>
-      isButton ? getColor(Color.GREEN_100) : getColor(Color.WHITE)};
+    color: ${({
+      isButton = false,
+      theme,
+    }: {
+      isButton?: boolean
+      theme: ThemeType
+    }) => (isButton ? getColor(Color.GREEN_100) : theme.background.opposite)};
     cursor: ${({ isButton = false }: { isButton?: boolean }) =>
       isButton ? 'pointer' : 'initial'};
   }

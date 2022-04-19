@@ -1,8 +1,7 @@
 import React from 'react'
 
-import { Color } from '../../../../theme/color'
-
-import { IconType } from '../../../Icon'
+import { Color } from '@/theme/color'
+import { IconType } from '@/components/Icon'
 import { Container, Row, Col } from './Basic.styles'
 import { IconText } from '../IconText'
 import { Heading } from '../Heading'

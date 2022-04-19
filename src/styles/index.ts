@@ -1,7 +1,9 @@
-import { Color, getColor } from '@/theme/color'
+import styled, { css } from 'styled-components'
+
+import { Color, getColor, ThemeType } from '@/theme/color'
 import { getFont, Font } from '@/theme/font'
 import { getTypography, Typography } from '@/theme/typography'
-import styled, { css } from 'styled-components'
+
 import type { CenteredContainerProps } from './types'
 
 export const CenteredContainer = styled.div`
@@ -12,10 +14,17 @@ export const CenteredContainer = styled.div`
 `
 
 export const StyledScroll = css`
-  scrollbar-color: ${getColor(Color.DARK_BLUE_500)} ${getColor(Color.BLACK)};
+  scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? `${getColor(Color.DARK_LIGHT_500)} ${theme.background.primary}`
+      : `${getColor(Color.GRAY_100)} ${theme.background.primary}`};
   scrollbar-width: thin;
   :root {
-    scrollbar-color: ${getColor(Color.DARK_BLUE_500)} ${getColor(Color.BLACK)};
+ scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
+   theme.background.primary === getColor(Color.BLACK)
+     ? `${getColor(Color.DARK_LIGHT_500)} ${theme.background.primary}`
+     : `${getColor(Color.GRAY_100)} ${theme.background.primary}`};
+    }
     scrollbar-width: thin;
   }
 
@@ -25,16 +34,25 @@ export const StyledScroll = css`
 
   ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background: ${getColor(Color.BLACK)};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary};
   }
 
   ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px ${getColor(Color.DARK_BLUE_500)};
-    background: ${getColor(Color.DARK_BLUE_500)};
+    -webkit-box-shadow: inset 0 0 6px
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.background.primary === getColor(Color.BLACK)
+          ? getColor(Color.DARK_BLUE_500)
+          : getColor(Color.GRAY_200)};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.DARK_BLUE_500)
+        : getColor(Color.GRAY_200)};
   }
 `
 
 export const LogoText = styled.span`
+  cursor: pointer;
   background: -webkit-linear-gradient(
     0deg,
     rgba(207, 8, 21, 1) 0%,

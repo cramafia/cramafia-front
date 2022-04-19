@@ -1,5 +1,6 @@
-import { getUnitAsPixels } from '@/theme/layout'
 import styled from 'styled-components'
+
+import { getUnitAsPixels } from '@/theme/layout'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'
 import { ThemeType } from '@/theme/color'
 import { show } from '@/theme/animation'

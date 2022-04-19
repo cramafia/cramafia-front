@@ -1,11 +1,14 @@
 import styled from 'styled-components'
+
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
 } from '../../theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const RulesContainer = styled.div`
+  ${getTypography(Typography.NAVIGATION)}
   display: flex;
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
 `

@@ -1,4 +1,7 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
+
 import {
   NavItem,
   Play,
@@ -8,14 +11,11 @@ import {
   SideBar,
   SideBarTitle,
 } from './Header.styles'
-import Link from 'next/link'
 import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
-import { useDispatch } from 'react-redux'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
-import { ButtonLink } from '../ButtonLink'
-import { ThemeSwitcher } from './../ThemeSwitcher'
+import { ButtonLink } from '@/components/ButtonLink'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 import { LogoText } from 'src/styles'
 
 export const Header: React.FC = () => {
@@ -28,13 +28,13 @@ export const Header: React.FC = () => {
     return (
       <>
         <Play>
-          <Link href="/game-search">Играть</Link>
+          <ButtonLink href="/game-search">Играть</ButtonLink>
         </Play>
         <NavItem>
-          <Link href="/watch">Смотреть</Link>
+          <ButtonLink href="/watch">Смотреть</ButtonLink>
         </NavItem>
         <NavItem>
-          <Link href="/rules">Правила</Link>
+          <ButtonLink href="/rules">Правила</ButtonLink>
         </NavItem>
         <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
         <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>

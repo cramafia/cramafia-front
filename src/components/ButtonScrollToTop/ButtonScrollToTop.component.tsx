@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import { ScrollContainer, Arrow } from './ButtonScrollToTop.styles'
 import ToTopButton from '@/assets/icons/toTopButton.svg'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'

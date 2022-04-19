@@ -1,18 +1,23 @@
 import styled from 'styled-components'
-import { show } from '@/theme/animation'
 
+import { show } from '@/theme/animation'
 import {
+  getMediaQuery,
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
+  ScreenSize,
   VerticalSpacingType,
-} from '../../../../theme/layout'
-import { getTypography, Typography } from '../../../../theme/typography'
-import { getColor, Color } from '../../../../theme/color'
+} from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
+import { getColor, Color, ThemeType } from '@/theme/color'
 import { StyledScroll } from '../../../../styles'
 
 export const Wrapper = styled.div`
   height: calc(100vh - ${getUnitAsPixels(10.5)});
   min-width: 300px;
+  ${getMediaQuery(ScreenSize.SMALL, ScreenSize.XLARGE)} {
+    display: none;
+  }
 `
 
 export const Content = styled.div`
@@ -30,7 +35,7 @@ export const Heading = styled.div`
 export const List = styled.ul`
   overflow-y: scroll;
   ${StyledScroll}
-  height: 70vh;
+  height: 75vh;
   padding: 0;
 `
 
@@ -41,8 +46,12 @@ export const ListItem = styled.li`
 
 export const ListItemLink = styled.a`
   font-weight: 550;
-  color: ${({ active }: { active: boolean }) =>
-    active ? getColor(Color.GREEN_100) : getColor(Color.GRAY_100)};
+  color: ${({ active, theme }: { active: boolean; theme: ThemeType }) =>
+    active
+      ? getColor(Color.GREEN_100)
+      : theme.background.primary === getColor(Color.BLACK)
+      ? getColor(Color.GRAY_100)
+      : getColor(Color.DARK_LIGHT_300)};
   :hover {
     color: ${getColor(Color.GREEN_100)};
   }

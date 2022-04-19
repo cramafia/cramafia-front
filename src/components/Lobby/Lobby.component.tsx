@@ -1,8 +1,7 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
 
-import { getIcon, IconType } from '../Icon'
-import { LobbiesTable } from '../LobbiesTable'
+import { LobbiesTable } from '@/components/LobbiesTable'
 import {
   NewGameContainer,
   Title,
@@ -17,7 +16,7 @@ import {
 } from './Lobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
-import { OptionGameType, OptionType, SubOptionType } from './Lobby.types'
+import { OptionGameType, SubOptionType } from './Lobby.types'
 import {
   SubOptionId,
   getAllSubOptionsIds,

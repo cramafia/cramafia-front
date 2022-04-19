@@ -1,6 +1,6 @@
-import React, { useState, useEffect, MouseEvent } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { getIcon, IconType } from '../../../Icon'
+import { getIcon, IconType } from '@/components/Icon'
 import { OptionContainer, IconContainer, OptionText } from '../styles'
 import { OptionProps } from './types'
 
