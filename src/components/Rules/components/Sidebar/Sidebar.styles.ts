@@ -15,7 +15,7 @@ import { StyledScroll } from '../../../../styles'
 export const Wrapper = styled.div`
   height: calc(100vh - ${getUnitAsPixels(10.5)});
   min-width: 300px;
-  ${getMediaQuery(ScreenSize.SMALL, ScreenSize.XLARGE)} {
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
     display: none;
   }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { getUnitAsPixels } from '@/theme/layout'
+import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'
 import { ThemeType } from '@/theme/color'
 import { show } from '@/theme/animation'
@@ -15,6 +15,9 @@ export const ScrollContainer = styled.div`
   cursor: pointer;
   span {
     margin-left: ${getUnitAsPixels()};
+    ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+      display: none;
+    }
   }
   :hover {
     opacity: 0.7;
