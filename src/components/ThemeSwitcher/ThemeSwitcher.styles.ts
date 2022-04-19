@@ -20,8 +20,9 @@ export const SwitchContainer = styled.label`
   position: relative;
   display: inline-block;
   margin-bottom: 0.5rem;
-  #toggle:checked ~ .slider:before {
-    ${SwitchItemMoon}
+  #toggle ~ .slider:before {
+    ${({ checked }: { checked: boolean; theme: ThemeType }) =>
+      checked && SwitchItemMoon}
   }
 `
 
