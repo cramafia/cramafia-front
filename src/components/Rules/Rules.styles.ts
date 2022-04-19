@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
+import { getTypography, Typography } from '@/theme/typography'
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
-} from '../../theme/layout'
-import { getTypography, Typography } from '@/theme/typography'
+} from '@/theme/layout'
 
 export const RulesContainer = styled.div`
   ${getTypography(Typography.NAVIGATION)}

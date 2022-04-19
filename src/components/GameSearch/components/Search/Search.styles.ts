@@ -44,7 +44,7 @@ export const GroupCol = styled(Col)`
       flex-direction: column;
       flex-wrap: nowrap;
       div {
-        margin: 4px;
+        margin: ${getUnitAsPixels(0.5)};
       }
     }
   }

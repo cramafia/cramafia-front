@@ -2,6 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
 
+import { ButtonLink } from '@/components/ButtonLink'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
+
 import {
   NavItem,
   Play,
@@ -14,8 +17,6 @@ import {
 import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { ButtonLink } from '@/components/ButtonLink'
-import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 import { LogoText } from 'src/styles'
 
 export const Header: React.FC = () => {
