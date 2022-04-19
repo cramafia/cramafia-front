@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import { Page } from '../layouts/Page'
-import { Main } from '../components/Main'
 import Head from 'next/head'
+
+import { Main } from '@/components/Main'
 
 const Home: NextPage = () => {
   return (

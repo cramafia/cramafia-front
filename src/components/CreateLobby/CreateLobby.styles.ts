@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Button } from 'react-bootstrap'
+
 import { getColor, Color } from '@/theme/color'
 import {
   getUnitAsPixels,
@@ -6,7 +8,6 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { Button } from 'react-bootstrap'
 
 export const NewGameContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};

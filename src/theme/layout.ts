@@ -39,8 +39,13 @@ export const getImageSizeAsPixels = (size: ImageSize): string => {
   return pixelate(imageSizes[size])
 }
 
-export const getMediaQuery = (size: ScreenSize): string => {
-  return `@media screen and (min-width: ${pixelate(breakpoints[size])})`
+export const getMediaQuery = (
+  minWidth: ScreenSize,
+  maxWidth?: ScreenSize
+): string => {
+  return `@media screen and (min-width: ${pixelate(breakpoints[minWidth])}) ${
+    maxWidth ? `and (max-width: ${pixelate(breakpoints[maxWidth])})` : ''
+  }`
 }
 
 export const getUnitAsPixels = (multiplier: number = 1): string => {

@@ -1,6 +1,7 @@
+import styled, { css } from 'styled-components'
+
 import { Color, getColor, ThemeType } from '@/theme/color'
 import { getUnitAsPixels } from '@/theme/layout'
-import styled, { css } from 'styled-components'
 
 export const ThemeSwitcherContainer = styled.div``
 

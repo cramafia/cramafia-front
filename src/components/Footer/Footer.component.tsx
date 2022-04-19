@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   BottomFooter,
   FooterContainer,
@@ -6,6 +7,7 @@ import {
   FeedBackContainer,
   List,
   ListHeader,
+  ListItems,
   ListItem,
   Email,
   MessageButton,
@@ -13,13 +15,7 @@ import {
   SocialLinks,
 } from './Footer.styles'
 import { LogoText } from 'src/styles'
-
-import Instagram from '../../assets/icons/instagram.svg'
-import Vk from '../../assets/icons/vk.svg'
-import Telegram from '../../assets/icons/telegram.svg'
-import Facebook from '../../assets/icons/facebook.svg'
-import Twitch from '../../assets/icons/twitch.svg'
-import Youtube from '../../assets/icons/youtube.svg'
+import { getIcon, IconType } from '../Icon'
 
 export const Footer: React.FC = () => {
   return (
@@ -51,16 +47,18 @@ export const Footer: React.FC = () => {
         </FeedBackContainer>
       </TopFooter>
       <BottomFooter>
-        <ListItem>Пользовательское соглашение</ListItem>
-        <ListItem>Конфиденциальность</ListItem>
-        <ListItem>Контакты</ListItem>
+        <ListItems>
+          <ListItem>Пользовательское соглашение</ListItem>
+          <ListItem>Конфиденциальность</ListItem>
+          <ListItem>Контакты</ListItem>
+        </ListItems>
         <SocialLinks>
-          <Instagram />
-          <Vk />
-          <Telegram />
-          <Facebook />
-          <Twitch />
-          <Youtube />
+          {getIcon(IconType.INSTAGRAM)()}
+          {getIcon(IconType.VK)()}
+          {getIcon(IconType.TELEGRAM)()}
+          {getIcon(IconType.FACEBOOK)()}
+          {getIcon(IconType.TWITCH)()}
+          {getIcon(IconType.YOUTUBE)()}
         </SocialLinks>
       </BottomFooter>
     </FooterContainer>

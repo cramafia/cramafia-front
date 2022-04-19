@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 import { LobbiesTable } from '../LobbiesTable'
 import {
@@ -9,9 +10,8 @@ import {
   ToLobbie,
   ToLobbieContainer,
 } from './GameSearch.styles'
-import { ButtonLink } from '../ButtonLink'
+import { ButtonLink } from '@/components/ButtonLink'
 import { Search } from './components/Search'
-import { Row, Col } from 'react-bootstrap'
 
 export const GameSearch = () => {
   return (

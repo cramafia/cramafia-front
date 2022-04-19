@@ -1,12 +1,15 @@
+import styled from 'styled-components'
+
 import { Color, getColor } from '@/theme/color'
 import { Font, getFont } from '@/theme/font'
 import {
+  getMediaQuery,
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
+  ScreenSize,
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import styled from 'styled-components'
 import { scale } from '@/theme/animation'
 
 export const NotFoundContainer = styled.div`
@@ -35,14 +38,25 @@ export const TitleText = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    flex-direction: column;
+  }
 `
 
-export const AdditionalInformation = styled.div``
+export const AdditionalInformation = styled.div`
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.XLARGE)};
+    order: -1;
+  }
+`
 
 export const _404Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  }
 `
 
 export const _404Text = styled.span`
@@ -78,6 +92,6 @@ export const IconContainer = styled.div`
   justify-content: center;
   align-items: center;
   svg {
-    animation: ${scale} linear 9s;
+    animation: ${scale} linear 10s;
   }
 `

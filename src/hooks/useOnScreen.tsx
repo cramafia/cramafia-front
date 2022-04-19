@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, MutableRefObject } from 'react'
+import { useState, useEffect, MutableRefObject } from 'react'
 
 export function useOnScreen<T extends Element>(
   ref: MutableRefObject<T>,
