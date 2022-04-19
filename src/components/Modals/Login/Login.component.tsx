@@ -2,8 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { CenteredContainer } from '../../../styles'
 import { openModal } from '../../../redux/reducers/global.reducer'
-import { ModalType } from '../../Modal/Modal.types'
-import { ModalSize } from '../../../theme/layout'
+import { ModalType } from '..'
+import { getModal } from '..'
 
 import {
   CheckBox,
@@ -18,9 +18,10 @@ import {
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
-  const onOpen = (type: ModalType, size: ModalSize) => {
-    dispatch(openModal({ type, size }))
+  const onOpen = (type: ModalType) => {
+    dispatch(openModal(getModal(type)))
   }
+
   return (
     <ModalContainer>
       <MainText>Войти</MainText>
@@ -38,7 +39,7 @@ export const Login: React.FC = () => {
         <MinText>Нет аккаунта?</MinText>
         <MinText
           isButton={true}
-          onClick={onOpen.bind(this, ModalType.REGISTER, ModalSize.SMALL)}
+          onClick={onOpen.bind(this, ModalType.REGISTER)}
         >
           Зарегистрировать аккаунт
         </MinText>

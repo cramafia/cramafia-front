@@ -4,7 +4,7 @@ import {
   getModalSizeAsPixels,
   ModalSize,
 } from '../../theme/layout'
-import { getColor, Color } from '../../theme/color'
+import { getColor, Color, ThemeType } from '../../theme/color'
 import CrossIcon from '../../assets/icons/cross.svg'
 
 export const Wrapper = styled.div`
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   left: 0;
   height: 100vh;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.8);
 `
 
@@ -26,7 +26,10 @@ export const Content = styled.div`
   border-radius: ${getUnitAsPixels()};
   width: ${({ size }: { size: ModalSize }) => getModalSizeAsPixels(size)};
   padding: ${getUnitAsPixels(4)} ${getUnitAsPixels(4)};
-  background: ${getColor(Color.DARK_BLUE_500)};
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? getColor(Color.DARK_BLUE_500)
+      : getColor(Color.WHITE)};
 `
 
 export const Cross = styled(CrossIcon)`

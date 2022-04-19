@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Nosifer';
+  font-style: normal;
+  src: local(''), url('Nosifer-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Robotto';
+  font-style: normal;
+  src: local(''), url('Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas';
+  font-style: normal;
+  src: local(''), url('BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FjallaOne';
+  font-style: normal;
+  src: local(''), url('FjallaOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Abril';
+  font-style: normal;
+  src: local(''), url('AbrilFatface-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  src: local(''), url('Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RobottoLight';
+  font-style: normal;
+  src: local(''), url('Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ComfortaaMedium';
+  font-style: normal;
+  src: local(''), url('Comfortaa-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Reggae';
+  font-style: normal;
+  src: local(''), url('ReggaeOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PressStart';
+  font-style: normal;
+  src: local(''), url('PressStart2P-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  font-style: normal;
+  src: local(''), url('Poppins-Bold.ttf') format('truetype');
+}

@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Color, getColor } from '../../theme/color'
+import { Color, getColor, ThemeType } from '../../theme/color'
 import {
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
@@ -36,15 +36,9 @@ export const GameContainer = styled.div`
   flex-direction: column;
 `
 
-export const GamesTable = styled(Table)`
-  background: ${getColor(Color.DARK_LIGHT_400)};
-  padding: ${getUnitAsPixels(3)};
-  ${getTypography(Typography.NAVIGATION)}
-  text-align: center;
-  thead {
-    background-color: ${getColor(Color.DARK_LIGHT_500)};
-  }
-  tbody > tr {
-    border-bottom: 1px solid ${getColor(Color.DARK_LIGHT_500)};
-  }
+export const StreamsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 `

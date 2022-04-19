@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Color, getColor } from '../../theme/color'
+import { Color, getColor, ThemeType } from '../../theme/color'
 import {
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
@@ -9,13 +9,14 @@ import {
 import { getTypography, Typography } from '../../theme/typography'
 
 export const ModalContainer = styled.div`
-  background-color: ${getColor(Color.DARK_LIGHT_300)};
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
 export const MainText = styled.span`
+  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   ${getTypography(Typography.BODY_SMALL)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)}
 `
@@ -24,11 +25,19 @@ export const ModalInput = styled(Form.Control)`
   width: 100%;
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
-  background-color: ${getColor(Color.DARK_LIGHT_200)};
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? getColor(Color.DARK_LIGHT_200)
+      : getColor(Color.WHITE)};
   border-color: ${getColor(Color.DARK_LIGHT_200)};
   font-weight: 550;
   :focus {
-    background-color: ${getColor(Color.DARK_LIGHT_200)};
+    border-color: ${getColor(Color.DARK_LIGHT_200)};
+    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.DARK_LIGHT_200)
+        : getColor(Color.WHITE)};
   }
 `
 
@@ -36,7 +45,7 @@ export const SubText = styled.span`
   ${getTypography(Typography.NAVIGATION)}
   :hover {
     color: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
-      hoverStyles ? getColor(Color.BLUE_100) : ''};
+      hoverStyles ? getColor(Color.GREEN_100) : ''};
     cursor: ${({ hoverStyles = false }: { hoverStyles?: boolean }) =>
       hoverStyles ? 'pointer' : ''};
   }
@@ -63,9 +72,9 @@ export const SubmiteButton = styled(Button)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   :hover,
   :focus {
-    background: ${getColor(Color.BLUE_100)};
+    background: ${getColor(Color.GREEN_100)};
     color: ${getColor(Color.BLACK)};
-    border-color: ${getColor(Color.BLUE_100)};
+    border-color: ${getColor(Color.GREEN_100)};
   }
 `
 
@@ -76,7 +85,7 @@ export const MinText = styled.span`
     isButton ? '1px solid' : '0px'};
   :hover {
     color: ${({ isButton = false }: { isButton?: boolean }) =>
-      isButton ? getColor(Color.BLUE_100) : getColor(Color.WHITE)};
+      isButton ? getColor(Color.GREEN_100) : getColor(Color.WHITE)};
     cursor: ${({ isButton = false }: { isButton?: boolean }) =>
       isButton ? 'pointer' : 'initial'};
   }

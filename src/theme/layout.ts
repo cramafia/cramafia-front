@@ -10,6 +10,7 @@ export enum ScreenSize {
 }
 
 export enum VerticalSpacingType {
+  MIN = 'MIN',
   SMALL = 'SMALL',
   MEDIUM = 'MEDIUM',
   LARGE = 'LARGE',
@@ -24,7 +25,19 @@ export enum ModalSize {
   XLARGE = 'XLARGE',
 }
 
+export enum ImageSize {
+  SMALL = 'SMALL',
+  MEDIUM = 'MEDIUM',
+  LARGE = 'LARGE',
+  XLARGE = 'XLARGE',
+  XXLARGE = 'XXLARGE',
+}
+
 export const unit: number = 8
+
+export const getImageSizeAsPixels = (size: ImageSize): string => {
+  return pixelate(imageSizes[size])
+}
 
 export const getMediaQuery = (size: ScreenSize): string => {
   return `@media screen and (min-width: ${pixelate(breakpoints[size])})`
@@ -54,10 +67,11 @@ const breakpoints: { [key in ScreenSize]: number } = {
 }
 
 const verticalSpacing: { [key in VerticalSpacingType]: number } = {
-  [ScreenSize.SMALL]: 24,
-  [ScreenSize.MEDIUM]: 48,
-  [ScreenSize.LARGE]: 96,
-  [ScreenSize.XLARGE]: 192,
+  [VerticalSpacingType.MIN]: 8,
+  [VerticalSpacingType.SMALL]: 24,
+  [VerticalSpacingType.MEDIUM]: 48,
+  [VerticalSpacingType.LARGE]: 96,
+  [VerticalSpacingType.XLARGE]: 192,
 }
 
 const modalSizes: { [key in ModalSize]: number } = {
@@ -66,4 +80,12 @@ const modalSizes: { [key in ModalSize]: number } = {
   [ModalSize.MEDIUM]: 700,
   [ModalSize.LARGE]: 900,
   [ModalSize.XLARGE]: 1100,
+}
+
+const imageSizes: { [key in ImageSize]: number } = {
+  [ImageSize.SMALL]: 100,
+  [ImageSize.MEDIUM]: 300,
+  [ImageSize.LARGE]: 500,
+  [ImageSize.XLARGE]: 700,
+  [ImageSize.XXLARGE]: 900,
 }

@@ -1,13 +1,17 @@
 import { createGlobalStyle } from 'styled-components'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { StyledScroll } from './styles'
 
 const GlobalStyles = createGlobalStyle`
-    a {
-        text-decoration: none;
-    }
-    li {
-        list-style-type: none;
-    }
+  * {
+    transition: all 0.25s linear;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style-type: none;
+  }
+  ${StyledScroll}
 
 	html, body {
 		box-sizing: border-box;
@@ -19,32 +23,32 @@ const GlobalStyles = createGlobalStyle`
 		box-sizing: inherit;
 		user-drag: none;
 	}
-    input {
-      [type='search']::-webkit-search-decoration,
-      [type='search']::-webkit-search-cancel-button,
-      [type='search']::-webkit-search-results-button,
-      [type='search']::-webkit-search-results-decoration {
-        -webkit-appearance: none !important;
-      }
-      .hide-clear[type='search']::-ms-clear,
-      .hide-clear[type='search']::-ms-reveal {
-        display: none;
-        width: 0;
-        height: 0;
-      }
-      :focus, :active {
-          outline: none !important;
-          box-shadow: none !important;
-      }
-      user-select: auto;
-      appearance: none;
-      border-radius: 0;
-      border: none;
-      background-image: none;
-      background-color: transparent;
-      box-shadow: none;
-      outline: none;
+  input {
+    [type='search']::-webkit-search-decoration,
+    [type='search']::-webkit-search-cancel-button,
+    [type='search']::-webkit-search-results-button,
+    [type='search']::-webkit-search-results-decoration {
+      -webkit-appearance: none !important;
     }
+    .hide-clear[type='search']::-ms-clear,
+    .hide-clear[type='search']::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    :focus, :active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    user-select: auto;
+    appearance: none;
+    border-radius: 0;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+  }
 `
 
 export default GlobalStyles
