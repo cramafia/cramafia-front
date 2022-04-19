@@ -1,4 +1,4 @@
-import { OptionType } from './../../Lobby.types'
+import { OptionType } from '../../CreateLobby.types'
 
 export interface SubOptionProps {
   text: string
