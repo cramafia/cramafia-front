@@ -1,13 +1,21 @@
 import type { NextPage } from 'next'
 import React from 'react'
-import { Watch } from '@/components/Watch'
+import Head from 'next/head'
+
+import { Watch } from '../../components/Watch'
 import { Page } from '../../layouts/Page'
 
 export const WatchPage: NextPage = () => {
   return (
-    <Page>
-      <Watch />
-    </Page>
+    <>
+      <Head>
+        <title>Cramafia | Watch</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Page>
+        <Watch />
+      </Page>
+    </>
   )
 }
 

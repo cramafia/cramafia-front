@@ -26,14 +26,14 @@ export const GameSearch = () => {
         <TableHeaderRow>
           <TableHeaderCol>Игры в лобби</TableHeaderCol>
           <TableHeaderCol>
-            <ButtonLink href="/lobby">
+            <ButtonLink href="/create-lobby">
               <NewGame>Новая игра +</NewGame>
             </ButtonLink>
           </TableHeaderCol>
         </TableHeaderRow>
         <LobbiesTable />
         <ToLobbieContainer>
-          <ButtonLink href="/lobby">
+          <ButtonLink href="/create-lobby">
             <ToLobbie>Перейти в лобби</ToLobbie>
           </ButtonLink>
         </ToLobbieContainer>

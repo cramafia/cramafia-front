@@ -21,8 +21,9 @@ export const SwitchContainer = styled.label`
   position: relative;
   display: inline-block;
   margin-bottom: 0.5rem;
-  #toggle:checked ~ .slider:before {
-    ${SwitchItemMoon}
+  #toggle ~ .slider:before {
+    ${({ checked }: { checked: boolean; theme: ThemeType }) =>
+      checked && SwitchItemMoon}
   }
 `
 
@@ -46,7 +47,7 @@ export const SwitchItem = styled.span`
       : getColor(Color.WHITE_300)};
   cursor: pointer;
   transition: 0.6s;
-  z-index: 99;
+  z-index: 2;
   :before {
     position: absolute;
     left: 3px;

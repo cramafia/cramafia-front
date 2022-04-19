@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -14,6 +14,7 @@ import { Theme } from '@/theme/color'
 
 export const ThemeSwitcher: React.FC = () => {
   const theme: Theme = useSelector((state: stateType) => state.global.theme)
+  const checked = useMemo(() => theme === Theme.BLACK, [theme])
   const dispatch = useDispatch()
   const switchThemeHandler = () => {
     dispatch(switchTheme())
@@ -21,14 +22,8 @@ export const ThemeSwitcher: React.FC = () => {
   return (
     <ThemeSwitcherContainer>
       <Toggler>
-        <SwitchContainer className="switch">
-          <SwitchHidden
-            id="toggle"
-            type="checkbox"
-            checked={theme === Theme.BLACK}
-            readOnly
-            value="true"
-          />
+        <SwitchContainer className="switch" checked={checked}>
+          <SwitchHidden id="toggle" type="checkbox" />
           <SwitchItem
             className="slider"
             onClick={switchThemeHandler}

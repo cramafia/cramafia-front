@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
 
 import { LobbiesTable } from '@/components/LobbiesTable'
+
 import {
   NewGameContainer,
   Title,
@@ -13,19 +14,14 @@ import {
   SubText,
   MinText,
   CreateGameButton,
-} from './Lobby.styles'
+} from './CreateLobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
-import { OptionGameType, SubOptionType } from './Lobby.types'
-import {
-  SubOptionId,
-  getAllSubOptionsIds,
-  getAllSubOptions,
-  getAllOptions,
-  getOption,
-} from './Lobby.types'
 
-export const Lobby: React.FC = () => {
+import { OptionGameType, SubOptionType } from './CreateLobby.types'
+import { getAllSubOptions, getAllOptions, getOption } from './CreateLobby.types'
+
+export const CreateLobby: React.FC = () => {
   const [currentGameType, setCurrentGameType] = useState(
     getOption(OptionGameType.CLASSIC)
   )

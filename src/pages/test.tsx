@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Button } from 'react-bootstrap'
 import { nanoid } from 'nanoid'
 
-import { usersApi } from 'src/api/usersApi/users.api'
+import { usersApi } from '@/api/usersApi/users.api'
 import { Page } from '../layouts/Page'
 
 const Test: NextPage = () => {

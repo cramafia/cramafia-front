@@ -4,7 +4,7 @@ export const baseApi = createApi({
   reducerPath: 'api',
   tagTypes: ['Users'],
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.NEXT_PUBLIC_LOCAL_BASE_URL}`,
+    baseUrl: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}`,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token')
       headers.set('Content-Type', 'application/json;charset=UTF-8')
