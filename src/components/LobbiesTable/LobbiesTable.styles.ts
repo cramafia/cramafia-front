@@ -6,6 +6,7 @@ import { getUnitAsPixels } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
 
 export const TableContainer = styled(Table)`
+  overflow: clip;
   padding: ${getUnitAsPixels(3)};
   ${getTypography(Typography.NAVIGATION)}
   text-align: center;

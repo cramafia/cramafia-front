@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { ImageFloat } from './TextImage.types'
 import { getUnitAsPixels } from '@/theme/layout'
 

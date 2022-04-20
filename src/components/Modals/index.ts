@@ -1,5 +1,6 @@
+import { ModalSize } from '@/theme/layout'
+
 import { Login } from './Login'
-import { ModalSize } from '../../theme/layout'
 import { Register } from './Register'
 import { ModalPayloadType } from '../../types'
 

@@ -1,12 +1,15 @@
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Color, getColor, ThemeType } from '../../theme/color'
+
+import { Color, getColor, ThemeType } from '@/theme/color'
 import {
+  getMediaQuery,
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
+  ScreenSize,
   VerticalSpacingType,
-} from '../../theme/layout'
-import { getTypography, Typography } from '../../theme/typography'
+} from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const FooterContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.LARGE)};
@@ -21,29 +24,31 @@ export const FooterContainer = styled.div`
 export const TopFooter = styled.div`
   display: flex;
   justify-content: space-between;
+
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   padding-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-`
 
-export const BottomFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
-  li {
-    margin-bottom: 0;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
+    flex-direction: column;
+    width: 100%;
+  }
+  span {
+    :first-child {
+      ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
+        display: none;
+      }
+    }
   }
 `
 
-export const FeedBackContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 25%;
+export const List = styled.ul`
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
-
-export const List = styled.ul``
 
 export const ListItem = styled.li`
   cursor: pointer;
@@ -55,15 +60,51 @@ export const ListItem = styled.li`
 `
 
 export const ListHeader = styled.li`
-  color: ${getColor(Color.GRAY_200)};
   ${getTypography(Typography.BODY_SMALL)}
+  color: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? getColor(Color.GRAY_200)
+      : getColor(Color.BLACK)};
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
+`
+
+export const FeedBackContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
+    width: 100%;
+  }
+`
+
+export const BottomFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  li {
+    margin-bottom: 0;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    flex-direction: column;
+  }
+`
+
+export const ListItems = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    width: 100%;
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  }
 `
 
 export const Email = styled.span`
   color: ${getColor(Color.GRAY_400)};
   :hover {
-    color: ${getColor(Color.WHITE)};
+    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     cursor: pointer;
   }
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
@@ -107,6 +148,7 @@ export const SocialLinks = styled.div`
   display: flex;
   justify-content: space-between;
   width: 25%;
+  flex-wrap: wrap;
 
   svg {
     width: ${getUnitAsPixels(4)};
@@ -117,5 +159,16 @@ export const SocialLinks = styled.div`
   }
   path {
     fill: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+  }
+  ${getMediaQuery(ScreenSize.LARGE, ScreenSize.XLARGE)} {
+    svg {
+      width: ${getUnitAsPixels(3)};
+    }
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    width: 100%;
+    svg {
+      width: ${getUnitAsPixels(5)};
+    }
   }
 `

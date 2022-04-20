@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+
 import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
-
 import {
   ModalContainer,
   MainText,

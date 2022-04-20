@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+
 import { StyledScroll } from './styles'
 
 const GlobalStyles = createGlobalStyle`
