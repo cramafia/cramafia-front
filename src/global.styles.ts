@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import { StyledScroll } from './styles'
 
 const GlobalStyles = createGlobalStyle`
+
   * {
     transition: all 0.25s linear;
   }

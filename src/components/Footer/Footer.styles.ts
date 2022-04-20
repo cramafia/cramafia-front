@@ -99,6 +99,13 @@ export const ListItems = styled.div`
     width: 100%;
     margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    flex-direction: column;
+    align-items: center;
+    li {
+      margin-bottom: ${getUnitAsPixels()};
+    }
+  }
 `
 
 export const Email = styled.span`

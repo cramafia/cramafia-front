@@ -16,7 +16,6 @@ import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
 } from '@/theme/normilize'
-import { getFont, Font } from '@/theme/font'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -31,26 +30,6 @@ export const HeaderContainer = styled.div`
 `
 
 export const Logo = styled.div`
-  color: linear-gradient(
-    90deg,
-    rgba(147, 13, 22, 1) 0%,
-    rgba(255, 127, 2, 1) 100%
-  );
-  :hover {
-    cursor: pointer;
-  }
-
-  a {
-    ${getTypography(Typography.BODY_REGULAR)}
-    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
-    padding: ${getUnitAsPixels(1.5)};
-  }
-  svg {
-    path {
-      width: 150px;
-      height: 70px;
-    }
-  }
   display: flex;
   align-items: center;
 `
@@ -66,15 +45,16 @@ export const StyledNavbar = styled(Navbar)`
   ${({ expand }: { expand?: boolean; theme: ThemeType }) =>
     (expand &&
       `
-  display: none;
-  ${getMediaQuery(ScreenSize.LARGE)} {
-  display: flex;
-} 
-`) ||
-    `display: flex;
-  ${getMediaQuery(ScreenSize.LARGE)} {
-  display: none;
-  `};
+      display: none;
+      ${getMediaQuery(ScreenSize.LARGE)} {
+        display: flex;
+      } 
+    `) ||
+    `
+      display: flex;
+      ${getMediaQuery(ScreenSize.LARGE)} {
+      display: none;
+    `};
 `
 
 export const NavItem = styled(Button)`
@@ -113,10 +93,14 @@ export const SideBar = styled(Navbar.Offcanvas)`
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.primary};
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary} !important;
+  border-left: 1px solid ${getColor(Color.GRAY_500)};
   button {
     :first-child {
       margin: auto;
     }
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    width: 100%;
   }
 `
 
