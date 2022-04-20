@@ -75,6 +75,11 @@ export const Processes = styled.div`
     justify-content: center;
     align-items: center;
   }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    img {
+      width: 100%;
+    }
+  }
 `
 
 export const Process = styled.div`

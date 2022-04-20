@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 		touch-action: pan-y;
-    overflow-x: hidden;
 	}
 	*, *:before, *:after {
 		box-sizing: inherit;
