@@ -42,7 +42,7 @@ export const GameSetting = styled.div`
     width: 100%;
     border: none;
   }
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
     flex-direction: column;
     align-items: center;
   }
@@ -52,7 +52,7 @@ export const GameTypeContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
     width: 100%;
   }
 `
@@ -61,7 +61,7 @@ export const AdvancedSettings = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 15%;
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
     margin-left: 0;
   }
 `
