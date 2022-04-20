@@ -63,12 +63,14 @@ export const AdvancedSettings = styled.div`
   margin-left: 15%;
   ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
     margin-left: 0;
+    width: 100%;
   }
 `
 
 export const SubText = styled.span`
   ${getTypography(Typography.BODY_SMALL)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
+  margin-right: ${getUnitAsPixels()};
 `
 
 export const MinText = styled.span`
@@ -89,6 +91,7 @@ export const CreateGameContainer = styled.div`
   ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
     margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
     width: 100%;
+    padding: 0;
   }
 `
 
