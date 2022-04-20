@@ -4,6 +4,8 @@ import {
   getUnitAsPixels,
   getModalSizeAsPixels,
   ModalSize,
+  getMediaQuery,
+  ScreenSize,
 } from '@/theme/layout'
 import { getColor, Color, ThemeType } from '@/theme/color'
 import CrossIcon from '@/assets/icons/cross.svg'
@@ -31,6 +33,12 @@ export const Content = styled.div`
     theme.background.primary === getColor(Color.BLACK)
       ? getColor(Color.DARK_BLUE_500)
       : getColor(Color.WHITE)};
+  ${getMediaQuery(ScreenSize.SMALL, ScreenSize.MEDIUM)} {
+    width: ${getModalSizeAsPixels(ModalSize.SMALL)};
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    width: 100%;
+  }
 `
 
 export const Cross = styled(CrossIcon)`
