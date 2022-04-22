@@ -103,8 +103,12 @@ export const IconContainer = styled.div`
   position: absolute;
   justify-content: center;
   align-items: center;
+
   svg {
     animation: ${scale} linear 10s;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    transform: scale(0.5);
   }
 `
 
