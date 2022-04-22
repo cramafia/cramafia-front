@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 import {
   Container,
@@ -10,7 +11,6 @@ import {
   GroupCol,
   SearchButton,
 } from './Search.styles'
-import { Row, Col } from 'react-bootstrap'
 
 export const Search = () => {
   const [playerType, togglePlayerType] = useState(false)

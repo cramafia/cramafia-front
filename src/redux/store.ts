@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+
 import globalReducer from './reducers/global.reducer'
 import rulesReducer from './reducers/rules.reducer'
 import socketReducer from './reducers/socket.reducer'
-import { baseApi } from '@/api/base.api'
+import { baseApi } from '@/services/base.api'
 
 const rootReducer = combineReducers({
   global: globalReducer,

@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 import { useSelector } from 'react-redux'
 
 import { stateType } from 'src/redux/store'
-import { usersApi } from '@/api/usersApi/users.api'
+import { usersApi } from '@/services/usersApi/users.api'
 import { Page } from '../layouts/Page'
 
 const Test: NextPage = () => {

@@ -14,7 +14,7 @@ export const Socket = () => {
   const { socket: _socket } = useSelector((state: stateType) => state.global)
   useEffect(() => {
     if (!socket) {
-      socket = io('http://localhost:5000')
+      socket = io('https://cramafia-api-dev.herokuapp.com/')
       socketInitializer()
       dispatch(connectSocket(socket))
     }

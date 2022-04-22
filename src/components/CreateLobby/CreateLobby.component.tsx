@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { nanoid } from 'nanoid'
 
-import { LobbiesTable } from '../LobbiesTable'
+import { LobbiesTable } from '@/components/LobbiesTable'
+
 import {
   NewGameContainer,
   Title,
@@ -16,6 +17,7 @@ import {
 } from './CreateLobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
+
 import { OptionGameType, SubOptionType } from './CreateLobby.types'
 import { getAllSubOptions, getAllOptions, getOption } from './CreateLobby.types'
 

@@ -39,8 +39,13 @@ export const getImageSizeAsPixels = (size: ImageSize): string => {
   return pixelate(imageSizes[size])
 }
 
-export const getMediaQuery = (size: ScreenSize): string => {
-  return `@media screen and (min-width: ${pixelate(breakpoints[size])})`
+export const getMediaQuery = (
+  minWidth: ScreenSize,
+  maxWidth?: ScreenSize
+): string => {
+  return `@media screen and (min-width: ${pixelate(breakpoints[minWidth])}) ${
+    maxWidth ? `and (max-width: ${pixelate(breakpoints[maxWidth])})` : ''
+  }`
 }
 
 export const getUnitAsPixels = (multiplier: number = 1): string => {
@@ -75,7 +80,7 @@ const verticalSpacing: { [key in VerticalSpacingType]: number } = {
 }
 
 const modalSizes: { [key in ModalSize]: number } = {
-  [ModalSize.MOBAIL]: 300,
+  [ModalSize.MOBAIL]: 400,
   [ModalSize.SMALL]: 500,
   [ModalSize.MEDIUM]: 700,
   [ModalSize.LARGE]: 900,

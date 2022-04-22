@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+
 import { CenteredContainer } from '../../../styles'
 import { openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
-
 import {
   CheckBox,
   HelperButtons,

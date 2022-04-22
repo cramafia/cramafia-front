@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 import { Color, getColor } from '@/theme/color'
 import {
   getUnitAsPixels,
@@ -5,7 +7,6 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import styled from 'styled-components'
 
 export const OptionText = styled.span`
   margin-left: ${getUnitAsPixels()};

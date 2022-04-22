@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import { NumberedList } from '../components/NumberedList'
 
 export enum TextType {

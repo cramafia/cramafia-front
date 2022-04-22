@@ -8,13 +8,10 @@ import {
   Slogan,
   Processes,
   Process,
-  Image,
   ProcessHeading,
   ProcessSubHeading,
 } from './Main.styles'
-import Process1 from '../../assets/images/process1.png'
-import Process2 from '../../assets/images/process2.png'
-import Process3 from '../../assets/images/process3.png'
+import { getImage, ImageType } from '../Image'
 
 export const Main: React.FC = () => {
   return (
@@ -27,7 +24,7 @@ export const Main: React.FC = () => {
       <Spacer />
       <Processes>
         <Process>
-          <Image src={Process1} alt="process1" />
+          {getImage(ImageType.PROCESS_1)}
           <ProcessHeading>
             Семь красных игроков, среди которых один шериф
           </ProcessHeading>
@@ -38,7 +35,7 @@ export const Main: React.FC = () => {
           </ProcessSubHeading>
         </Process>
         <Process>
-          <Image src={Process2} alt="process2" />
+          {getImage(ImageType.PROCESS_2)}
           <ProcessHeading>
             Три черных игрока, среди которых один дон
           </ProcessHeading>
@@ -49,7 +46,7 @@ export const Main: React.FC = () => {
           </ProcessSubHeading>
         </Process>
         <Process>
-          <Image src={Process3} alt="process3" />
+          {getImage(ImageType.PROCESS_3)}
           <ProcessHeading>Средняя продолжительность игры</ProcessHeading>
           <ProcessSubHeading>
             У каждого игрока есть минута на объяснение своей позиции каждый

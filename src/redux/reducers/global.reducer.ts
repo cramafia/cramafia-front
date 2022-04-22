@@ -3,8 +3,8 @@ import { Socket } from 'socket.io-client'
 import { DefaultEventsMap } from '@socket.io/component-emitter'
 
 import { AlertPayloadType, ModalPayloadType } from '../../types'
-import { ModalSize } from '../../theme/layout'
-import { Theme } from '../../theme/color'
+import { ModalSize } from '@/theme/layout'
+import { Theme } from '@/theme/color'
 
 type initialStateType = {
   modal: ModalPayloadType | null

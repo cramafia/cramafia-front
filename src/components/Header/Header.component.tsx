@@ -1,4 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
+
+import { ButtonLink } from '@/components/ButtonLink'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
+import { Theme } from '@/theme/color'
+
+import { stateType } from 'src/redux/store'
+import { LogoText } from 'src/styles'
 import {
   NavItem,
   Play,
@@ -8,39 +17,74 @@ import {
   SideBar,
   SideBarTitle,
 } from './Header.styles'
-import Link from 'next/link'
-import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
-import { useDispatch } from 'react-redux'
+import { openModal } from '../../redux/reducers/global.reducer'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
-import { ButtonLink } from '../ButtonLink'
-import { ThemeSwitcher } from './../ThemeSwitcher'
-import { LogoText } from 'src/styles'
+import { useToggle } from '@/hooks/useToggle'
 
 export const Header: React.FC = () => {
+  const theme: Theme = useSelector((state: stateType) => state.global.theme)
   const dispatch = useDispatch()
-  const onOpen = (type: ModalType) => {
+  const [isExpanded, toggleExpanded] = useState(false)
+
+  const handleModalButtons = (type: ModalType) => {
+    toggleExpanded(false)
     dispatch(openModal(getModal(type)))
+  }
+
+  const handleToggle = (b: boolean) => {
+    toggleExpanded(b)
   }
 
   const NavContent = () => {
     return (
       <>
-        <Play>
-          <Link href="/game-search">Играть</Link>
+        <Play onClick={handleToggle.bind(this, false)}>
+          <ButtonLink href="/game-search">Играть</ButtonLink>
         </Play>
-        <NavItem>
-          <Link href="/watch">Смотреть</Link>
+        <NavItem onClick={handleToggle.bind(this, false)}>
+          <ButtonLink href="/watch">Смотреть</ButtonLink>
         </NavItem>
-        <NavItem>
-          <Link href="/rules">Правила</Link>
+        <NavItem onClick={handleToggle.bind(this, false)}>
+          <ButtonLink href="/rules">Правила</ButtonLink>
         </NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
+        <NavItem onClick={handleModalButtons.bind(this, ModalType.LOGIN)}>
+          Вход
+        </NavItem>
+        <NavItem onClick={handleModalButtons.bind(this, ModalType.REGISTER)}>
           Регистрация
         </NavItem>
       </>
+    )
+  }
+
+  const MenuContent = () => {
+    return (
+      <Container fluid>
+        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+        <SideBar
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          placement="end"
+        >
+          <Offcanvas.Header
+            closeButton
+            closeVariant={theme === Theme.BLACK ? 'white' : undefined}
+          >
+            <SideBarTitle
+              id="offcanvasNavbarLabel"
+              onClick={handleToggle.bind(this, false)}
+            >
+              <LogoText>CRAMAFIA</LogoText>
+            </SideBarTitle>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <NavContent />
+            </Nav>
+          </Offcanvas.Body>
+        </SideBar>
+      </Container>
     )
   }
 
@@ -50,27 +94,14 @@ export const Header: React.FC = () => {
         <ButtonLink href="/">
           <LogoText>CRAMAFIA</LogoText>
         </ButtonLink>
-
         <ThemeSwitcher />
       </Logo>
-      <StyledNavbar expand={false}>
-        <Container fluid>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <SideBar
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <SideBarTitle id="offcanvasNavbarLabel">Logo</SideBarTitle>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <NavContent />
-              </Nav>
-            </Offcanvas.Body>
-          </SideBar>
-        </Container>
+      <StyledNavbar
+        expand={false}
+        onToggle={toggleExpanded}
+        expanded={isExpanded}
+      >
+        <MenuContent />
       </StyledNavbar>
       <StyledNavbar expand={true}>
         <NavContent />

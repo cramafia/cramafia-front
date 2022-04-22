@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container, Text, Wrapper, Title } from './IconText.styles'
 import { IconTextProps } from './IconText.types'
-import { getIcon } from '../../../Icon'
+import { getIcon } from '@/components/Icon'
 
 export const IconText = ({
   children,
