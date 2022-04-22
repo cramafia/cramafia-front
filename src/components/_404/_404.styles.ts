@@ -48,6 +48,9 @@ export const AdditionalInformation = styled.div`
     margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.XLARGE)};
     order: -1;
   }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    text-align: center;
+  }
 `
 
 export const _404Container = styled.div`
@@ -57,12 +60,20 @@ export const _404Container = styled.div`
   ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
     margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+  }
 `
 
 export const _404Text = styled.span`
   font-family: ${getFont(Font.POPPINS_BOLD)};
   line-height: 20%;
   font-size: 350px;
+  ${getMediaQuery(ScreenSize.SMALL, ScreenSize.LARGE)} {
+    font-size: 220px;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    font-size: 180px;
+  }
 `
 
 export const SubText = styled.span`
@@ -78,6 +89,9 @@ export const TimeContainer = styled.div`
   padding: ${getUnitAsPixels(2)};
   width: 50%;
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    width: 100%;
+  }
 `
 
 export const HomePage = styled.span`
@@ -93,5 +107,11 @@ export const IconContainer = styled.div`
   align-items: center;
   svg {
     animation: ${scale} linear 10s;
+  }
+`
+
+export const LogoContainer = styled.div`
+  span {
+    position: absolute;
   }
 `
