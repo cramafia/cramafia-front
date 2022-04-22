@@ -60,8 +60,6 @@ export const _404Container = styled.div`
   ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
     margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   }
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
-  }
 `
 
 export const _404Text = styled.span`

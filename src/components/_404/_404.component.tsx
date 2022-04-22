@@ -20,7 +20,7 @@ import {
 import { getIcon, IconType } from '@/components/Icon'
 
 export const _404: React.FC = () => {
-  const [time, setTime] = useState(9999)
+  const [time, setTime] = useState(9)
   const router = useRouter()
 
   useEffect(() => {
