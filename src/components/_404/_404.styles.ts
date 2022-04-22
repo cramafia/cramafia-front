@@ -63,15 +63,7 @@ export const _404Container = styled.div`
 `
 
 export const _404Text = styled.span`
-  font-family: ${getFont(Font.POPPINS_BOLD)};
-  line-height: 20%;
-  font-size: 350px;
-  ${getMediaQuery(ScreenSize.SMALL, ScreenSize.LARGE)} {
-    font-size: 220px;
-  }
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
-    font-size: 180px;
-  }
+  ${getTypography(Typography._404)}
 `
 
 export const SubText = styled.span`
