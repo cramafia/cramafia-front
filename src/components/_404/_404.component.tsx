@@ -15,6 +15,7 @@ import {
   TimeContainer,
   HomePage,
   IconContainer,
+  LogoContainer,
 } from './_404.styles'
 import { getIcon, IconType } from '@/components/Icon'
 
@@ -37,9 +38,11 @@ export const _404: React.FC = () => {
 
   return (
     <NotFoundContainer>
-      <LogoText>
-        <ButtonLink href="/">CRAMAFIA</ButtonLink>
-      </LogoText>
+      <LogoContainer>
+        <LogoText>
+          <ButtonLink href="/">CRAMAFIA</ButtonLink>
+        </LogoText>
+      </LogoContainer>
 
       <ContentContainer>
         <Content>
