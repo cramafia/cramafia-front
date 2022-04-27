@@ -1,4 +1,4 @@
-export interface CreateUserDto {
+export interface AuthDto {
   username: string
   password: string
 }
