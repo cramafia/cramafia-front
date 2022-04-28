@@ -22,7 +22,7 @@ export const authApi = baseApi.injectEndpoints({
       }),
     }),
     refresh_token: build.query<AuthResponseDto, string>({
-      query: (refresh_token: string) => ({
+      query: (refresh_token) => ({
         url: apiUrl.get(`refresh-token/${refresh_token}`),
       }),
     }),
