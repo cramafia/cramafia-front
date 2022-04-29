@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { CenteredContainer } from '../../../styles'
-import { openModal } from '../../../redux/reducers/global.reducer'
+import { closeModal, openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -43,8 +43,9 @@ export const Login: React.FC = () => {
     if (data?.access_token) {
       localStorage.setItem('access_token', data.access_token)
       localStorage.setItem('refresh_token', data.refresh_token)
+      dispatch(closeModal())
     }
-  }, [data])
+  }, [data, dispatch])
 
   return (
     <ModalContainer>

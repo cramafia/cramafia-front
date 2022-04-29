@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseApi.middleware, authMiddleware),
+    getDefaultMiddleware().concat(baseApi.middleware),
 })
 
 export type stateType = ReturnType<typeof store.getState>

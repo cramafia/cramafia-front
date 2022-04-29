@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { openModal } from '../../../redux/reducers/global.reducer'
+import { openModal, closeModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -37,8 +37,9 @@ export const Register: React.FC = () => {
     if (data?.access_token) {
       localStorage.setItem('access_token', data.access_token)
       localStorage.setItem('refresh_token', data.refresh_token)
+      dispatch(closeModal())
     }
-  }, [data])
+  }, [data, dispatch])
 
   const handleRegistration = () => {
     registration(user)
