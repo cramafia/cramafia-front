@@ -3,6 +3,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import globalReducer from './reducers/global.reducer'
 import rulesReducer from './reducers/rules.reducer'
 import { baseApi } from 'src/services/base.api'
+import { authMiddleware } from 'src/middlewares/auth.middleware'
 
 const rootReducer = combineReducers({
   global: globalReducer,

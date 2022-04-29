@@ -1,7 +1,7 @@
 import { baseApi } from '../base.api'
 import { ResponseUserDto } from './dto/response-user.dto'
-import { CreateUserDto } from './dto/create-user.dto'
 import { ApiUrl } from '../apiUrl'
+import { AuthDto } from '../authApi/dto/auth.dto'
 
 const apiUrl = new ApiUrl('users')
 
@@ -23,7 +23,7 @@ export const usersApi = baseApi.injectEndpoints({
         url: apiUrl.get('me'),
       }),
     }),
-    createUser: build.mutation<ResponseUserDto, CreateUserDto>({
+    createUser: build.mutation<ResponseUserDto, AuthDto>({
       query: (body) => ({
         url: apiUrl.get('create'),
         method: 'POST',

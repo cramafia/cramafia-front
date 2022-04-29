@@ -12,12 +12,6 @@ import { Modal } from '@/components/Modal'
 import { Alert } from '@/components/Alert'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    localStorage.setItem(
-      'token',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZsb29kZWQiLCJpYXQiOjE2NTAxNjI5NjQsImV4cCI6MTY1MDE2NDE2NH0.LsOwUMjYv6O6oP1Aw2QSLHW0s2Ax6gOe1w-p-nbYPO0'
-    )
-  }, [])
   return (
     <>
       <Head>
