@@ -5,25 +5,32 @@ import { AuthDto } from '../authApi/dto/auth.dto'
 
 const apiUrl = new ApiUrl('users')
 
+export enum UsersEndpoints {
+  GET_ALL_USERS = 'getAllUsers',
+  GET_USER = 'getUser',
+  GET_ME = 'getMe',
+  CREATE_USER = 'createUser',
+}
+
 export const usersApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getAllUsers: build.query<ResponseUserDto[], void>({
+    [UsersEndpoints.GET_ALL_USERS]: build.query<ResponseUserDto[], void>({
       query: () => ({
         url: apiUrl.get('all'),
       }),
       providesTags: ['Users'],
     }),
-    getUser: build.query<ResponseUserDto, string>({
+    [UsersEndpoints.GET_USER]: build.query<ResponseUserDto, string>({
       query: (username: string) => ({
         url: apiUrl.get(`/${username}`),
       }),
     }),
-    getMe: build.query<ResponseUserDto, void>({
+    [UsersEndpoints.GET_ME]: build.query<ResponseUserDto, void>({
       query: () => ({
         url: apiUrl.get('me'),
       }),
     }),
-    createUser: build.mutation<ResponseUserDto, AuthDto>({
+    [UsersEndpoints.CREATE_USER]: build.mutation<ResponseUserDto, AuthDto>({
       query: (body) => ({
         url: apiUrl.get('create'),
         method: 'POST',

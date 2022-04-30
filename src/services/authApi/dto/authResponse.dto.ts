@@ -1,4 +1,6 @@
+import { Tokens } from '@/types/api.types'
+
 export interface AuthResponseDto {
-  access_token: string
-  refresh_token: string
+  [Tokens.AT]: string
+  [Tokens.RT]: string
 }

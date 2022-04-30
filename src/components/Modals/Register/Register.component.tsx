@@ -14,6 +14,7 @@ import {
   MinText,
 } from '../styles'
 import { authApi } from 'src/services/authApi/auth.api'
+import AuthHelper from '@/helpers/auth.helper'
 
 export const Register: React.FC = () => {
   const dispatch = useDispatch()
@@ -35,8 +36,7 @@ export const Register: React.FC = () => {
 
   useEffect(() => {
     if (data?.access_token) {
-      localStorage.setItem('access_token', data.access_token)
-      localStorage.setItem('refresh_token', data.refresh_token)
+      AuthHelper.setTokensFromData(data)
       dispatch(closeModal())
     }
   }, [data, dispatch])
