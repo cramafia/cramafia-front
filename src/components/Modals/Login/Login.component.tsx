@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
+import { authApi } from '@/services/authApi/auth.api'
+import AuthHelper from '@/helpers/auth.helper'
+import { Tokens } from '@/types/api.types'
+
 import { CenteredContainer } from '../../../styles'
 import { closeModal, openModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
@@ -15,7 +19,6 @@ import {
   SubText,
   MinText,
 } from '../styles'
-import { authApi } from 'src/services/authApi/auth.api'
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
@@ -41,8 +44,7 @@ export const Login: React.FC = () => {
 
   useEffect(() => {
     if (data?.access_token) {
-      localStorage.setItem('access_token', data.access_token)
-      localStorage.setItem('refresh_token', data.refresh_token)
+      AuthHelper.setTokensFromData(data)
       dispatch(closeModal())
     }
   }, [data, dispatch])
