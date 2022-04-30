@@ -10,7 +10,7 @@ import AuthHelper from '@/helpers/auth.helper'
 import { authMiddleware } from 'src/middlewares/auth.middleware'
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${process.env.NEXT_PUBLIC_LOCAL_BASE_URL}`,
+  baseUrl: `${process.env.NEXT_PUBLIC_DEV_BASE_URL}`,
   prepareHeaders: async (headers) => {
     const token = AuthHelper.getToken(Tokens.AT)
     headers.set('Content-Type', 'application/json;charset=UTF-8')
