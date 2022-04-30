@@ -8,12 +8,14 @@ type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
+  isAuthorized: boolean
 }
 
 const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
   alert: null,
+  isAuthorized: false,
 }
 
 const globalReducer = createSlice({
@@ -57,10 +59,23 @@ const globalReducer = createSlice({
         modal: null,
       }
     },
+
+    authorizeUser(state, action) {
+      return {
+        ...state,
+        isLogin: action.payload,
+      }
+    },
   },
 })
 
-export const { openModal, closeModal, addAlert, closeAlert, switchTheme } =
-  globalReducer.actions
+export const {
+  openModal,
+  closeModal,
+  addAlert,
+  closeAlert,
+  switchTheme,
+  authorizeUser,
+} = globalReducer.actions
 
 export default globalReducer.reducer

@@ -3,13 +3,14 @@ import '@/theme/fonts/index.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { store } from '../redux/store'
 
 import GlobalStyles from '../global.styles'
 import { ThemeGlobal } from '@/theme/ThemeGlobal'
 import { Modal } from '@/components/Modal'
 import { Alert } from '@/components/Alert'
+import Application from '@/components/Application'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -19,14 +20,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Provider store={store}>
-        <ThemeGlobal>
-          <Modal />
-          <Alert />
-          {/*TODO*/}
-          {/*@ts-ignore*/}
-          <GlobalStyles />
-          <Component {...pageProps} />
-        </ThemeGlobal>
+        <Application>
+          <ThemeGlobal>
+            <Modal />
+            <Alert />
+            {/*TODO*/}
+            {/*@ts-ignore*/}
+            <GlobalStyles />
+            <Component {...pageProps} />
+          </ThemeGlobal>
+        </Application>
       </Provider>
     </>
   )

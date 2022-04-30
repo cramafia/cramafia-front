@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { openModal, closeModal } from '../../../redux/reducers/global.reducer'
+import {
+  openModal,
+  closeModal,
+  authorizeUser,
+} from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -38,6 +42,7 @@ export const Register: React.FC = () => {
     if (data?.access_token) {
       AuthHelper.setTokensFromData(data)
       dispatch(closeModal())
+      dispatch(authorizeUser(data.access_token))
     }
   }, [data, dispatch])
 

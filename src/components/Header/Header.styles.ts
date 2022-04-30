@@ -124,3 +124,5 @@ export const ThemeSwitcher = styled(Form.Check)`
     border-radius: ${getUnitAsPixels(2)};
   }
 `
+
+export const UserContainer = styled.div``

@@ -6,7 +6,11 @@ import AuthHelper from '@/helpers/auth.helper'
 import { Tokens } from '@/types/api.types'
 
 import { CenteredContainer } from '../../../styles'
-import { closeModal, openModal } from '../../../redux/reducers/global.reducer'
+import {
+  authorizeUser,
+  closeModal,
+  openModal,
+} from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -46,6 +50,7 @@ export const Login: React.FC = () => {
     if (data?.access_token) {
       AuthHelper.setTokensFromData(data)
       dispatch(closeModal())
+      dispatch(authorizeUser(!!data.access_token))
     }
   }, [data, dispatch])
 
