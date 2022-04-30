@@ -80,7 +80,7 @@ const verticalSpacing: { [key in VerticalSpacingType]: number } = {
 }
 
 const modalSizes: { [key in ModalSize]: number } = {
-  [ModalSize.MOBAIL]: 300,
+  [ModalSize.MOBAIL]: 400,
   [ModalSize.SMALL]: 500,
   [ModalSize.MEDIUM]: 700,
   [ModalSize.LARGE]: 900,
