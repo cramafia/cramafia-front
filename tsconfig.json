@@ -21,7 +21,9 @@
       "@/theme/*": ["./src/theme/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/hooks/*": ["./src/hooks/*"],
-      "@/services/*": ["./src/services/*"]
+      "@/services/*": ["src/services/*"],
+      "@/types/*": ["src/types/*"],
+      "@/helpers/*": ["src/helpers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

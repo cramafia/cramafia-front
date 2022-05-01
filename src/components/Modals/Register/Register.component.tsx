@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { openModal } from '../../../redux/reducers/global.reducer'
+import { openModal, closeModal } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -13,19 +13,50 @@ import {
   SubmiteButton,
   MinText,
 } from '../styles'
+import { authApi } from 'src/services/authApi/auth.api'
+import AuthHelper from '@/helpers/auth.helper'
 
 export const Register: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
   }
+  const [registration, { data }] = authApi.useRegistrationMutation()
+
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+  })
+  const handleUser = (field: string, e: any) => {
+    setUser({
+      ...user,
+      [field]: e.target.value,
+    })
+  }
+
+  useEffect(() => {
+    if (data?.access_token) {
+      AuthHelper.setTokensFromData(data)
+      dispatch(closeModal())
+    }
+  }, [data, dispatch])
+
+  const handleRegistration = () => {
+    registration(user)
+  }
 
   return (
     <ModalContainer>
       <MainText>Зарегистрироваться</MainText>
-      <ModalInput placeholder="Введите никнейм (Логин)" />
+      <ModalInput
+        placeholder="Введите никнейм (Логин)"
+        onChange={handleUser.bind(this, 'username')}
+      />
       <ModalInput placeholder="Введите е-mail" />
-      <ModalInput placeholder="Придумайте пароль" />
+      <ModalInput
+        placeholder="Придумайте пароль"
+        onChange={handleUser.bind(this, 'password')}
+      />
       <ModalInput placeholder="Повторите пароль" />
       <HelperButtons>
         <CheckBox />
@@ -40,7 +71,9 @@ export const Register: React.FC = () => {
           </MinText>
         </div>
       </HelperButtons>
-      <SubmiteButton>Зарегистрироваться</SubmiteButton>
+      <SubmiteButton onClick={handleRegistration}>
+        Зарегистрироваться
+      </SubmiteButton>
       <HelperButtons>
         <MinText>Есть аккаунт?</MinText>
         <MinText isButton={true} onClick={onOpen.bind(this, ModalType.LOGIN)}>
