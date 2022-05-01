@@ -9,6 +9,7 @@ type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
+  isAuthorized: boolean
   socket: Socket | null
 }
 
@@ -16,6 +17,7 @@ const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
   alert: null,
+  isAuthorized: false,
   socket: null,
 }
 
@@ -61,6 +63,13 @@ const globalReducer = createSlice({
       }
     },
 
+    authorizeUser(state, action: PayloadAction<boolean>) {
+      return {
+        ...state,
+        isAuthorized: action.payload,
+      }
+    },
+
     connectSocket(state, action: PayloadAction<Socket>) {
       return {
         ...state,
@@ -76,6 +85,7 @@ export const {
   addAlert,
   closeAlert,
   switchTheme,
+  authorizeUser,
   connectSocket,
 } = globalReducer.actions
 

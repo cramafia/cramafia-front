@@ -6,6 +6,7 @@ import { ButtonLink } from '@/components/ButtonLink'
 import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 import { Theme } from '@/theme/color'
 
+import { User } from './components/User'
 import { stateType } from 'src/redux/store'
 import { LogoText } from 'src/styles'
 import {
@@ -16,17 +17,16 @@ import {
   StyledNavbar,
   SideBar,
   SideBarTitle,
+  MenuContainer,
 } from './Header.styles'
 import { openModal } from '../../redux/reducers/global.reducer'
 import { getModal } from '../Modals'
 import { ModalType } from '../Modals'
-import { useToggle } from '@/hooks/useToggle'
 
 export const Header: React.FC = () => {
   const theme: Theme = useSelector((state: stateType) => state.global.theme)
   const dispatch = useDispatch()
   const [isExpanded, toggleExpanded] = useState(false)
-
   const handleModalButtons = (type: ModalType) => {
     toggleExpanded(false)
     dispatch(openModal(getModal(type)))
@@ -35,6 +35,8 @@ export const Header: React.FC = () => {
   const handleToggle = (b: boolean) => {
     toggleExpanded(b)
   }
+
+  const { isLogin } = useSelector((state: any) => state.global)
 
   const NavContent = () => {
     return (
@@ -48,19 +50,27 @@ export const Header: React.FC = () => {
         <NavItem onClick={handleToggle.bind(this, false)}>
           <ButtonLink href="/rules">Правила</ButtonLink>
         </NavItem>
-        <NavItem onClick={handleModalButtons.bind(this, ModalType.LOGIN)}>
-          Вход
-        </NavItem>
-        <NavItem onClick={handleModalButtons.bind(this, ModalType.REGISTER)}>
-          Регистрация
-        </NavItem>
+        {isLogin ? (
+          <User />
+        ) : (
+          <>
+            <NavItem onClick={handleModalButtons.bind(this, ModalType.LOGIN)}>
+              Вход
+            </NavItem>
+            <NavItem
+              onClick={handleModalButtons.bind(this, ModalType.REGISTER)}
+            >
+              Регистрация
+            </NavItem>
+          </>
+        )}
       </>
     )
   }
 
   const MenuContent = () => {
     return (
-      <Container fluid>
+      <MenuContainer fluid>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <SideBar
           id="offcanvasNavbar"
@@ -84,7 +94,7 @@ export const Header: React.FC = () => {
             </Nav>
           </Offcanvas.Body>
         </SideBar>
-      </Container>
+      </MenuContainer>
     )
   }
 

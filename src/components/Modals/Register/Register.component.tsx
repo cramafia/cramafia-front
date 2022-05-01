@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { Spinner } from 'react-bootstrap'
 
-import { openModal, closeModal } from '../../../redux/reducers/global.reducer'
+import {
+  openModal,
+  closeModal,
+  authorizeUser,
+  addAlert,
+} from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
 import {
@@ -12,21 +18,26 @@ import {
   CheckBox,
   SubmiteButton,
   MinText,
+  ErrorText,
 } from '../styles'
 import { authApi } from 'src/services/authApi/auth.api'
 import AuthHelper from '@/helpers/auth.helper'
+import { AlertType } from '@/components/Alert/Alert.types'
 
 export const Register: React.FC = () => {
   const dispatch = useDispatch()
   const onOpen = (type: ModalType) => {
     dispatch(openModal(getModal(type)))
   }
-  const [registration, { data }] = authApi.useRegistrationMutation()
+  const [registration, { data, error, isLoading }] =
+    authApi.useRegistrationMutation()
 
   const [user, setUser] = useState({
     username: '',
     password: '',
   })
+
+  const [errorText, setErrorText] = useState('')
   const handleUser = (field: string, e: any) => {
     setUser({
       ...user,
@@ -34,16 +45,29 @@ export const Register: React.FC = () => {
     })
   }
 
+  const handleRegistration = () => {
+    registration(user)
+  }
+
   useEffect(() => {
     if (data?.access_token) {
       AuthHelper.setTokensFromData(data)
       dispatch(closeModal())
+      dispatch(
+        addAlert({
+          type: AlertType.SUCCESS,
+          title: 'Успех',
+          text: 'Вы успешно зарегистрировались',
+        })
+      )
+      dispatch(authorizeUser(!!data.access_token))
     }
-  }, [data, dispatch])
-
-  const handleRegistration = () => {
-    registration(user)
-  }
+    if (error) {
+      console.log(error)
+      const { data } = error as any
+      setErrorText(data?.message)
+    }
+  }, [data, error])
 
   return (
     <ModalContainer>
@@ -51,13 +75,15 @@ export const Register: React.FC = () => {
       <ModalInput
         placeholder="Введите никнейм (Логин)"
         onChange={handleUser.bind(this, 'username')}
+        errorText={errorText}
       />
-      <ModalInput placeholder="Введите е-mail" />
       <ModalInput
         placeholder="Придумайте пароль"
         onChange={handleUser.bind(this, 'password')}
+        errorText={errorText}
       />
-      <ModalInput placeholder="Повторите пароль" />
+      <ModalInput placeholder="Повторите пароль" errorText={errorText} />
+      <ErrorText>{errorText}</ErrorText>
       <HelperButtons>
         <CheckBox />
         <div>
@@ -71,8 +97,13 @@ export const Register: React.FC = () => {
           </MinText>
         </div>
       </HelperButtons>
-      <SubmiteButton onClick={handleRegistration}>
-        Зарегистрироваться
+      <SubmiteButton
+        variant="warning"
+        onClick={handleRegistration}
+        isLoading={isLoading}
+        disabled={isLoading}
+      >
+        {isLoading ? <Spinner animation="border" /> : 'Зарегистрироваться'}
       </SubmiteButton>
       <HelperButtons>
         <MinText>Есть аккаунт?</MinText>
