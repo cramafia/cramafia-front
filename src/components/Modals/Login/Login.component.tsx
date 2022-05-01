@@ -68,7 +68,7 @@ export const Login: React.FC = () => {
       <MainText>Войти</MainText>
 
       <ModalInput
-        placeholder="Никнейм/Email"
+        placeholder="Никнейм"
         value={user.username}
         onChange={handleUser.bind(this, 'username')}
         errorText={errorText}
