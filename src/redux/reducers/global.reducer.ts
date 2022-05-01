@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Socket } from 'socket.io-client'
-import { DefaultEventsMap } from '@socket.io/component-emitter'
 
 import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '@/theme/layout'
@@ -10,7 +9,7 @@ type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
-  socket: Socket<DefaultEventsMap, DefaultEventsMap> | null
+  socket: Socket | null
 }
 
 const initialState: initialStateType = {

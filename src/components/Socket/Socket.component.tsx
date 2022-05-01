@@ -1,17 +1,23 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { io, Socket as SocketClient } from 'socket.io-client'
-import { DefaultEventsMap } from '@socket.io/component-emitter'
 
 import { stateType } from 'src/redux/store'
 import { connectSocket } from 'src/redux/reducers/global.reducer'
-import { commonEvents } from './events/common-events'
+import { commonHandlers } from './handlers/common.handlers'
 
-let socket: SocketClient<DefaultEventsMap, DefaultEventsMap>
+let socket: SocketClient
 
 export const Socket = () => {
   const dispatch = useDispatch()
   const { socket: _socket } = useSelector((state: stateType) => state.global)
+
+  const socketInitializer = () => {
+    if (socket) {
+      commonHandlers(socket, dispatch)
+    }
+  }
+
   useEffect(() => {
     if (!socket) {
       socket = io(process.env.NEXT_PUBLIC_DEV_BASE_URL || '')
@@ -19,10 +25,6 @@ export const Socket = () => {
       dispatch(connectSocket(socket))
     }
   }, [])
-
-  const socketInitializer = async () => {
-    commonEvents(socket, dispatch)
-  }
 
   return <></>
 }
