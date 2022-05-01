@@ -40,7 +40,7 @@ export const ModalInput = styled(Form.Control)`
         : getColor(Color.WHITE)};
   }
   ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
-    !!errorText ? `border: 1px solid ${getColor(Color.RED_100)}` : ''};
+    !!errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
 `
 
 export const SubText = styled.span`
@@ -79,14 +79,13 @@ export const SubmiteButton = styled(Button)`
     border-color: ${getColor(Color.GREEN_100)};
   }
   ${({ isLoading, theme }: { isLoading: boolean; theme: ThemeType }) =>
-    isLoading
-      ? `background-color:${getColor(Color.GRAY_200)}; 
+    isLoading &&
+    `background-color:${getColor(Color.GRAY_200)}; 
         :hover, focus{ 
           background: ${getColor(Color.GRAY_200)}; 
           cursor: progress;
         };
-        `
-      : ``}
+        `}
 `
 
 export const MinText = styled.span`

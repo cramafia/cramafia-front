@@ -17,6 +17,7 @@ import {
   StyledNavbar,
   SideBar,
   SideBarTitle,
+  MenuContainer,
 } from './Header.styles'
 import { openModal } from '../../redux/reducers/global.reducer'
 import { getModal } from '../Modals'
@@ -69,7 +70,7 @@ export const Header: React.FC = () => {
 
   const MenuContent = () => {
     return (
-      <Container fluid className="_menu">
+      <MenuContainer fluid>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <SideBar
           id="offcanvasNavbar"
@@ -93,7 +94,7 @@ export const Header: React.FC = () => {
             </Nav>
           </Offcanvas.Body>
         </SideBar>
-      </Container>
+      </MenuContainer>
     )
   }
 

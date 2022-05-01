@@ -6,6 +6,7 @@ import {
   Form,
   Navbar,
   Offcanvas,
+  Container,
 } from 'react-bootstrap'
 
 import { Opacity, ThemeType } from '@/theme/color'
@@ -39,9 +40,6 @@ export const StyledNavbar = styled(Navbar)`
   justify-content: space-between;
   color: ${getColor(Color.WHITE)};
   flex-wrap: nowrap;
-  ._menu > button {
-    background-color: ${getColor(Color.WHITE)};
-  }
   ${({ expand }: { expand?: boolean; theme: ThemeType }) =>
     (expand &&
       `
@@ -75,6 +73,12 @@ export const NavItem = styled(Button)`
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   div {
     padding: ${getUnitAsPixels(1)} ${getUnitAsPixels(3)};
+  }
+`
+
+export const MenuContainer = styled(Container)`
+  button {
+    background-color: ${getColor(Color.WHITE)};
   }
 `
 

@@ -67,7 +67,7 @@ export const Register: React.FC = () => {
       const { data } = error as any
       setErrorText(data?.message)
     }
-  }, [data, dispatch, error])
+  }, [data, error])
 
   return (
     <ModalContainer>
