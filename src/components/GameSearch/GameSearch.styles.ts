@@ -6,10 +6,29 @@ import {
   getUnitAsPixels,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { getColor, Color, ThemeType } from '@/theme/color'
+import {
+  getColor,
+  Color,
+  ThemeType,
+  getColorWithOpacity,
+  Opacity,
+} from '@/theme/color'
 
 export const GameSearchContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+`
+
+export const LivePlayers = styled.div`
+  display: inline-flex;
+  padding: ${getUnitAsPixels(3)};
+  ${getTypography(Typography.BODY_SMALL)}
+  border: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? getColorWithOpacity(Color.WHITE, Opacity._10)
+      : getColorWithOpacity(Color.BLACK, Opacity._10)};
+  border-radius: ${getUnitAsPixels()};
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
 `
 
 export const TableHeaderRow = styled.div`

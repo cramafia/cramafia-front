@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Socket } from 'socket.io-client'
 
 import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '@/theme/layout'
@@ -8,12 +9,14 @@ type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
+  socket: Socket | null
 }
 
 const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
   alert: null,
+  socket: null,
 }
 
 const globalReducer = createSlice({
@@ -57,10 +60,23 @@ const globalReducer = createSlice({
         modal: null,
       }
     },
+
+    connectSocket(state, action: PayloadAction<Socket>) {
+      return {
+        ...state,
+        socket: action.payload,
+      }
+    },
   },
 })
 
-export const { openModal, closeModal, addAlert, closeAlert, switchTheme } =
-  globalReducer.actions
+export const {
+  openModal,
+  closeModal,
+  addAlert,
+  closeAlert,
+  switchTheme,
+  connectSocket,
+} = globalReducer.actions
 
 export default globalReducer.reducer

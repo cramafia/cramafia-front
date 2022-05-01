@@ -1,5 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+
+import { ButtonLink } from '@/components/ButtonLink'
 
 import { LobbiesTable } from '../LobbiesTable'
 import {
@@ -9,14 +12,17 @@ import {
   NewGame,
   ToLobbie,
   ToLobbieContainer,
+  LivePlayers,
 } from './GameSearch.styles'
-import { ButtonLink } from '@/components/ButtonLink'
 import { Search } from './components/Search'
+import { stateType } from 'src/redux/store'
 
 export const GameSearch = () => {
+  const { activeUsers } = useSelector((state: stateType) => state.socket)
   return (
     <GameSearchContainer>
       <div>
+        <LivePlayers>Игроков на сайте: {activeUsers}</LivePlayers>
         <Row>
           <Col md="6">
             <Search />

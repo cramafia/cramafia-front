@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/theme/fonts/index.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { Socket } from '@/components/Socket'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 
@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Provider store={store}>
+        <Socket />
         <ThemeGlobal>
           <Modal />
           <Alert />
