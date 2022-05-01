@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
     toggleExpanded(b)
   }
 
-  const { isLogin } = useSelector((state: any) => state.global)
+  const { isAuthorized } = useSelector((state: any) => state.global)
 
   const NavContent = () => {
     return (
@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
         <NavItem onClick={handleToggle.bind(this, false)}>
           <ButtonLink href="/rules">Правила</ButtonLink>
         </NavItem>
-        {isLogin ? (
+        {isAuthorized ? (
           <User />
         ) : (
           <>
