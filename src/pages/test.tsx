@@ -8,7 +8,6 @@ import { Page } from '../layouts/Page'
 const Test: NextPage = () => {
   const { data: users } = usersApi.useGetAllUsersQuery()
   const [createUser, { data }] = usersApi.useCreateUserMutation()
-
   const handleCreate = () => {
     createUser({
       username: nanoid(),

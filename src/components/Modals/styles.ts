@@ -18,7 +18,7 @@ export const ModalContainer = styled.div`
 export const MainText = styled.span`
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   ${getTypography(Typography.BODY_SMALL)}
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)}
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
 export const ModalInput = styled(Form.Control)`
@@ -39,6 +39,8 @@ export const ModalInput = styled(Form.Control)`
         ? getColor(Color.DARK_LIGHT_200)
         : getColor(Color.WHITE)};
   }
+  ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+    !!errorText ? `border: 1px solid ${getColor(Color.RED_100)}` : ''};
 `
 
 export const SubText = styled.span`
@@ -76,6 +78,15 @@ export const SubmiteButton = styled(Button)`
     color: ${getColor(Color.BLACK)};
     border-color: ${getColor(Color.GREEN_100)};
   }
+  ${({ isLoading, theme }: { isLoading: boolean; theme: ThemeType }) =>
+    isLoading
+      ? `background-color:${getColor(Color.GRAY_200)}; 
+        :hover, focus{ 
+          background: ${getColor(Color.GRAY_200)}; 
+          cursor: progress;
+        };
+        `
+      : ``}
 `
 
 export const MinText = styled.span`
@@ -94,4 +105,13 @@ export const MinText = styled.span`
     cursor: ${({ isButton = false }: { isButton?: boolean }) =>
       isButton ? 'pointer' : 'initial'};
   }
+`
+
+export const ErrorText = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  color: ${getColor(Color.RED_100)};
+  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MIN)};
+  margin-top: -${getVerticalSpacingAsPixels(VerticalSpacingType.MIN)};
 `

@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { Dropdown } from 'react-bootstrap'
 
 import {
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
 } from '@/theme/layout'
+import { Color, getColor, ThemeType } from '@/theme/color'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const UserContainer = styled.div`
   display: flex;
@@ -20,11 +22,50 @@ export const UserImage = styled.img`
   cursor: pointer;
 `
 
-export const UserInformation = styled(DropdownButton)`
+export const UserInformation = styled(Dropdown)`
+  ${getTypography(Typography.BODY_MIN)}
   margin-left: ${getUnitAsPixels()};
-  button: {
-    color: black;
+  .btn-primary.dropdown-toggle {
+    color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary};
+    border: none;
+    box-shadow: none !important;
+  }
+  .dropdown-menu[data-bs-popper] {
+    margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MIN)};
+    left: ${getUnitAsPixels(-6)};
   }
 `
 
-export const Option = styled(Dropdown.Item)``
+export const UserName = styled(Dropdown.Toggle)`
+  background-color: black;
+  border: none;
+  :hover,
+  :focus,
+  :active {
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary};
+    border: none;
+    box-shadow: none;
+  }
+`
+
+export const OptionsContainer = styled(Dropdown.Menu)`
+  border-radius: ${getUnitAsPixels()};
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.background.primary === getColor(Color.BLACK)
+      ? getColor(Color.DARK_LIGHT_300)
+      : getColor(Color.WHITE_300)};
+`
+
+export const Option = styled(Dropdown.Item)`
+  color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
+  :hover {
+    color: ${getColor(Color.GRAY_200)};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.background.primary === getColor(Color.BLACK)
+        ? getColor(Color.DARK_LIGHT_300)
+        : getColor(Color.WHITE_300)};
+  }
+`

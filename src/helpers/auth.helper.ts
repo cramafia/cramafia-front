@@ -10,6 +10,11 @@ class AuthHelper {
     localStorage.setItem(Tokens.RT, data[Tokens.RT])
   }
 
+  logout() {
+    localStorage.removeItem(Tokens.AT)
+    localStorage.removeItem(Tokens.RT)
+  }
+
   getToken(type: Tokens) {
     return localStorage.getItem(type) || ''
   }

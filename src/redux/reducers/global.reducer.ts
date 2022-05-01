@@ -60,7 +60,7 @@ const globalReducer = createSlice({
       }
     },
 
-    authorizeUser(state, action) {
+    authorizeUser(state, action: PayloadAction<boolean>) {
       return {
         ...state,
         isLogin: action.payload,

@@ -37,10 +37,10 @@ export const Logo = styled.div`
 export const StyledNavbar = styled(Navbar)`
   display: flex;
   justify-content: space-between;
-  color: ${getColor(Color.WHITE)} !important;
+  color: ${getColor(Color.WHITE)};
   flex-wrap: nowrap;
-  div > button {
-    background-color: ${getColor(Color.WHITE)} !important;
+  ._menu > button {
+    background-color: ${getColor(Color.WHITE)};
   }
   ${({ expand }: { expand?: boolean; theme: ThemeType }) =>
     (expand &&
