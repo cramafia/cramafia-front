@@ -58,7 +58,8 @@ export const Login: React.FC = () => {
       dispatch(authorizeUser(!!data.access_token))
     }
     if (error) {
-      setErrorText(error?.data?.message)
+      const { data } = error as any
+      setErrorText(data?.message)
     }
   }, [data, dispatch, error])
 

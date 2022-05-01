@@ -85,9 +85,7 @@ export const {
   addAlert,
   closeAlert,
   switchTheme,
-
   authorizeUser,
-
   connectSocket,
 } = globalReducer.actions
 
