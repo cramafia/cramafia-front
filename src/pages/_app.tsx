@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { Provider, useDispatch } from 'react-redux'
+import { Socket } from '@/components/Socket'
 import { store } from '../redux/store'
 
 import GlobalStyles from '../global.styles'
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Provider store={store}>
+        <Socket />
         <Application>
           <ThemeGlobal>
             <Modal />

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Socket } from 'socket.io-client'
 
 import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '@/theme/layout'
@@ -9,6 +10,7 @@ type initialStateType = {
   theme: Theme
   alert: AlertPayloadType | null
   isAuthorized: boolean
+  socket: Socket | null
 }
 
 const initialState: initialStateType = {
@@ -16,6 +18,7 @@ const initialState: initialStateType = {
   theme: Theme.BLACK,
   alert: null,
   isAuthorized: false,
+  socket: null,
 }
 
 const globalReducer = createSlice({
@@ -66,6 +69,13 @@ const globalReducer = createSlice({
         isLogin: action.payload,
       }
     },
+
+    connectSocket(state, action: PayloadAction<Socket>) {
+      return {
+        ...state,
+        socket: action.payload,
+      }
+    },
   },
 })
 
@@ -75,7 +85,10 @@ export const {
   addAlert,
   closeAlert,
   switchTheme,
+
   authorizeUser,
+
+  connectSocket,
 } = globalReducer.actions
 
 export default globalReducer.reducer
