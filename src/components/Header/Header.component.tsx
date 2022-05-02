@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
 
@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
     toggleExpanded(b)
   }
 
-  const { isAuthorized } = useSelector((state: any) => state.global)
+  const isAuthorized = useSelector((state: any) => state.global.isAuthorized)
 
   const NavContent = () => {
     return (

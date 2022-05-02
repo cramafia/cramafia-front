@@ -12,6 +12,7 @@ import {
   authorizeUser,
   closeModal,
   openModal,
+  setUser,
 } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
@@ -26,6 +27,7 @@ import {
   MinText,
   ErrorText,
 } from '../styles'
+import { usersApi } from '@/services/usersApi/users.api'
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
@@ -34,21 +36,21 @@ export const Login: React.FC = () => {
   }
   const [login, { data, error, isLoading }] = authApi.useLoginMutation()
 
-  const [user, setUser] = useState({
+  const [userField, setUserField] = useState({
     username: '',
     password: '',
   })
 
   const [errorText, setErrorText] = useState('')
   const handleUser = (field: string, e: any) => {
-    setUser({
-      ...user,
+    setUserField({
+      ...userField,
       [field]: e.target.value,
     })
   }
 
   const handleLogin = () => {
-    login(user)
+    login(userField)
   }
 
   useEffect(() => {
@@ -69,14 +71,14 @@ export const Login: React.FC = () => {
 
       <ModalInput
         placeholder="Никнейм"
-        value={user.username}
+        value={userField.username}
         onChange={handleUser.bind(this, 'username')}
         errorText={errorText}
       />
       <ModalInput
         type="password"
         placeholder="Пароль"
-        value={user.password}
+        value={userField.password}
         onChange={handleUser.bind(this, 'password')}
         errorText={errorText}
       />

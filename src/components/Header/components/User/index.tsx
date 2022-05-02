@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { nanoid } from 'nanoid'
 
 import { usersApi } from '@/services/usersApi/users.api'
@@ -13,26 +13,32 @@ import {
 } from './styles'
 import AuthHelper from '@/helpers/auth.helper'
 import { useDispatch } from 'react-redux'
-import { authorizeUser } from 'src/redux/reducers/global.reducer'
+import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
+import { ButtonLink } from '@/components/ButtonLink'
 
 export const User: React.FC = () => {
   const dispatch = useDispatch()
-  const { data: user } = usersApi.useGetMeQuery()
+  const { data: user } = usersApi.useGetMeQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  })
   const handleLogout = () => {
     AuthHelper.logout()
     dispatch(authorizeUser(false))
+    dispatch(setUser(null))
   }
+  useEffect(() => {
+    dispatch(setUser(user || null))
+  }, [])
+
   return (
     <UserContainer>
-      <UserImage
-        src={
-          'https://steamuserimages-a.akamaihd.net/ugc/787481900791876899/F4E731EA0054E9CBB22DCA25A0778E48E5D81A20/'
-        }
-      />
+      <UserImage src={user?.icon_url} />
       <UserInformation>
-        <UserName id="dropdown-basic">{user?.username}</UserName>
+        <UserName>{user?.username}</UserName>
         <OptionsContainer>
-          <Option href="#/action-1">Мой профиль</Option>
+          <ButtonLink href={`user`}>
+            <Option>Мой профиль</Option>
+          </ButtonLink>
           <Option onClick={handleLogout}>Выйти</Option>
         </OptionsContainer>
       </UserInformation>
