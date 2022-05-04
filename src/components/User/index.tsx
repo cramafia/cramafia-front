@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import { UserInformationContainer, UserImage, UserName } from './styles'
 import { usersApi } from '@/services/usersApi/users.api'
 
 export const User: React.FC = () => {
-  const { data: user } = usersApi.useGetMeQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  })
+  const [getMe, { data: user }] = usersApi.useGetMeMutation()
+  const isAuthorized = useSelector((state) => state.global.isAuthorized)
+  useEffect(() => {
+    getMe()
+  }, [isAuthorized])
   return (
     <div>
-      Мой профиль
-      <UserInformationContainer>
-        <UserImage src={user?.icon_url} />
-        <UserName>{user?.username}</UserName>
-      </UserInformationContainer>
+      {isAuthorized ? (
+        <>
+          <span>Мой профиль</span>
+          <UserInformationContainer>
+            <UserImage src={user?.icon_url} />
+            <UserName>{user?.username}</UserName>
+          </UserInformationContainer>
+        </>
+      ) : (
+        <>
+          <span>Not Authorized</span>
+        </>
+      )}
     </div>
   )
 }

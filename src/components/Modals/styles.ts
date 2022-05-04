@@ -13,6 +13,9 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  form {
+    width: 100%;
+  }
 `
 
 export const MainText = styled.span`

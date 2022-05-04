@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Spinner } from 'react-bootstrap'
+import { useFormik } from 'formik'
 
 import { authApi } from '@/services/authApi/auth.api'
+
 import AuthHelper from '@/helpers/auth.helper'
-import { AlertType } from '@/components/Alert/Alert.types'
 
 import { CenteredContainer } from '../../../styles'
 import {
-  addAlert,
   authorizeUser,
   closeModal,
   openModal,
-  setUser,
 } from '../../../redux/reducers/global.reducer'
 import { ModalType } from '..'
 import { getModal } from '..'
@@ -27,7 +26,6 @@ import {
   MinText,
   ErrorText,
 } from '../styles'
-import { usersApi } from '@/services/usersApi/users.api'
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
@@ -36,68 +34,70 @@ export const Login: React.FC = () => {
   }
   const [login, { data, error, isLoading }] = authApi.useLoginMutation()
 
-  const [userField, setUserField] = useState({
-    username: '',
-    password: '',
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    onSubmit: () => {},
   })
 
-  const [errorText, setErrorText] = useState('')
-  const handleUser = (field: string, e: any) => {
-    setUserField({
-      ...userField,
-      [field]: e.target.value,
-    })
+  const handleSubmit = () => {
+    login(formik.values)
   }
 
-  const handleLogin = () => {
-    login(userField)
-  }
+  const [errorText, setErrorText] = useState('')
 
   useEffect(() => {
+    console.log(data)
     if (data?.access_token) {
       AuthHelper.setTokensFromData(data)
-      dispatch(closeModal())
       dispatch(authorizeUser(!!data.access_token))
+      dispatch(closeModal())
     }
     if (error) {
       const { data } = error as any
       setErrorText(data?.message)
     }
-  }, [data, error])
+  }, [data, error, dispatch])
 
   return (
     <ModalContainer>
       <MainText>Войти</MainText>
-
-      <ModalInput
-        placeholder="Никнейм"
-        value={userField.username}
-        onChange={handleUser.bind(this, 'username')}
-        errorText={errorText}
-      />
-      <ModalInput
-        type="password"
-        placeholder="Пароль"
-        value={userField.password}
-        onChange={handleUser.bind(this, 'password')}
-        errorText={errorText}
-      />
-      <ErrorText>{errorText}</ErrorText>
-      <HelperButtons>
-        <MinText isButton={true}>Забыли пароль?</MinText>
-        <CenteredContainer align="center">
-          <CheckBox />
-          <SubText>Запомнить меня</SubText>
-        </CenteredContainer>
-      </HelperButtons>
-      <SubmiteButton
-        variant="warning"
-        onClick={handleLogin}
-        isLoading={isLoading}
-        disabled={isLoading}
-      >
-        {isLoading ? <Spinner animation="border" /> : 'Войти'}
-      </SubmiteButton>
+      <form>
+        <ModalInput
+          placeholder="Никнейм"
+          errorText={errorText}
+          type="text"
+          name="username"
+          onChange={formik.handleChange}
+          value={formik.values.username}
+        />
+        <ModalInput
+          type="password"
+          placeholder="Пароль"
+          name="password"
+          errorText={errorText}
+          onChange={formik.handleChange}
+          value={formik.values.password}
+        />
+        <ErrorText>{errorText}</ErrorText>
+        <HelperButtons>
+          <MinText isButton={true}>Забыли пароль?</MinText>
+          <CenteredContainer align="center">
+            <CheckBox />
+            <SubText>Запомнить меня</SubText>
+          </CenteredContainer>
+        </HelperButtons>
+        <SubmiteButton
+          variant="warning"
+          isLoading={isLoading}
+          disabled={isLoading}
+          onClick={handleSubmit}
+        >
+          {isLoading ? <Spinner animation="border" /> : 'Войти'}
+        </SubmiteButton>
+      </form>
       <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
         <MinText

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown, Spinner } from 'react-bootstrap'
 
 import {
   getUnitAsPixels,
@@ -68,4 +68,8 @@ export const Option = styled(Dropdown.Item)`
         ? getColor(Color.DARK_LIGHT_300)
         : getColor(Color.WHITE_300)};
   }
+`
+
+export const CustomSpinner = styled(Spinner)`
+  color: ${({ theme }: { theme: ThemeType }) => theme.background.opposite};
 `
