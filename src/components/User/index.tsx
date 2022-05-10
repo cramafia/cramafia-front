@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux'
 
 import { UserInformationContainer, UserImage, UserName } from './styles'
 import { usersApi } from '@/services/usersApi/users.api'
+import { stateType } from 'src/redux/store'
 
 export const User: React.FC = () => {
   const [getMe, { data: user }] = usersApi.useGetMeMutation()
-  const isAuthorized = useSelector((state) => state.global.isAuthorized)
+  const isAuthorized = useSelector(
+    (state: stateType) => state.global.isAuthorized
+  )
   useEffect(() => {
     getMe()
   }, [isAuthorized])
