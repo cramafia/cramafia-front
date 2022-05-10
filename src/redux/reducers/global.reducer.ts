@@ -4,6 +4,7 @@ import { Socket } from 'socket.io-client'
 import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ModalSize } from '@/theme/layout'
 import { Theme } from '@/theme/color'
+import { ResponseUserDto } from '@/services/usersApi/dto/response-user.dto'
 
 type initialStateType = {
   modal: ModalPayloadType | null
@@ -11,6 +12,7 @@ type initialStateType = {
   alert: AlertPayloadType | null
   isAuthorized: boolean
   socket: Socket | null
+  user: ResponseUserDto | null
 }
 
 const initialState: initialStateType = {
@@ -19,6 +21,7 @@ const initialState: initialStateType = {
   alert: null,
   isAuthorized: false,
   socket: null,
+  user: null,
 }
 
 const globalReducer = createSlice({
@@ -76,6 +79,12 @@ const globalReducer = createSlice({
         socket: action.payload,
       }
     },
+    setUser(state, action: PayloadAction<ResponseUserDto | null>) {
+      return {
+        ...state,
+        user: action.payload,
+      }
+    },
   },
 })
 
@@ -87,6 +96,7 @@ export const {
   switchTheme,
   authorizeUser,
   connectSocket,
+  setUser,
 } = globalReducer.actions
 
 export default globalReducer.reducer

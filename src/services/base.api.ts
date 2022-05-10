@@ -33,7 +33,6 @@ const baseQueryWithReauth: BaseQueryFn<
   let result = await next()
   if (result.error && result.error.status === 401) {
     await authMiddleware(cb)
-
     result = await next()
   }
   return result

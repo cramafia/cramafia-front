@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Spinner } from 'react-bootstrap'
+import { useFormik } from 'formik'
 
 import {
   openModal,
@@ -32,21 +33,22 @@ export const Register: React.FC = () => {
   const [registration, { data, error, isLoading }] =
     authApi.useRegistrationMutation()
 
-  const [user, setUser] = useState({
-    username: '',
-    password: '',
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+      repeatPassword: '',
+    },
+    onSubmit: () => {},
   })
-
   const [errorText, setErrorText] = useState('')
-  const handleUser = (field: string, e: any) => {
-    setUser({
-      ...user,
-      [field]: e.target.value,
-    })
-  }
-
-  const handleRegistration = () => {
-    registration(user)
+  const handleSubmit = () => {
+    formik.values.password === formik.values.repeatPassword
+      ? registration({
+          username: formik.values.username,
+          password: formik.values.password,
+        })
+      : setErrorText('Пароли не совпадают')
   }
 
   useEffect(() => {
@@ -63,7 +65,6 @@ export const Register: React.FC = () => {
       dispatch(authorizeUser(!!data.access_token))
     }
     if (error) {
-      console.log(error)
       const { data } = error as any
       setErrorText(data?.message)
     }
@@ -74,15 +75,28 @@ export const Register: React.FC = () => {
       <MainText>Зарегистрироваться</MainText>
       <ModalInput
         placeholder="Введите никнейм (Логин)"
-        onChange={handleUser.bind(this, 'username')}
         errorText={errorText}
+        type="text"
+        name="username"
+        onChange={formik.handleChange}
+        value={formik.values.username}
       />
       <ModalInput
         placeholder="Придумайте пароль"
-        onChange={handleUser.bind(this, 'password')}
         errorText={errorText}
+        type="password"
+        name="password"
+        onChange={formik.handleChange}
+        value={formik.values.password}
       />
-      <ModalInput placeholder="Повторите пароль" errorText={errorText} />
+      <ModalInput
+        placeholder="Повторите пароль"
+        errorText={errorText}
+        name="repeatPassword"
+        type="password"
+        onChange={formik.handleChange}
+        value={formik.values.repeatPassword}
+      />
       <ErrorText>{errorText}</ErrorText>
       <HelperButtons>
         <CheckBox />
@@ -99,7 +113,7 @@ export const Register: React.FC = () => {
       </HelperButtons>
       <SubmiteButton
         variant="warning"
-        onClick={handleRegistration}
+        onClick={handleSubmit}
         isLoading={isLoading}
         disabled={isLoading}
       >
