@@ -11,7 +11,7 @@ export const User: React.FC = () => {
     (state: stateType) => state.global.isAuthorized
   )
   useEffect(() => {
-    getMe()
+    isAuthorized && getMe()
   }, [isAuthorized])
   return (
     <div>

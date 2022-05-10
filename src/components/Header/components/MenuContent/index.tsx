@@ -1,4 +1,4 @@
-import { Theme } from '@/theme/color'
+import { Color, getColor, Theme, ThemeType } from '@/theme/color'
 import React from 'react'
 
 import { Navbar, Offcanvas, Nav } from 'react-bootstrap'
@@ -10,8 +10,8 @@ export const MenuContent = ({
   theme,
   toggleExpanded,
 }: {
-  theme: any
-  toggleExpanded: any
+  theme: ThemeType
+  toggleExpanded: Function
 }) => {
   const handleToggle = (b: boolean) => {
     toggleExpanded(b)
@@ -26,7 +26,11 @@ export const MenuContent = ({
       >
         <Offcanvas.Header
           closeButton
-          closeVariant={theme === Theme.BLACK ? 'white' : undefined}
+          closeVariant={
+            theme.background.primary === getColor(Color.BLACK)
+              ? 'white'
+              : undefined
+          }
         >
           <SideBarTitle
             id="offcanvasNavbarLabel"

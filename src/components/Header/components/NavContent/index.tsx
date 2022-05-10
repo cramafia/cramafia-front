@@ -6,10 +6,17 @@ import { User } from './../User'
 import { useSelector, useDispatch } from 'react-redux'
 import { getModal, ModalType } from '@/components/Modals'
 import { openModal } from 'src/redux/reducers/global.reducer'
+import { stateType } from 'src/redux/store'
 
-export const NavContent = ({ toggleExpanded }: { toggleExpanded: any }) => {
+export const NavContent = ({
+  toggleExpanded,
+}: {
+  toggleExpanded: Function
+}) => {
   const dispatch = useDispatch()
-  const isAuthorized = useSelector((state: any) => state.global.isAuthorized)
+  const isAuthorized = useSelector(
+    (state: stateType) => state.global.isAuthorized
+  )
 
   const handleModalButtons = (type: ModalType) => {
     toggleExpanded(false)

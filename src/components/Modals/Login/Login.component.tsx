@@ -49,7 +49,6 @@ export const Login: React.FC = () => {
   const [errorText, setErrorText] = useState('')
 
   useEffect(() => {
-    console.log(data)
     if (data?.access_token) {
       AuthHelper.setTokensFromData(data)
       dispatch(authorizeUser(!!data.access_token))
