@@ -42,6 +42,7 @@ const subOptions: { [key in SubOptionId]: SubOptionType } = {
 export enum OptionGameType {
   CLASSIC = 'CLASSIC',
   CUSTOM = 'CUSTOM',
+  PRIVATE = 'PRIVATE',
 }
 
 const options: { [key in OptionGameType]: OptionType } = {
@@ -56,6 +57,12 @@ const options: { [key in OptionGameType]: OptionType } = {
     type: 'custom',
     canEdit: getAllSubOptionsIds(),
     additionalText: 'Играйте по кастомным правилам',
+  },
+  [OptionGameType.PRIVATE]: {
+    text: 'Приватная',
+    type: 'private',
+    canEdit: getAllSubOptionsIds(),
+    additionalText: 'Закрытое лобби',
   },
 }
 
