@@ -62,7 +62,7 @@ export const CreateLobby: React.FC = () => {
   }
 
   const changeName = (e: any) => {
-    if (e.target.value.length > 3) {
+    if (e.target.value.length > 16) {
       setLobbyState({
         ...lobbyState,
         errorText: 'Название должно быть меньше 16 символов',
