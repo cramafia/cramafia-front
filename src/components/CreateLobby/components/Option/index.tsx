@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useMemo } from 'react'
 
 import { getIcon, IconType } from '@/components/Icon'
 import { OptionContainer, IconContainer, OptionText } from '../styles'
@@ -10,10 +10,10 @@ export const Option = ({
   onClick,
   gameType,
 }: OptionProps) => {
-  const [selected, setSelected] = useState(false)
-  useEffect(() => {
-    setSelected(currentGameType.type === gameType)
-  }, [currentGameType, gameType])
+  const selected = useMemo(
+    () => currentGameType.type === gameType,
+    [currentGameType, gameType]
+  )
 
   return (
     <OptionContainer selected={selected} onClick={onClick}>
