@@ -16,12 +16,12 @@ import AuthHelper from '@/helpers/auth.helper'
 import { useDispatch, useSelector } from 'react-redux'
 import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
 import { ButtonLink } from '@/components/ButtonLink'
-import { Spinner } from 'react-bootstrap'
+import { stateType } from 'src/redux/store'
 
 export const User: React.FC = () => {
   const dispatch = useDispatch()
-
-  const [getMe, { data: user, isLoading }] = usersApi.useGetMeMutation()
+  const [getMe, { data, isLoading }] = usersApi.useGetMeMutation()
+  const user = useSelector((state: stateType) => state.global.user)
 
   const handleLogout = () => {
     AuthHelper.logout()
@@ -30,9 +30,11 @@ export const User: React.FC = () => {
   }
 
   useEffect(() => {
-    getMe()
-    dispatch(setUser(user || null))
-  }, [])
+    data && dispatch(setUser(data))
+    if (!user) {
+      getMe()
+    }
+  }, [data, dispatch])
 
   return (
     <UserContainer>
