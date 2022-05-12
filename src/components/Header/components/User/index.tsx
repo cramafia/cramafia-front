@@ -30,11 +30,13 @@ export const User: React.FC = () => {
   }
 
   useEffect(() => {
-    data && dispatch(setUser(data))
     if (!user) {
       getMe()
     }
-  }, [data, dispatch])
+  }, [])
+  useEffect(() => {
+    if (data) dispatch(setUser(data))
+  }, [data])
 
   return (
     <UserContainer>
