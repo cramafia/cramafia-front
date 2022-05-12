@@ -13,7 +13,7 @@ import {
   CustomSpinner,
 } from './styles'
 import AuthHelper from '@/helpers/auth.helper'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
 import { ButtonLink } from '@/components/ButtonLink'
 import { stateType } from 'src/redux/store'
