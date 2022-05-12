@@ -49,7 +49,7 @@ export const CreateLobby: React.FC = () => {
         setLobbyState({
           ...lobbyState,
           activeSubOptions: lobbyState.activeSubOptions.filter(
-            (_SubOptionId) => _SubOptionId != id
+            (_SubOptionId) => _SubOptionId !== id
           ),
         })
       } else {
