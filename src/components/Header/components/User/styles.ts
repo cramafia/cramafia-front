@@ -33,8 +33,10 @@ export const UserInformation = styled(Dropdown)`
     box-shadow: none !important;
   }
   .dropdown-menu[data-bs-popper] {
+    position: absolute;
+    right: 0;
+    left: auto;
     margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MIN)};
-    left: ${getUnitAsPixels(-6)};
   }
 `
 
@@ -52,6 +54,7 @@ export const UserName = styled(Dropdown.Toggle)`
 `
 
 export const OptionsContainer = styled(Dropdown.Menu)`
+  min-width: 0;
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.primary === getColor(Color.BLACK)
