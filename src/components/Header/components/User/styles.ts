@@ -54,7 +54,6 @@ export const UserName = styled(Dropdown.Toggle)`
 `
 
 export const OptionsContainer = styled(Dropdown.Menu)`
-  min-width: 0;
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.primary === getColor(Color.BLACK)
