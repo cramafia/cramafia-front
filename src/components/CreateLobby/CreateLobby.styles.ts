@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Button } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 
-import { getColor, Color } from '@/theme/color'
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -71,42 +71,4 @@ export const SubText = styled.span`
   ${getTypography(Typography.BODY_SMALL)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   margin-right: ${getUnitAsPixels()};
-`
-
-export const MinText = styled.span`
-  ${getTypography(Typography.BODY_MIN)}
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
-  color: ${getColor(Color.GRAY_100)};
-  font-size: 14px;
-  font-weight: 550;
-`
-
-export const CreateGameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 40%;
-  padding: 0px ${getUnitAsPixels(10)};
-  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
-    margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
-    width: 100%;
-    padding: 0;
-  }
-`
-
-export const CreateGameButton = styled(Button)`
-  width: 100%;
-  height: ${getUnitAsPixels(7)};
-  border-radius: ${getUnitAsPixels()};
-  background: ${getColor(Color.GRAY_500)};
-  color: ${getColor(Color.WHITE)};
-  border: none;
-  margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
-  :hover,
-  :focus {
-    background: ${getColor(Color.GREEN_100)};
-    color: ${getColor(Color.BLACK)};
-    border-color: ${getColor(Color.GREEN_100)};
-  }
 `
