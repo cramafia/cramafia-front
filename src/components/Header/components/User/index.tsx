@@ -48,7 +48,7 @@ export const User: React.FC = () => {
           <UserInformation>
             <UserName>{user?.username}</UserName>
             <OptionsContainer>
-              <ButtonLink href={`user`}>
+              <ButtonLink href={`users/${user?.username}`}>
                 <Option>Мой профиль</Option>
               </ButtonLink>
               <Option onClick={handleLogout}>Выйти</Option>
