@@ -4,23 +4,23 @@ import { useSelector } from 'react-redux'
 import { UserInformationContainer, UserImage, UserName } from './styles'
 import { usersApi } from '@/services/usersApi/users.api'
 import { stateType } from 'src/redux/store'
+import { useRouter } from 'next/router'
 
 export const User: React.FC = () => {
-  const [getMe, { data: user }] = usersApi.useGetMeMutation()
+  const { username } = useRouter().query
+  const { data } = usersApi.useGetUserQuery(username as string)
   const isAuthorized = useSelector(
     (state: stateType) => state.global.isAuthorized
   )
-  useEffect(() => {
-    isAuthorized && getMe()
-  }, [isAuthorized])
+
   return (
     <div>
       {isAuthorized ? (
         <>
           <span>Мой профиль</span>
           <UserInformationContainer>
-            <UserImage src={user?.icon_url} />
-            <UserName>{user?.username}</UserName>
+            <UserImage src={data?.icon_url} />
+            <UserName>{data?.username}</UserName>
           </UserInformationContainer>
         </>
       ) : (
