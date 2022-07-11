@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
-import { nanoid } from 'nanoid'
+import { useDispatch } from 'react-redux'
 
 import { usersApi } from '@/services/usersApi/users.api'
+import AuthHelper from '@/helpers/auth.helper'
+import { ButtonLink } from '@/components/ButtonLink'
 
 import {
   UserContainer,
@@ -12,11 +14,8 @@ import {
   OptionsContainer,
   CustomSpinner,
 } from './styles'
-import AuthHelper from '@/helpers/auth.helper'
-import { useDispatch, useSelector } from 'react-redux'
+
 import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
-import { ButtonLink } from '@/components/ButtonLink'
-import { Spinner } from 'react-bootstrap'
 
 export const User: React.FC = () => {
   const dispatch = useDispatch()
@@ -31,8 +30,11 @@ export const User: React.FC = () => {
 
   useEffect(() => {
     getMe()
-    dispatch(setUser(user || null))
   }, [])
+
+  useEffect(() => {
+    dispatch(setUser(user || null))
+  }, [user])
 
   return (
     <UserContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 
 import { LobbiesTable } from '@/components/LobbiesTable'
@@ -17,14 +17,35 @@ import {
 } from './CreateLobby.styles'
 import { Option } from './components/Option'
 import { SubOption } from './components/SubOption'
+import { useRouter } from 'next/router'
 
 import { OptionGameType, SubOptionType } from './CreateLobby.types'
 import { getAllSubOptions, getAllOptions, getOption } from './CreateLobby.types'
+import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+import { createLobby } from '../Socket/emitters/lobbies.emitters'
+import { videosdkApi } from '@/services/videosdk/videosdk'
 
 export const CreateLobby: React.FC = () => {
+  const [createMeetings, { data, error, isLoading }] =
+    videosdkApi.useCreateMeetingMutation()
+  const router = useRouter()
+  const { emit } = useSocketEmitters()
   const [currentGameType, setCurrentGameType] = useState(
     getOption(OptionGameType.CLASSIC)
   )
+
+  const onCreate = () => {
+    createMeetings()
+  }
+
+  useEffect(() => {
+    if (data?.meetingId) {
+      emit(createLobby, {
+        lobbyId: data.meetingId,
+      })
+      router.push(`/lobby/${data.meetingId}`)
+    }
+  }, [data])
 
   const CreateGame = () => {
     return (
@@ -34,7 +55,7 @@ export const CreateLobby: React.FC = () => {
           {currentGameType.text}
         </SubText>
         <MinText>{currentGameType.additionalText}</MinText>
-        <CreateGameButton>Создать игру</CreateGameButton>
+        <CreateGameButton onClick={onCreate}>Создать игру</CreateGameButton>
       </CreateGameContainer>
     )
   }
