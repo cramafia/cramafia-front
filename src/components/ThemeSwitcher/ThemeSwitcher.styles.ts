@@ -1,8 +1,11 @@
-import { Color, getColor, ThemeType } from '@/theme/color'
-import { getUnitAsPixels } from '@/theme/layout'
 import styled, { css } from 'styled-components'
 
-export const ThemeSwitcherContainer = styled.div``
+import { Color, getColor, ThemeType } from '@/theme/color'
+import { getUnitAsPixels } from '@/theme/layout'
+
+export const ThemeSwitcherContainer = styled.div`
+  user-select: none;
+`
 
 export const Toggler = styled.div`
   width: ${getUnitAsPixels(7)};

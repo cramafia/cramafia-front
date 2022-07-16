@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+
 import { ImageFloat } from './TextImage.types'
-import { getUnitAsPixels } from '@/theme/layout'
+import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 
 export const Container = styled.div`
   ${({ float }: { float: ImageFloat }) =>
@@ -20,4 +21,9 @@ export const ImageContainer = styled.div`
     float === ImageFloat.LEFT && getUnitAsPixels(3)};
   margin-left: ${({ float }: { float: ImageFloat }) =>
     float === ImageFloat.RIGHT && getUnitAsPixels(3)};
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.MEDIUM)} {
+    & > img {
+      width: 100%;
+    }
+  }
 `

@@ -1,12 +1,15 @@
+import styled from 'styled-components'
+
 import { Color, getColor } from '@/theme/color'
 import { Font, getFont } from '@/theme/font'
 import {
+  getMediaQuery,
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
+  ScreenSize,
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import styled from 'styled-components'
 import { scale } from '@/theme/animation'
 
 export const NotFoundContainer = styled.div`
@@ -35,20 +38,32 @@ export const TitleText = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    flex-direction: column;
+  }
 `
 
-export const AdditionalInformation = styled.div``
+export const AdditionalInformation = styled.div`
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.XLARGE)};
+    order: -1;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    text-align: center;
+  }
+`
 
 export const _404Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  }
 `
 
 export const _404Text = styled.span`
-  font-family: ${getFont(Font.POPPINS_BOLD)};
-  line-height: 20%;
-  font-size: 350px;
+  ${getTypography(Typography._404)}
 `
 
 export const SubText = styled.span`
@@ -64,6 +79,9 @@ export const TimeContainer = styled.div`
   padding: ${getUnitAsPixels(2)};
   width: 50%;
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.XLARGE)} {
+    width: 100%;
+  }
 `
 
 export const HomePage = styled.span`
@@ -77,7 +95,17 @@ export const IconContainer = styled.div`
   position: absolute;
   justify-content: center;
   align-items: center;
+
   svg {
-    animation: ${scale} linear 9s;
+    animation: ${scale} linear 10s;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    transform: scale(0.5);
+  }
+`
+
+export const LogoContainer = styled.div`
+  span {
+    position: absolute;
   }
 `

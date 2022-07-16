@@ -1,18 +1,21 @@
 import styled from 'styled-components'
-import { getColor, Color } from '../../theme/color'
-import { getTypography, Typography } from '../../theme/typography'
 import NextImage from 'next/image'
-import { PositionProps } from './Main.types'
+import { Button } from 'react-bootstrap'
+
+import { getColor, Color } from '@/theme/color'
+import { getTypography, Typography } from '@/theme/typography'
 import {
+  getMediaQuery,
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
+  ScreenSize,
   VerticalSpacingType,
-} from '../../theme/layout'
-import { Button } from 'react-bootstrap'
+} from '@/theme/layout'
 import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
-} from '../../theme/normilize'
+} from '@/theme/normilize'
+import { PositionProps } from './Main.types'
 
 export const MainContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.LARGE)};
@@ -67,12 +70,26 @@ export const Processes = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+    img {
+      width: 100%;
+    }
+  }
 `
 
 export const Process = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    width: 100%;
+    margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
+  }
 `
 
 export const ProcessHeading = styled.div`

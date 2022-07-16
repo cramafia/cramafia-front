@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { LogoText } from 'src/styles'
-import { ButtonLink } from '../ButtonLink'
+import { ButtonLink } from '@/components/ButtonLink'
 import { useRouter } from 'next/router'
 
 import {
@@ -15,8 +15,9 @@ import {
   TimeContainer,
   HomePage,
   IconContainer,
+  LogoContainer,
 } from './_404.styles'
-import { getIcon, IconType } from '../Icon'
+import { getIcon, IconType } from '@/components/Icon'
 
 export const _404: React.FC = () => {
   const [time, setTime] = useState(9)
@@ -37,7 +38,11 @@ export const _404: React.FC = () => {
 
   return (
     <NotFoundContainer>
-      <LogoText>CRAMAFIA</LogoText>
+      <LogoContainer>
+        <LogoText>
+          <ButtonLink href="/">CRAMAFIA</ButtonLink>
+        </LogoText>
+      </LogoContainer>
 
       <ContentContainer>
         <Content>

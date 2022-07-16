@@ -1,12 +1,7 @@
-import { Table } from 'react-bootstrap'
 import styled from 'styled-components'
-import { Color, getColor, ThemeType } from '../../theme/color'
-import {
-  getUnitAsPixels,
-  getVerticalSpacingAsPixels,
-  VerticalSpacingType,
-} from '../../theme/layout'
-import { getTypography, Typography } from '../../theme/typography'
+
+import { getVerticalSpacingAsPixels, VerticalSpacingType } from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const WatchContainer = styled.div`
   display: flex;

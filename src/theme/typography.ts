@@ -1,4 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components'
+
 import { getFont, Font } from './font'
 import { getMediaQuery, ScreenSize } from './layout'
 
@@ -11,6 +12,7 @@ export enum Typography {
   BODY_REGULAR = 'BODY_REGULAR',
   BODY_SMALL = 'BODY_SMALL',
   BODY_MIN = 'BODY_MIN',
+  _404 = '_404',
 }
 
 export const getTypography = (t: Typography): FlattenSimpleInterpolation => {
@@ -18,6 +20,17 @@ export const getTypography = (t: Typography): FlattenSimpleInterpolation => {
 }
 
 const typography: { [key in Typography]: FlattenSimpleInterpolation } = {
+  [Typography._404]: css`
+    font-family: ${getFont(Font.POPPINS_BOLD)};
+    line-height: 20%;
+    font-size: 350px;
+    ${getMediaQuery(ScreenSize.SMALL, ScreenSize.LARGE)} {
+      font-size: 220px;
+    }
+    ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.SMALL)} {
+      font-size: 180px;
+    }
+  `,
   [Typography.HEADING_1]: css`
     font-family: ${getFont(Font.COMFORTAA_MEDIUM)};
     font-weight: 400;

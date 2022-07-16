@@ -5,3 +5,5 @@ declare module 'react' {
     name?: string
   }
 }
+
+declare module '@videosdk.live/react-sdk'
