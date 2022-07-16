@@ -1,4 +1,5 @@
 import React from 'react'
+//@ts-ignore
 import { SunspotLoader } from 'react-awesome-loaders'
 import { useSelector } from 'react-redux'
 
