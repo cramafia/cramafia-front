@@ -22,7 +22,7 @@ export const usersApi = baseApi.injectEndpoints({
     }),
     [UsersEndpoints.GET_USER]: build.query<ResponseUserDto, string>({
       query: (username: string) => ({
-        url: apiUrl.get(`/${username}`),
+        url: apiUrl.get(`${username}`),
       }),
     }),
     [UsersEndpoints.GET_ME]: build.mutation<ResponseUserDto, void>({

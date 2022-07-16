@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { usersApi } from '@/services/usersApi/users.api'
 import AuthHelper from '@/helpers/auth.helper'
+import { authorizeUser, setUser } from '@/reducers/global.reducer'
+import { StateType } from '@/store'
 import { ButtonLink } from '@/components/ButtonLink'
 
 import {
@@ -15,12 +17,10 @@ import {
   CustomSpinner,
 } from './styles'
 
-import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
-
 export const User: React.FC = () => {
   const dispatch = useDispatch()
-
-  const [getMe, { data: user, isLoading }] = usersApi.useGetMeMutation()
+  const [getMe, { data, isLoading }] = usersApi.useGetMeMutation()
+  const user = useSelector((state: StateType) => state.global.user)
 
   const handleLogout = () => {
     AuthHelper.logout()
@@ -29,8 +29,13 @@ export const User: React.FC = () => {
   }
 
   useEffect(() => {
-    getMe()
+    if (!user) {
+      getMe()
+    }
   }, [])
+  useEffect(() => {
+    if (data) dispatch(setUser(data))
+  }, [data])
 
   useEffect(() => {
     dispatch(setUser(user || null))
@@ -46,7 +51,7 @@ export const User: React.FC = () => {
           <UserInformation>
             <UserName>{user?.username}</UserName>
             <OptionsContainer>
-              <ButtonLink href={`user`}>
+              <ButtonLink href={`users/${user?.username}`}>
                 <Option>Мой профиль</Option>
               </ButtonLink>
               <Option onClick={handleLogout}>Выйти</Option>

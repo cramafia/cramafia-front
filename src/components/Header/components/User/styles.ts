@@ -33,8 +33,10 @@ export const UserInformation = styled(Dropdown)`
     box-shadow: none !important;
   }
   .dropdown-menu[data-bs-popper] {
+    position: absolute;
+    right: 0;
+    left: auto;
     margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MIN)};
-    left: ${getUnitAsPixels(-6)};
   }
 `
 
