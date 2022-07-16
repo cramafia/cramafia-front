@@ -5,10 +5,10 @@ import { TableContainer } from './LobbiesTable.styles'
 import { getAllLobbies } from '../Socket/emitters/lobbies.emitters'
 import { useSocketEmitters } from '@/hooks/useSocketEmitters'
 import { useSelector } from 'react-redux'
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 
 export const LobbiesTable = () => {
-  const { allLobbies } = useSelector((state: stateType) => state.lobbies)
+  const { allLobbies } = useSelector((state: StateType) => state.lobbies)
   const { emit } = useSocketEmitters()
   const router = useRouter()
   const linkTo = (lobbyId: string) => {

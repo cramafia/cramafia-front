@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { useMeeting } from '@videosdk.live/react-sdk'
+import { useDispatch } from 'react-redux'
 
+import { toggleLoaderState } from 'src/redux/reducers/global.reducer'
 import { Video } from '../Video'
 import { Container } from './Lobby.styles'
 
 export const Lobby = () => {
-  const [isLoading, toggleLoading] = useState(true)
+  const dispatch = useDispatch()
   const {
     meetingId,
     leave,
@@ -18,16 +20,15 @@ export const Lobby = () => {
     toggleWebcam,
     participants,
     end,
-  } = useMeeting()
+  } = useMeeting({
+    onMeetingJoined: () => dispatch(toggleLoaderState(false)),
+    onParticipantLeft: () => console.log('left'),
+  })
 
   useEffect(() => {
-    if (!isLoading) {
-      toggleLoading(false)
-    }
-  }, [isLoading])
-  useEffect(() => {
-    end()
+    dispatch(toggleLoaderState(true))
   }, [])
+
   return (
     <Container>
       <div>
@@ -43,8 +44,8 @@ export const Lobby = () => {
           </button>
         </div>
         <h1>Meeting id is : {meetingId}</h1>
-        {[...participants.keys()].map((p) => (
-          <Video key={p} videoId={p} />
+        {[...participants.keys()].map((id) => (
+          <Video key={id} videoId={id} />
         ))}
       </div>
     </Container>

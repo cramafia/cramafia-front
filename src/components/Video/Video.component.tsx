@@ -1,10 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import {
-  MeetingProvider,
-  useMeeting,
-  useParticipant,
-} from '@videosdk.live/react-sdk'
+import { useParticipant } from '@videosdk.live/react-sdk'
 
 export const Video = ({ videoId }: { videoId: string }) => {
   const webcamRef = useRef<HTMLVideoElement>(null)

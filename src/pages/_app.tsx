@@ -13,8 +13,10 @@ import { Alert } from '@/components/Alert'
 import Application from '@/components/Application'
 import { Socket } from '@/components/Socket'
 import { ErrorFallback } from '@/components/ErrorFallback'
+import { Loader } from '@/components/Loader'
+import { RenderedComponent } from '@/components/RenderedComponent'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp(appProps: AppProps) {
   return (
     <>
       <Head>
@@ -29,12 +31,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Socket />
           <Application>
             <ThemeGlobal>
+              <Loader />
               <Modal />
               <Alert />
               {/*TODO*/}
               {/*@ts-ignore*/}
               <GlobalStyles />
-              <Component {...pageProps} />
+              <RenderedComponent {...appProps} />
             </ThemeGlobal>
           </Application>
         </Provider>

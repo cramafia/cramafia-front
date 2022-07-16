@@ -24,4 +24,4 @@ export const store = configureStore({
     }).concat(baseApi.middleware, videosdkApi.middleware),
 })
 
-export type stateType = ReturnType<typeof store.getState>
+export type StateType = ReturnType<typeof store.getState>

@@ -7,10 +7,10 @@ import { Lobby } from '@/components/Lobby'
 import { MeetingProvider } from '@videosdk.live/react-sdk'
 
 import { Lobby as LobbyLayout } from '../../layouts/Lobby'
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 
 const LobbyID: NextPage = () => {
-  const user = useSelector((state: stateType) => state.global.user)
+  const user = useSelector((state: StateType) => state.global.user)
   const router = useRouter()
   const { lobbyId } = router.query
   return (

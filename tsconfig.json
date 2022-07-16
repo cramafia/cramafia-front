@@ -16,14 +16,16 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["./src/components/*"],
       "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/constants/*": ["./src/constants/*"],      
       "@/theme/*": ["./src/theme/*"],
-      "@/constants/*": ["./src/constants/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/services/*": ["src/services/*"],
       "@/types/*": ["src/types/*"],
-      "@/helpers/*": ["src/helpers/*"]
+      "@/helpers/*": ["src/helpers/*"],
+      "@/reducers/*": ["src/redux/reducers/*"],
+      "@/store": ["src/redux/store.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
