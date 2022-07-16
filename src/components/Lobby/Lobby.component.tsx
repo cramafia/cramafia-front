@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-
+//@ts-ignore
 import { useMeeting } from '@videosdk.live/react-sdk'
 import { useDispatch } from 'react-redux'
 
