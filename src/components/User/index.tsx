@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { usersApi } from '@/services/usersApi/users.api'
 import { StateType } from 'src/redux/store'
-import { UserInformationContainer, UserImage, UserName } from './styles'
+import { UserInformationContainer, UserImage, UserName, Title } from './styles'
 
 export const User: React.FC = () => {
   const { username } = useRouter().query
@@ -17,7 +17,7 @@ export const User: React.FC = () => {
     <div>
       {isAuthorized ? (
         <>
-          <span>Мой профиль</span>
+          <Title>Мой профиль</Title>
           <UserInformationContainer>
             <UserImage src={user?.icon_url} />
             <UserName>{user?.username}</UserName>

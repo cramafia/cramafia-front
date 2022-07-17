@@ -23,5 +23,9 @@ export const UserImage = styled.img`
 
 export const UserName = styled.div`
   ${getTypography(Typography.BODY_REGULAR)}
-  margin-left: ${getUnitAsPixels(3)}
+  margin-left: ${getUnitAsPixels(3)};
+`
+
+export const Title = styled.span`
+  ${getTypography(Typography.HEADING_3)}
 `
