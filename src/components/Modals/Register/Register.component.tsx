@@ -24,6 +24,7 @@ import {
 import { authApi } from 'src/services/authApi/auth.api'
 import AuthHelper from '@/helpers/auth.helper'
 import { AlertType } from '@/components/Alert/Alert.types'
+import { Eula } from './Register.styles'
 
 export const Register: React.FC = () => {
   const dispatch = useDispatch()
@@ -100,7 +101,7 @@ export const Register: React.FC = () => {
       <ErrorText>{errorText}</ErrorText>
       <HelperButtons>
         <CheckBox />
-        <div>
+        <Eula>
           <MinText>Я согласен с </MinText>
           <MinText isButton={true}>
             Правилами пользовтельского соглашения
@@ -109,7 +110,7 @@ export const Register: React.FC = () => {
           <MinText isButton={true}>
             правилами обработки персональных данных
           </MinText>
-        </div>
+        </Eula>
       </HelperButtons>
       <SubmiteButton
         variant="warning"
