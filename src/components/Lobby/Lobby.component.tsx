@@ -6,9 +6,11 @@ import { useDispatch } from 'react-redux'
 import { toggleLoaderState } from 'src/redux/reducers/global.reducer'
 import { Video } from '../Video'
 import { Container } from './Lobby.styles'
+import { useRouter } from 'next/router'
 
 export const Lobby = () => {
   const dispatch = useDispatch()
+  const router = useRouter()
   const {
     meetingId,
     leave,
@@ -22,8 +24,12 @@ export const Lobby = () => {
     end,
   } = useMeeting({
     onMeetingJoined: () => dispatch(toggleLoaderState(false)),
-    onParticipantLeft: () => console.log('left'),
   })
+
+  const onLeave = () => {
+    leave()
+    router.push('/game-search')
+  }
 
   useEffect(() => {
     dispatch(toggleLoaderState(true))
@@ -33,7 +39,7 @@ export const Lobby = () => {
     <Container>
       <div>
         <div>
-          <button className={'button red'} onClick={leave}>
+          <button className={'button red'} onClick={onLeave}>
             LEAVE
           </button>
           <button className={'button blue'} onClick={toggleMic}>
