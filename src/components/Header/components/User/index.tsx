@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react'
-import { nanoid } from 'nanoid'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { usersApi } from '@/services/usersApi/users.api'
+import AuthHelper from '@/helpers/auth.helper'
+import { authorizeUser, setUser } from '@/reducers/global.reducer'
+import { StateType } from '@/store'
+import { ButtonLink } from '@/components/ButtonLink'
 
 import {
   UserContainer,
@@ -12,16 +16,11 @@ import {
   OptionsContainer,
   CustomSpinner,
 } from './styles'
-import AuthHelper from '@/helpers/auth.helper'
-import { useDispatch, useSelector } from 'react-redux'
-import { authorizeUser, setUser } from 'src/redux/reducers/global.reducer'
-import { ButtonLink } from '@/components/ButtonLink'
-import { stateType } from 'src/redux/store'
 
 export const User: React.FC = () => {
   const dispatch = useDispatch()
   const [getMe, { data, isLoading }] = usersApi.useGetMeMutation()
-  const user = useSelector((state: stateType) => state.global.user)
+  const user = useSelector((state: StateType) => state.global.user)
 
   const handleLogout = () => {
     AuthHelper.logout()
@@ -37,6 +36,10 @@ export const User: React.FC = () => {
   useEffect(() => {
     if (data) dispatch(setUser(data))
   }, [data])
+
+  useEffect(() => {
+    dispatch(setUser(user || null))
+  }, [user])
 
   return (
     <UserContainer>

@@ -15,6 +15,7 @@ export const CreateGame = ({
   gameName,
   changeName,
   errorText,
+  onCreate,
 }: CreateGameProps) => {
   return (
     <CreateGameContainer>
@@ -29,7 +30,7 @@ export const CreateGame = ({
         errorText={errorText}
       />
       <ErrorText>{errorText}</ErrorText>
-      <CreateGameButton>Создать игру</CreateGameButton>
+      <CreateGameButton onClick={onCreate}>Создать игру</CreateGameButton>
     </CreateGameContainer>
   )
 }

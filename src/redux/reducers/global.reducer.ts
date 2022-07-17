@@ -13,6 +13,7 @@ type initialStateType = {
   isAuthorized: boolean
   socket: Socket | null
   user: ResponseUserDto | null
+  showLoader: boolean
 }
 
 const initialState: initialStateType = {
@@ -22,6 +23,7 @@ const initialState: initialStateType = {
   isAuthorized: false,
   socket: null,
   user: null,
+  showLoader: false,
 }
 
 const globalReducer = createSlice({
@@ -74,6 +76,7 @@ const globalReducer = createSlice({
     },
 
     connectSocket(state, action: PayloadAction<Socket>) {
+      console.log(action.payload)
       return {
         ...state,
         socket: action.payload,
@@ -83,6 +86,12 @@ const globalReducer = createSlice({
       return {
         ...state,
         user: action.payload,
+      }
+    },
+    toggleLoaderState(state, action: PayloadAction<boolean | undefined>) {
+      return {
+        ...state,
+        showLoader: action.payload ?? !state.showLoader,
       }
     },
   },
@@ -97,6 +106,7 @@ export const {
   authorizeUser,
   connectSocket,
   setUser,
+  toggleLoaderState,
 } = globalReducer.actions
 
 export default globalReducer.reducer

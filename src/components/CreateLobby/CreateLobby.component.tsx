@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { useFormik } from 'formik'
 
 import { LobbiesTable } from '@/components/LobbiesTable'
 
@@ -26,6 +25,11 @@ import {
   getOption,
   LobbyStateType,
 } from './CreateLobby.types'
+import { useRouter } from 'next/router'
+
+import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+import { createLobby } from '../Socket/emitters/lobbies.emitters'
+import { videosdkApi } from '@/services/videosdk/videosdk'
 
 export const CreateLobby: React.FC = () => {
   const [lobbyState, setLobbyState] = useState<LobbyStateType>({
@@ -42,6 +46,26 @@ export const CreateLobby: React.FC = () => {
       activeSubOptions: [],
     })
   }
+  const [createMeetings, { data, error, isLoading }] =
+    videosdkApi.useCreateMeetingMutation()
+  const router = useRouter()
+  const { emit } = useSocketEmitters()
+  const [currentGameType, setCurrentGameType] = useState(
+    getOption(OptionGameType.CLASSIC)
+  )
+
+  const onCreate = () => {
+    createMeetings()
+  }
+
+  useEffect(() => {
+    if (data?.meetingId) {
+      emit(createLobby, {
+        lobbyId: data.meetingId,
+      })
+      router.push(`/lobby/${data.meetingId}`)
+    }
+  }, [data])
 
   const handleChangeActiveSubOptions = (id: SubOptionId, canEdit: boolean) => {
     if (canEdit) {
@@ -105,6 +129,7 @@ export const CreateLobby: React.FC = () => {
             </AdvancedSettings>
           </GameSetting>
           <CreateGame
+            onCreate={onCreate}
             gameType={lobbyState.gameType}
             gameName={lobbyState.gameName}
             changeName={changeName}

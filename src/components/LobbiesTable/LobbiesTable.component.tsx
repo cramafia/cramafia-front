@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import { TableContainer } from './LobbiesTable.styles'
-import lobbies from '@/constants/lobbies.json'
+import { getAllLobbies } from '../Socket/emitters/lobbies.emitters'
+import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+import { useSelector } from 'react-redux'
+import { StateType } from 'src/redux/store'
 
 export const LobbiesTable = () => {
+  const { allLobbies } = useSelector((state: StateType) => state.lobbies)
+  const { emit } = useSocketEmitters()
+  const router = useRouter()
+  const linkTo = (lobbyId: string) => {
+    router.push(`/lobby/${lobbyId}`)
+  }
+
+  useEffect(() => {
+    emit(getAllLobbies)
+  }, [])
+
   return (
     <TableContainer responsive="md" borderless size="xl">
       <thead>
@@ -17,17 +32,13 @@ export const LobbiesTable = () => {
       </thead>
 
       <tbody>
-        {lobbies.content.map(({ id, type, name, players, status }) => (
-          <tr key={id}>
-            <th>{id}</th>
-            <th>{name}</th>
-            <th>{type}</th>
-            <th>{status}</th>
-            <th>
-              <span>{players} из 11</span>
-            </th>
-          </tr>
-        ))}
+        {!!allLobbies.length &&
+          allLobbies.map(({ lobbyId }) => (
+            <tr onClick={linkTo.bind(this, lobbyId)} key={lobbyId}>
+              <th>{lobbyId}</th>
+              <th>сос</th>
+            </tr>
+          ))}
       </tbody>
     </TableContainer>
   )

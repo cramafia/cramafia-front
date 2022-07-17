@@ -15,10 +15,10 @@ import {
   LivePlayers,
 } from './GameSearch.styles'
 import { Search } from './components/Search'
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 
 export const GameSearch = () => {
-  const { activeUsers } = useSelector((state: stateType) => state.socket)
+  const { activeUsers } = useSelector((state: StateType) => state.socket)
   return (
     <GameSearchContainer>
       <div>

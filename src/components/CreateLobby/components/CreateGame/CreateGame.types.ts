@@ -5,4 +5,5 @@ export interface CreateGameProps {
   gameName: string
   changeName: Function
   errorText: string
+  onCreate: () => void
 }

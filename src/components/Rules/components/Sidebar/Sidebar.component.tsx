@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import _ from 'lodash'
 
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 import {
   Wrapper,
   Content,
@@ -17,7 +17,7 @@ import { clearAnchors } from 'src/redux/reducers/rules.reducer'
 
 export const Sidebar: React.FC = () => {
   const dispatch = useDispatch()
-  const { anchors } = useSelector((state: stateType) => state.rules)
+  const { anchors } = useSelector((state: StateType) => state.rules)
   const activeAnchor = anchors[0] || AnchorType.LIST_2_6
 
   const stopPropogation = (e: SyntheticEvent) => {

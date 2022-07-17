@@ -8,6 +8,7 @@ export function Application({ children }: AppProps) {
   useEffect(() => {
     dispatch(authorizeUser(!!localStorage.getItem('access_token')))
   }, [dispatch])
+
   return <>{children}</>
 }
 
