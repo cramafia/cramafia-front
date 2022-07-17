@@ -34,7 +34,7 @@ export const LobbiesTable = () => {
       <tbody>
         {!!allLobbies.length &&
           allLobbies.map(({ lobbyId }) => (
-            <tr onClick={linkTo.bind(this, lobbyId)}>
+            <tr onClick={linkTo.bind(this, lobbyId)} key={lobbyId}>
               <th>{lobbyId}</th>
               <th>сос</th>
             </tr>

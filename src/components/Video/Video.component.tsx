@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-
+//@ts-ignore
 import { useParticipant } from '@videosdk.live/react-sdk'
 
 export const Video = ({ videoId }: { videoId: string }) => {
