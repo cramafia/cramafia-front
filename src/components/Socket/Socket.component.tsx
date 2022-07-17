@@ -3,10 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { io, Socket as SocketClient } from 'socket.io-client'
 
 import { StateType } from 'src/redux/store'
-import {
-  connectSocket,
-  toggleLoaderState,
-} from 'src/redux/reducers/global.reducer'
+import { connectSocket } from 'src/redux/reducers/global.reducer'
 import { commonHandlers } from './handlers/common.handlers'
 import { lobbiesHandlers } from './handlers/lobbies.handlers'
 
@@ -25,7 +22,7 @@ export const Socket = () => {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(process.env.NEXT_PUBLIC_LOCAL_BASE_URL || '')
+      socket = io(process.env.NEXT_PUBLIC_DEV_BASE_URL || '')
       socketInitializer()
       dispatch(connectSocket(socket))
     }
