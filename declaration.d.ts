@@ -5,3 +5,6 @@ declare module 'react' {
     name?: string
   }
 }
+
+declare module 'react-awesome-loaders'
+declare module '@videosdk.live/react-sdk'

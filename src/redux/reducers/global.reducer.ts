@@ -1,18 +1,29 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Socket } from 'socket.io-client'
+
 import { AlertPayloadType, ModalPayloadType } from '../../types'
-import { ModalSize } from '../../theme/layout'
-import { Theme } from '../../theme/color'
+import { ModalSize } from '@/theme/layout'
+import { Theme } from '@/theme/color'
+import { ResponseUserDto } from '@/services/usersApi/dto/response-user.dto'
 
 type initialStateType = {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
+  isAuthorized: boolean
+  socket: Socket | null
+  user: ResponseUserDto | null
+  showLoader: boolean
 }
 
 const initialState: initialStateType = {
   modal: null,
   theme: Theme.BLACK,
   alert: null,
+  isAuthorized: false,
+  socket: null,
+  user: null,
+  showLoader: false,
 }
 
 const globalReducer = createSlice({
@@ -56,10 +67,46 @@ const globalReducer = createSlice({
         modal: null,
       }
     },
+
+    authorizeUser(state, action: PayloadAction<boolean>) {
+      return {
+        ...state,
+        isAuthorized: action.payload,
+      }
+    },
+
+    connectSocket(state, action: PayloadAction<Socket>) {
+      console.log(action.payload)
+      return {
+        ...state,
+        socket: action.payload,
+      }
+    },
+    setUser(state, action: PayloadAction<ResponseUserDto | null>) {
+      return {
+        ...state,
+        user: action.payload,
+      }
+    },
+    toggleLoaderState(state, action: PayloadAction<boolean | undefined>) {
+      return {
+        ...state,
+        showLoader: action.payload ?? !state.showLoader,
+      }
+    },
   },
 })
 
-export const { openModal, closeModal, addAlert, closeAlert, switchTheme } =
-  globalReducer.actions
+export const {
+  openModal,
+  closeModal,
+  addAlert,
+  closeAlert,
+  switchTheme,
+  authorizeUser,
+  connectSocket,
+  setUser,
+  toggleLoaderState,
+} = globalReducer.actions
 
 export default globalReducer.reducer

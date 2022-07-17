@@ -1,9 +1,10 @@
 import React from 'react'
 import { NextPage } from 'next'
+
 import Head from 'next/head'
 
 import { Page } from '../../layouts/Page'
-import { Rules } from '../../components/Rules'
+import { Rules } from '@/components/Rules'
 
 const RulesPage: NextPage = () => {
   return (

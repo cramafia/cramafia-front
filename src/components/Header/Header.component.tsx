@@ -1,48 +1,21 @@
-import React from 'react'
-import {
-  NavItem,
-  Play,
-  HeaderContainer,
-  Logo,
-  StyledNavbar,
-  SideBar,
-  SideBarTitle,
-} from './Header.styles'
-import Link from 'next/link'
-import { openModal, switchTheme } from '../../redux/reducers/global.reducer'
-import { useDispatch } from 'react-redux'
-import { getModal } from '../Modals'
-import { ModalType } from '../Modals'
-import { Container, Navbar, Offcanvas, Nav } from 'react-bootstrap'
-import { ButtonLink } from '../ButtonLink'
-import { ThemeSwitcher } from './../ThemeSwitcher'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
+import { ButtonLink } from '@/components/ButtonLink'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
+import { Theme } from '@/theme/color'
+
+import { MenuContent } from './components/MenuContent'
+import { NavContent } from './components/NavContent'
+
+import { StateType } from 'src/redux/store'
 import { LogoText } from 'src/styles'
+import { HeaderContainer, Logo, StyledNavbar } from './Header.styles'
+import { usersApi } from '@/services/usersApi/users.api'
 
 export const Header: React.FC = () => {
-  const dispatch = useDispatch()
-  const onOpen = (type: ModalType) => {
-    dispatch(openModal(getModal(type)))
-  }
-
-  const NavContent = () => {
-    return (
-      <>
-        <Play>
-          <Link href="/game-search">Играть</Link>
-        </Play>
-        <NavItem>
-          <Link href="/watch">Смотреть</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="/rules">Правила</Link>
-        </NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.LOGIN)}>Вход</NavItem>
-        <NavItem onClick={onOpen.bind(this, ModalType.REGISTER)}>
-          Регистрация
-        </NavItem>
-      </>
-    )
-  }
+  const theme: Theme = useSelector((state: StateType) => state.global.theme)
+  const [isExpanded, toggleExpanded] = useState(false)
 
   return (
     <HeaderContainer>
@@ -50,30 +23,17 @@ export const Header: React.FC = () => {
         <ButtonLink href="/">
           <LogoText>CRAMAFIA</LogoText>
         </ButtonLink>
-
         <ThemeSwitcher />
       </Logo>
-      <StyledNavbar expand={false}>
-        <Container fluid>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" />
-          <SideBar
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <SideBarTitle id="offcanvasNavbarLabel">Logo</SideBarTitle>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                <NavContent />
-              </Nav>
-            </Offcanvas.Body>
-          </SideBar>
-        </Container>
+      <StyledNavbar
+        expand={false}
+        onToggle={toggleExpanded}
+        expanded={isExpanded}
+      >
+        <MenuContent theme={theme} toggleExpanded={toggleExpanded} />
       </StyledNavbar>
       <StyledNavbar expand={true}>
-        <NavContent />
+        <NavContent toggleExpanded={toggleExpanded} />
       </StyledNavbar>
     </HeaderContainer>
   )

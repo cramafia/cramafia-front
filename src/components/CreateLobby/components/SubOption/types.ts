@@ -1,7 +1,9 @@
-import { OptionType } from '../../CreateLobby.types'
+import { OptionType, SubOptionId } from '../../CreateLobby.types'
 
 export interface SubOptionProps {
   text: string
-  currentGameType: OptionType
-  id: string
+  gameType: OptionType
+  activeSubOptions: SubOptionId[]
+  id: SubOptionId
+  onClick: Function
 }

@@ -1,4 +1,8 @@
-import React, { useEffect, useState, SyntheticEvent } from 'react'
+import React, { SyntheticEvent } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import _ from 'lodash'
+
+import { StateType } from 'src/redux/store'
 import {
   Wrapper,
   Content,
@@ -8,15 +12,12 @@ import {
   ListItemLink,
 } from './Sidebar.styles'
 import { AnchorObjectType, AnchorType, getAnchors } from '../../helpers/anchors'
-import { useSelector } from 'react-redux'
-import { stateType } from 'src/redux/store'
-import { useDispatch } from 'react-redux'
+
 import { clearAnchors } from 'src/redux/reducers/rules.reducer'
-import _ from 'lodash'
 
 export const Sidebar: React.FC = () => {
   const dispatch = useDispatch()
-  const { anchors } = useSelector((state: stateType) => state.rules)
+  const { anchors } = useSelector((state: StateType) => state.rules)
   const activeAnchor = anchors[0] || AnchorType.LIST_2_6
 
   const stopPropogation = (e: SyntheticEvent) => {

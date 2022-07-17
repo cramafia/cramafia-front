@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -9,11 +9,11 @@ import {
   SwitchHidden,
 } from './ThemeSwitcher.styles'
 import { switchTheme } from 'src/redux/reducers/global.reducer'
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 import { Theme } from '@/theme/color'
 
 export const ThemeSwitcher: React.FC = () => {
-  const theme: Theme = useSelector((state: stateType) => state.global.theme)
+  const theme: Theme = useSelector((state: StateType) => state.global.theme)
   const checked = useMemo(() => theme === Theme.BLACK, [theme])
   const dispatch = useDispatch()
   const switchThemeHandler = () => {

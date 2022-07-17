@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 import { Color, getColor } from '@/theme/color'
 import {
   getUnitAsPixels,
@@ -5,7 +7,6 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import styled from 'styled-components'
 
 export const OptionText = styled.span`
   margin-left: ${getUnitAsPixels()};
@@ -14,6 +15,7 @@ export const OptionText = styled.span`
   ${getTypography(Typography.BODY_MIN)};
   font-weight: 550;
   font-size: 14px;
+  padding-top: 2px;
 `
 
 export const IconContainer = styled.span`
@@ -30,7 +32,6 @@ export const OptionContainer = styled.div`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   display: flex;
   width: auto;
-  align-items: center;
   cursor: pointer;
   background-color: ${({ selected }: { selected: boolean }) =>
     selected ? getColor(Color.GREEN_100) : getColor(Color.GRAY_500)};

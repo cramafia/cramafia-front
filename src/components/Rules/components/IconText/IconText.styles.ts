@@ -1,11 +1,14 @@
 import styled from 'styled-components'
+
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
-} from '../../../../theme/layout'
-import { ThemeType, getColor, Color } from '../../../../theme/color'
-import { getTypography, Typography } from '../../../../theme/typography'
+  getMediaQuery,
+  ScreenSize,
+} from '@/theme/layout'
+import { ThemeType, getColor, Color } from '@/theme/color'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const Container = styled.div`
   display: flex;
@@ -30,6 +33,9 @@ export const Wrapper = styled.div`
   }) =>
     isBorder &&
     `1px solid ${borderColor ? getColor(borderColor) : theme.color.primary}`};
+  ${getMediaQuery(ScreenSize.MOBAIL, ScreenSize.LARGE)} {
+    border: none;
+  }
 `
 
 export const Text = styled.span`

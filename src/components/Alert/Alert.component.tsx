@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { stateType } from 'src/redux/store'
+import { StateType } from 'src/redux/store'
 import {
   AlertComponent,
   AlertContainer,
@@ -11,7 +11,7 @@ import { closeAlert } from '../../redux/reducers/global.reducer'
 
 export const Alert: React.FC = () => {
   const dispatch = useDispatch()
-  const alert = useSelector((state: stateType) => state.global.alert)
+  const alert = useSelector((state: StateType) => state.global.alert)
   const onClose = () => {
     dispatch(closeAlert())
   }
