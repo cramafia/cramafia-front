@@ -15,16 +15,11 @@ export const CenteredContainer = styled.div`
 
 export const StyledScroll = css`
   scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? `${getColor(Color.DARK_LIGHT_500)} ${theme.background.primary}`
-      : `${getColor(Color.GRAY_100)} ${theme.background.primary}`};
+    `${theme.color.scrollbar} ${theme.background.primary}`};
   scrollbar-width: thin;
   :root {
- scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
-   theme.background.primary === getColor(Color.BLACK)
-     ? `${getColor(Color.DARK_LIGHT_500)} ${theme.background.primary}`
-     : `${getColor(Color.GRAY_100)} ${theme.background.primary}`};
-    }
+    scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
+      `${theme.color.scrollbar} ${theme.background.primary}`};
     scrollbar-width: thin;
   }
 
@@ -40,14 +35,9 @@ export const StyledScroll = css`
 
   ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px
-      ${({ theme }: { theme: ThemeType }) =>
-        theme.background.primary === getColor(Color.BLACK)
-          ? getColor(Color.DARK_BLUE_500)
-          : getColor(Color.GRAY_200)};
+      ${({ theme }: { theme: ThemeType }) => theme.color.scrollbar.thumb};
     background: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_BLUE_500)
-        : getColor(Color.GRAY_200)};
+      theme.color.scrollbar.thumb};
   }
 `
 
