@@ -12,19 +12,15 @@ export const TableContainer = styled(Table)`
   text-align: center;
   th {
     padding: ${getUnitAsPixels(3)};
+    color: ${getColor(Color.WHITE)};
   }
   tbody {
     cursor: pointer;
     border-radius: ${getUnitAsPixels()};
     box-shadow: 0 0 0 ${getUnitAsPixels()}
-      ${({ theme }: { theme: ThemeType }) =>
-        theme.background.primary === getColor(Color.BLACK)
-          ? getColor(Color.DARK_LIGHT_400)
-          : getColor(Color.GRAY_100)};
+      ${({ theme }: { theme: ThemeType }) => theme.background.lobbiesTable.row};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_LIGHT_400)
-        : getColor(Color.GRAY_100)};
+      theme.background.lobbiesTable.row};
     span {
       border-bottom: 1px solid
         ${({ theme }: { theme: ThemeType }) => theme.color.primary};

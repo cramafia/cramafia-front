@@ -53,6 +53,7 @@ export const Action = styled(Button)`
   border-radius: ${getUnitAsPixels()};
   background: ${getColor(Color.RED_100)};
   padding: ${getUnitAsPixels(3)} ${getUnitAsPixels(3)};
+  color: ${getColor(Color.WHITE)};
   :hover {
     border: 1px solid ${getColor(Color.RED_100)};
     background: inherit;

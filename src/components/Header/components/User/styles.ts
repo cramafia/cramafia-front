@@ -56,9 +56,7 @@ export const UserName = styled(Dropdown.Toggle)`
 export const OptionsContainer = styled(Dropdown.Menu)`
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_300)
-      : getColor(Color.WHITE_300)};
+    theme.background.user.optionsContainer};
 `
 
 export const Option = styled(Dropdown.Item)`
@@ -66,9 +64,7 @@ export const Option = styled(Dropdown.Item)`
   :hover {
     color: ${getColor(Color.GRAY_200)};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_LIGHT_300)
-        : getColor(Color.WHITE_300)};
+      theme.background.user.optionsContainer};
   }
 `
 

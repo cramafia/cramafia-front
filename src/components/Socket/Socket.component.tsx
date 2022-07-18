@@ -22,7 +22,7 @@ export const Socket = () => {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(process.env.NEXT_PUBLIC_DEV_BASE_URL || '')
+      socket = io(process.env.NEXT_PUBLIC_API_URL || '')
       socketInitializer()
       dispatch(connectSocket(socket))
     }

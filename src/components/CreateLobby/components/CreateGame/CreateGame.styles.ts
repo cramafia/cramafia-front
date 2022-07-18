@@ -49,9 +49,7 @@ export const GameNameInput = styled(Form.Control)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_200)
-      : getColor(Color.WHITE)};
+    theme.background.createLobby.gameNameInput};
   border: none;
   ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
     errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
@@ -60,9 +58,7 @@ export const GameNameInput = styled(Form.Control)`
     border-color: ${getColor(Color.DARK_LIGHT_200)};
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_LIGHT_200)
-        : getColor(Color.WHITE)};
+      theme.background.createLobby.gameNameInput};
     ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
       errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
   }
