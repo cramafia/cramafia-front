@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Button, Form } from 'react-bootstrap'
 
 import { getColor, Color, ThemeType } from '@/theme/color'
 import {
@@ -22,6 +21,7 @@ export const NewGameContainer = styled.div`
 
 export const Title = styled.span`
   ${getTypography(Typography.BODY_REGULAR)}
+  color: ${getColor(Color.WHITE)};
   padding-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
@@ -68,6 +68,7 @@ export const AdvancedSettings = styled.div`
 `
 
 export const SubText = styled.span`
+  color: ${getColor(Color.WHITE)};
   ${getTypography(Typography.BODY_SMALL)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   margin-right: ${getUnitAsPixels()};

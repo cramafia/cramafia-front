@@ -24,10 +24,7 @@ export const HeaderContainer = styled.div`
   height: ${getUnitAsPixels(10.5)};
   align-items: center;
   border-bottom: 1px solid
-    ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColorWithOpacity(Color.WHITE, Opacity._10)
-        : getColorWithOpacity(Color.GRAY_400, Opacity._40)};
+    ${({ theme }: { theme: ThemeType }) => theme.color.border};
 `
 
 export const Logo = styled.div`
