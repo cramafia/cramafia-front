@@ -33,7 +33,7 @@ export enum ImageSize {
   XXLARGE = 'XXLARGE',
 }
 
-export const unit: number = 8
+export const unit = 8
 
 export const getImageSizeAsPixels = (size: ImageSize): string => {
   return pixelate(imageSizes[size])
@@ -48,7 +48,7 @@ export const getMediaQuery = (
   }`
 }
 
-export const getUnitAsPixels = (multiplier: number = 1): string => {
+export const getUnitAsPixels = (multiplier = 1): string => {
   return pixelate(unit * multiplier)
 }
 

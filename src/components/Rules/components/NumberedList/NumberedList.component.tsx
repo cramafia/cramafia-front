@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react'
 
-import { NumberedListProps } from './NumberedList.types'
 import { List, ListItem } from './NumberedList.styles'
-import _ from 'lodash'
+import { NumberedListProps } from './NumberedList.types'
 
-export const NumberedList = ({ text }: NumberedListProps) => {
+export const NumberedList: React.FC<NumberedListProps> = ({ text }) => {
   const splitText = (): string[] => {
     return text
       .replace(/\n/g, '')
@@ -13,10 +12,11 @@ export const NumberedList = ({ text }: NumberedListProps) => {
       .filter((str: string) => !!str)
   }
   const list = useMemo(splitText, [text])
+
   return (
     <List>
-      {list?.map((item, idx) => (
-        <ListItem key={idx}>
+      {list.map((item, idx) => (
+        <ListItem key={item}>
           {idx + 1}. {item}
         </ListItem>
       ))}

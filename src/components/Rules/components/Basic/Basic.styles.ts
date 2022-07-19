@@ -9,5 +9,3 @@ export const Row = styled.div`
     width: 25%;
   }
 `
-
-export const Col = styled.div``

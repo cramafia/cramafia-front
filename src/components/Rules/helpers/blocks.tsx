@@ -1,16 +1,17 @@
-import { ReactNode } from 'react'
 import { nanoid } from 'nanoid'
+import React, { ReactNode } from 'react'
+
+import { Basic } from '../components/Basic'
+import { Scorring } from '../components/Scorring'
+import { Text } from '../components/Text'
+import { TextImage } from '../components/TextImage'
+import { ImageFloat } from '../components/TextImage/TextImage.types'
+
+import { AnchorType } from './anchors'
+import { getText, TextType } from './texts'
 
 import { ImageType } from '@/components/Image'
 import { ImageSize } from '@/theme/layout'
-
-import { ImageFloat } from '../components/TextImage/TextImage.types'
-import { getText, TextType } from './texts'
-import { Basic } from '../components/Basic'
-import { TextImage } from '../components/TextImage'
-import { Text } from '../components/Text'
-import { AnchorType } from './anchors'
-import { Scorring } from '../components/Scorring'
 
 export interface BlockType {
   id: string

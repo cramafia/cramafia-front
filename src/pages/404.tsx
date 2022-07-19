@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
 
-import { _404 } from '@/components/_404'
+import { NotFoundComponent } from '@/components/404'
 
 const NotFound: NextPage = () => {
   return (
@@ -10,7 +11,7 @@ const NotFound: NextPage = () => {
         <title>Cramafia | 404</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <_404 />
+      <NotFoundComponent />
     </>
   )
 }

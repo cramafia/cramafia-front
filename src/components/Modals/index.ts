@@ -1,8 +1,9 @@
-import { ModalSize } from '@/theme/layout'
+import { ModalPayloadType } from '../../types'
 
 import { Login } from './Login'
 import { Register } from './Register'
-import { ModalPayloadType } from '../../types'
+
+import { ModalSize } from '@/theme/layout'
 
 export enum ModalType {
   LOGIN = 'LOGIN',

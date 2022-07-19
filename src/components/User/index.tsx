@@ -1,10 +1,11 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
+import { StateType } from 'src/redux/store'
+
+import { UserInformationContainer, UserImage, UserName, Title } from './styles'
 
 import { usersApi } from '@/services/usersApi/users.api'
-import { StateType } from 'src/redux/store'
-import { UserInformationContainer, UserImage, UserName, Title } from './styles'
 
 export const User: React.FC = () => {
   const { username } = useRouter().query
@@ -24,9 +25,7 @@ export const User: React.FC = () => {
           </UserInformationContainer>
         </>
       ) : (
-        <>
-          <span>Not Authorized</span>
-        </>
+        <span>Not Authorized</span>
       )}
     </div>
   )

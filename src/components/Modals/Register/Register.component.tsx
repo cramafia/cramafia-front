@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { Spinner } from 'react-bootstrap'
 import { useFormik } from 'formik'
+import React, { useState, useEffect } from 'react'
+import { Spinner } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { authApi } from 'src/services/authApi/auth.api'
 
+import { ModalType, getModal } from '..'
 import {
   openModal,
   closeModal,
   authorizeUser,
   addAlert,
 } from '../../../redux/reducers/global.reducer'
-import { ModalType } from '..'
-import { getModal } from '..'
 import {
   ModalContainer,
   MainText,
@@ -21,14 +21,16 @@ import {
   MinText,
   ErrorText,
 } from '../styles'
-import { authApi } from 'src/services/authApi/auth.api'
-import AuthHelper from '@/helpers/auth.helper'
-import { AlertType } from '@/components/Alert/Alert.types'
+
 import { Eula } from './Register.styles'
+
+import { AlertType } from '@/components/Alert/Alert.types'
+import AuthHelper from '@/helpers/auth.helper'
+import { Error } from '@/types/api.types'
 
 export const Register: React.FC = () => {
   const dispatch = useDispatch()
-  const onOpen = (type: ModalType) => {
+  const onOpen = (type: ModalType): void => {
     dispatch(openModal(getModal(type)))
   }
   const [registration, { data, error, isLoading }] =
@@ -43,13 +45,15 @@ export const Register: React.FC = () => {
     onSubmit: () => {},
   })
   const [errorText, setErrorText] = useState('')
-  const handleSubmit = () => {
-    formik.values.password === formik.values.repeatPassword
-      ? registration({
-          username: formik.values.username,
-          password: formik.values.password,
-        })
-      : setErrorText('Пароли не совпадают')
+  const handleSubmit = async (): Promise<void> => {
+    if (formik.values.password === formik.values.repeatPassword) {
+      await registration({
+        username: formik.values.username,
+        password: formik.values.password,
+      })
+    } else {
+      setErrorText('Пароли не совпадают')
+    }
   }
 
   useEffect(() => {
@@ -65,9 +69,11 @@ export const Register: React.FC = () => {
       )
       dispatch(authorizeUser(!!data.access_token))
     }
+
     if (error) {
-      const { data } = error as any
-      setErrorText(data?.message)
+      const { data: errorData } = error as Error
+
+      setErrorText(errorData.message)
     }
   }, [data, error])
 
@@ -103,13 +109,9 @@ export const Register: React.FC = () => {
         <CheckBox />
         <Eula>
           <MinText>Я согласен с </MinText>
-          <MinText isButton={true}>
-            Правилами пользовтельского соглашения
-          </MinText>
+          <MinText isButton>Правилами пользовтельского соглашения</MinText>
           <MinText> и </MinText>
-          <MinText isButton={true}>
-            правилами обработки персональных данных
-          </MinText>
+          <MinText isButton>правилами обработки персональных данных</MinText>
         </Eula>
       </HelperButtons>
       <SubmiteButton
@@ -122,7 +124,7 @@ export const Register: React.FC = () => {
       </SubmiteButton>
       <HelperButtons>
         <MinText>Есть аккаунт?</MinText>
-        <MinText isButton={true} onClick={onOpen.bind(this, ModalType.LOGIN)}>
+        <MinText isButton onClick={() => onOpen(ModalType.LOGIN)}>
           Авторизироваться
         </MinText>
       </HelperButtons>

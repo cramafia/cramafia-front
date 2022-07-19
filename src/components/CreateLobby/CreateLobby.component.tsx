@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
 
-import { LobbiesTable } from '@/components/LobbiesTable'
+import { createLobby } from '../Socket/emitters/lobbies.emitters'
 
 import {
   NewGameContainer,
@@ -12,10 +13,6 @@ import {
   AdvancedSettings,
   SubText,
 } from './CreateLobby.styles'
-import { Option } from './components/Option'
-import { SubOption } from './components/SubOption'
-import { CreateGame } from './components/CreateGame'
-
 import {
   OptionGameType,
   SubOptionId,
@@ -25,10 +22,12 @@ import {
   getOption,
   LobbyStateType,
 } from './CreateLobby.types'
-import { useRouter } from 'next/router'
+import { CreateGame } from './components/CreateGame'
+import { Option } from './components/Option'
+import { SubOption } from './components/SubOption'
 
+import { LobbiesTable } from '@/components/LobbiesTable'
 import { useSocketEmitters } from '@/hooks/useSocketEmitters'
-import { createLobby } from '../Socket/emitters/lobbies.emitters'
 import { videosdkApi } from '@/services/videosdk/videosdk'
 
 export const CreateLobby: React.FC = () => {
@@ -39,35 +38,43 @@ export const CreateLobby: React.FC = () => {
     errorText: '',
   })
 
-  const handleChangeOption = (option: OptionGameType) => {
+  const handleChangeOption = (option: OptionGameType): void => {
     setLobbyState({
       ...lobbyState,
       gameType: getOption(option),
       activeSubOptions: [],
     })
   }
-  const [createMeetings, { data, error, isLoading }] =
-    videosdkApi.useCreateMeetingMutation()
+  const [createMeetings, { data }] = videosdkApi.useCreateMeetingMutation<{
+    data: {
+      meetingId?: string
+    }
+  }>()
   const router = useRouter()
   const { emit } = useSocketEmitters()
-  const [currentGameType, setCurrentGameType] = useState(
-    getOption(OptionGameType.CLASSIC)
-  )
 
-  const onCreate = () => {
+  const onCreate = (): void => {
     createMeetings()
+      .then(() => {})
+      .catch(() => {})
   }
 
   useEffect(() => {
-    if (data?.meetingId) {
+    if (data.meetingId) {
       emit(createLobby, {
         lobbyId: data.meetingId,
       })
-      router.push(`/lobby/${data.meetingId}`)
+      router
+        .push(`/lobby/${data.meetingId}`)
+        .then(() => {})
+        .catch(() => {})
     }
   }, [data])
 
-  const handleChangeActiveSubOptions = (id: SubOptionId, canEdit: boolean) => {
+  const handleChangeActiveSubOptions = (
+    id: SubOptionId,
+    canEdit: boolean
+  ): void => {
     if (canEdit) {
       if (lobbyState.activeSubOptions.includes(id)) {
         setLobbyState({
@@ -85,14 +92,14 @@ export const CreateLobby: React.FC = () => {
     }
   }
 
-  const changeName = (e: any) => {
-    if (e.target.value.length > 16) {
+  const changeName = (value: string): void => {
+    if (value.length > 16) {
       setLobbyState({
         ...lobbyState,
         errorText: 'Название должно быть меньше 16 символов',
       })
     } else {
-      setLobbyState({ ...lobbyState, gameName: e.target.value, errorText: '' })
+      setLobbyState({ ...lobbyState, gameName: value, errorText: '' })
     }
   }
 
@@ -110,7 +117,7 @@ export const CreateLobby: React.FC = () => {
                   text={option.text}
                   gameType={option.type}
                   currentGameType={lobbyState.gameType}
-                  onClick={handleChangeOption.bind(this, option.type)}
+                  onClick={() => handleChangeOption(option.type)}
                 />
               ))}
             </GameTypeContainer>

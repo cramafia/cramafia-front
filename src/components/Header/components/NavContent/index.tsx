@@ -1,50 +1,50 @@
 import React from 'react'
-
-import { NavItem, Play } from '../../Header.styles'
-import { ButtonLink } from '@/components/ButtonLink'
-import { User } from './../User'
 import { useSelector, useDispatch } from 'react-redux'
-import { getModal, ModalType } from '@/components/Modals'
 import { openModal } from 'src/redux/reducers/global.reducer'
 import { StateType } from 'src/redux/store'
 
-export const NavContent = ({
-  toggleExpanded,
-}: {
-  toggleExpanded: Function
-}) => {
+import { NavItem, Play } from '../../Header.styles'
+import { User } from '../User'
+
+import { Props } from './types'
+
+import { ButtonLink } from '@/components/ButtonLink'
+import { getModal, ModalType } from '@/components/Modals'
+
+export const NavContent: React.FC<Props> = ({ toggleExpanded }) => {
   const dispatch = useDispatch()
   const isAuthorized = useSelector(
     (state: StateType) => state.global.isAuthorized
   )
 
-  const handleModalButtons = (type: ModalType) => {
+  const handleModalButtons = (type: ModalType): void => {
     toggleExpanded(false)
     dispatch(openModal(getModal(type)))
   }
 
-  const handleToggle = (b: boolean) => {
+  const handleToggle = (b: boolean): void => {
     toggleExpanded(b)
   }
+
   return (
     <>
-      <Play onClick={handleToggle.bind(this, false)}>
+      <Play onClick={() => handleToggle(false)}>
         <ButtonLink href="/game-search">Играть</ButtonLink>
       </Play>
-      <NavItem onClick={handleToggle.bind(this, false)}>
+      <NavItem onClick={() => handleToggle(false)}>
         <ButtonLink href="/watch">Смотреть</ButtonLink>
       </NavItem>
-      <NavItem onClick={handleToggle.bind(this, false)}>
+      <NavItem onClick={() => handleToggle(false)}>
         <ButtonLink href="/rules">Правила</ButtonLink>
       </NavItem>
       {isAuthorized ? (
         <User />
       ) : (
         <>
-          <NavItem onClick={handleModalButtons.bind(this, ModalType.LOGIN)}>
+          <NavItem onClick={() => handleModalButtons(ModalType.LOGIN)}>
             Вход
           </NavItem>
-          <NavItem onClick={handleModalButtons.bind(this, ModalType.REGISTER)}>
+          <NavItem onClick={() => handleModalButtons(ModalType.REGISTER)}>
             Регистрация
           </NavItem>
         </>

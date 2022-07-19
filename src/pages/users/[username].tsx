@@ -1,8 +1,8 @@
-import React from 'react'
 import { NextPage } from 'next'
+import React from 'react'
 
-import { Page } from 'src/layouts/Page'
 import { User } from '@/components/User'
+import { Page } from '@/layouts/Page'
 
 const UserPage: NextPage = () => {
   return (

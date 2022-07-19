@@ -59,7 +59,7 @@ export const SubOptionContainer = styled.div`
   min-width: 130px;
   padding: ${getUnitAsPixels(2)};
 
-  ${({ canEdit, selected }: { canEdit: boolean; selected: boolean }) => {
+  ${({ canEdit }: { canEdit: boolean; selected: boolean }) => {
     return !canEdit
       ? `cursor: not-allowed;
       background-color: ${getColor(Color.DARK_LIGHT_500)} `
@@ -74,13 +74,8 @@ export const SubOptionContainer = styled.div`
 
   svg {
     path {
-      fill: ${({
-        selected,
-        canEdit,
-      }: {
-        selected: boolean
-        canEdit: boolean
-      }) => (selected ? getColor(Color.GREEN_100) : getColor(Color.WHITE))};
+      fill: ${({ selected }: { selected: boolean; canEdit: boolean }) =>
+        selected ? getColor(Color.GREEN_100) : getColor(Color.WHITE)};
     }
   }
 `

@@ -15,7 +15,7 @@ export const Wrapper = styled.div<{ units?: number }>`
   justify-content: center;
   align-items: center;
   & > div {
-    width: ${({ units }) => `${getUnitAsPixels(units || 5)}`};
-    height: ${({ units }) => `${getUnitAsPixels(units || 5)}`};
+    width: ${({ units }) => `${getUnitAsPixels(units ?? 5)}`};
+    height: ${({ units }) => `${getUnitAsPixels(units ?? 5)}`};
   }
 `

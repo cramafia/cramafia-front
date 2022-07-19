@@ -1,8 +1,11 @@
+import _ from 'lodash'
 import React, { SyntheticEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import _ from 'lodash'
-
+import { clearAnchors } from 'src/redux/reducers/rules.reducer'
 import { StateType } from 'src/redux/store'
+
+import { AnchorObjectType, AnchorType, getAnchors } from '../../helpers/anchors'
+
 import {
   Wrapper,
   Content,
@@ -11,20 +14,17 @@ import {
   ListItem,
   ListItemLink,
 } from './Sidebar.styles'
-import { AnchorObjectType, AnchorType, getAnchors } from '../../helpers/anchors'
-
-import { clearAnchors } from 'src/redux/reducers/rules.reducer'
 
 export const Sidebar: React.FC = () => {
   const dispatch = useDispatch()
   const { anchors } = useSelector((state: StateType) => state.rules)
-  const activeAnchor = anchors[0] || AnchorType.LIST_2_6
+  const activeAnchor = anchors.length ? anchors[0] : AnchorType.LIST_2_6
 
-  const stopPropogation = (e: SyntheticEvent) => {
+  const stopPropogation = (e: SyntheticEvent): void => {
     e.stopPropagation()
   }
 
-  const onClick = (type: AnchorType) => {
+  const onClick = (type: AnchorType): void => {
     _.debounce(() => dispatch(clearAnchors(type)), 100)
   }
 
@@ -36,7 +36,7 @@ export const Sidebar: React.FC = () => {
           {getAnchors().map(({ title, anchor, type }: AnchorObjectType) => (
             <ListItem key={anchor}>
               <ListItemLink
-                onClick={onClick.bind(this, type)}
+                onClick={() => onClick(type)}
                 href={`#${anchor}`}
                 active={activeAnchor === type}
               >

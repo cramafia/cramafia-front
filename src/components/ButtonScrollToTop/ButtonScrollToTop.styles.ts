@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 import ArrowToTop from '@/assets/icons/arrowToTop.svg'
-import { ThemeType } from '@/theme/color'
 import { show } from '@/theme/animation'
+import { ThemeType } from '@/theme/color'
+import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 
 export const ScrollContainer = styled.div`
   position: fixed;

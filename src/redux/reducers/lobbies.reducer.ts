@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import { LobbyDto } from '@/components/Socket/dto/lobby.dto'
 
-type initialStateType = {
+interface InitialStateType {
   allLobbies: LobbyDto[]
 }
 
-const initialState: initialStateType = {
+const initialState: InitialStateType = {
   allLobbies: [],
 }
 

@@ -1,18 +1,12 @@
 import styled from 'styled-components'
 
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import {
-  getColor,
-  Color,
-  ThemeType,
-  getColorWithOpacity,
-  Opacity,
-} from '@/theme/color'
 
 export const GameSearchContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};

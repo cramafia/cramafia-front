@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import { ImageType } from '@/components/Image'
 import { ImageSize } from '@/theme/layout'
 

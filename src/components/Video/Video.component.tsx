@@ -1,17 +1,20 @@
-import React, { useRef, useEffect } from 'react'
-//@ts-ignore
+/* eslint-disable no-console */
 import { useParticipant } from '@videosdk.live/react-sdk'
+import React, { useRef, useEffect } from 'react'
 
-export const Video = ({ videoId }: { videoId: string }) => {
+import { Props } from './Video.types'
+
+export const Video: React.FC<Props> = ({ participantId }) => {
   const webcamRef = useRef<HTMLVideoElement>(null)
   const micRef = useRef<HTMLVideoElement>(null)
   const { displayName, webcamStream, micStream, webcamOn, micOn, isLocal } =
-    useParticipant(videoId)
+    useParticipant(participantId)
 
   useEffect(() => {
     if (webcamRef.current) {
       if (webcamOn) {
         const mediaStream = new MediaStream()
+
         mediaStream.addTrack(webcamStream.track)
 
         webcamRef.current.srcObject = mediaStream
@@ -30,6 +33,7 @@ export const Video = ({ videoId }: { videoId: string }) => {
     if (micRef.current) {
       if (micOn) {
         const mediaStream = new MediaStream()
+
         mediaStream.addTrack(micStream.track)
 
         micRef.current.srcObject = mediaStream
@@ -48,7 +52,7 @@ export const Video = ({ videoId }: { videoId: string }) => {
     <div>
       {displayName}
       <audio ref={micRef} autoPlay muted={isLocal} />
-      <video height={'100%'} width={'100%'} ref={webcamRef} autoPlay />
+      <video height="100%" width="100%" ref={webcamRef} autoPlay />
     </div>
   )
 }
