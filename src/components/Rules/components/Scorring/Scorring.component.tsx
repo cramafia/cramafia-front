@@ -1,11 +1,11 @@
 import React from 'react'
 
+import { Icons } from './Scorring.styles'
+
 import { getImage, ImageType } from '@/components/Image'
 import { ImageSize } from '@/theme/layout'
 
-import { Icons } from './Scorring.styles'
-
-export const Scorring = () => {
+export const Scorring: React.FC = () => {
   return (
     <Icons>
       {getImage(ImageType.SCORING_1, ImageSize.XXLARGE)}

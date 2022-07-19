@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { SettingsBar, CloseButton, Container } from './Settings.styles'
-import { StateType } from '@/store'
-import { useDispatch } from 'react-redux'
-import { toggleSettingsState } from '@/reducers/global.reducer'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { StateType } from 'src/redux/store'
+
 import { getIcon, IconType } from '../Icon'
 
-export const Settings = () => {
+import { SettingsBar, CloseButton, Container } from './Settings.styles'
+
+import { toggleSettingsState } from '@/reducers/global.reducer'
+
+export const Settings: React.FC = () => {
   const dispatch = useDispatch()
   const isVisible = useSelector((state: StateType) => state.global.showSettings)
-  const handleCloseSettings = () => {
+  const handleCloseSettings = (): void => {
     dispatch(toggleSettingsState(false))
   }
 

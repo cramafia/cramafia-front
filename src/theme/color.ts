@@ -31,17 +31,45 @@ export enum Opacity {
   _10 = '_10',
 }
 
-export type ThemeType = {
+export interface ThemeType {
   background: {
     primary: string
     secondary: string
     opposite: string
+    createLobby: {
+      gameNameInput: string
+    }
+    lobbiesTable: {
+      row: string
+    }
+    gameSearch: {
+      defaultButton: string
+    }
+    user: {
+      optionsContainer: string
+    }
+    modal: {
+      default: string
+      input: string
+    }
+    themeSwitcher: string
   }
   color: {
     primary: string
     secondary: string
     opposite: string
     settingsShadow: string
+    footer: {
+      listHeader: string
+    }
+    border: string
+    sidebar: {
+      listItem: string
+    }
+    scrollbar: {
+      default: string
+      thumb: string
+    }
   }
 }
 
@@ -58,7 +86,7 @@ export const getOpacity = (_opacity: Opacity): string => {
 }
 
 export const getTheme = (theme: Theme): ThemeType => {
-  return themes[theme] || themes[Theme.WHITE]
+  return themes[theme]
 }
 
 const opacity: { [key in Opacity]: string } = {
@@ -95,12 +123,40 @@ const themes: { [key in Theme]: ThemeType } = {
       primary: getColor(Color.BLACK),
       secondary: getColor(Color.BLACK),
       opposite: getColor(Color.WHITE),
+      createLobby: {
+        gameNameInput: getColor(Color.DARK_LIGHT_200),
+      },
+      lobbiesTable: {
+        row: getColor(Color.DARK_LIGHT_400),
+      },
+      gameSearch: {
+        defaultButton: getColor(Color.DARK_LIGHT_500),
+      },
+      user: {
+        optionsContainer: getColor(Color.DARK_LIGHT_300),
+      },
+      modal: {
+        default: getColor(Color.DARK_BLUE_500),
+        input: getColor(Color.DARK_LIGHT_200),
+      },
+      themeSwitcher: getColor(Color.DARK_LIGHT_200),
     },
     color: {
       primary: getColor(Color.WHITE),
       secondary: getColor(Color.WHITE),
       opposite: getColor(Color.BLACK),
       settingsShadow: getColor(Color.GRAY_100),
+      footer: {
+        listHeader: getColor(Color.GRAY_200),
+      },
+      border: getColorWithOpacity(Color.WHITE, Opacity._10),
+      sidebar: {
+        listItem: getColor(Color.GRAY_100),
+      },
+      scrollbar: {
+        default: getColor(Color.DARK_LIGHT_500),
+        thumb: getColor(Color.DARK_BLUE_500),
+      },
     },
   },
   [Theme.WHITE]: {
@@ -108,12 +164,40 @@ const themes: { [key in Theme]: ThemeType } = {
       primary: getColor(Color.WHITE),
       secondary: getColor(Color.WHITE),
       opposite: getColor(Color.BLACK),
+      createLobby: {
+        gameNameInput: getColor(Color.WHITE),
+      },
+      lobbiesTable: {
+        row: getColor(Color.DARK_LIGHT_200),
+      },
+      gameSearch: {
+        defaultButton: getColor(Color.DARK_LIGHT_200),
+      },
+      user: {
+        optionsContainer: getColor(Color.WHITE_300),
+      },
+      modal: {
+        default: getColor(Color.WHITE),
+        input: getColor(Color.WHITE),
+      },
+      themeSwitcher: getColor(Color.WHITE_300),
     },
     color: {
       primary: getColor(Color.BLACK),
       secondary: getColor(Color.BLACK),
       opposite: getColor(Color.WHITE),
       settingsShadow: getColor(Color.GRAY_500),
+      footer: {
+        listHeader: getColor(Color.GRAY_200),
+      },
+      border: getColorWithOpacity(Color.BLACK, Opacity._10),
+      sidebar: {
+        listItem: getColor(Color.DARK_LIGHT_300),
+      },
+      scrollbar: {
+        default: getColor(Color.GRAY_100),
+        thumb: getColor(Color.GRAY_200),
+      },
     },
   },
 }

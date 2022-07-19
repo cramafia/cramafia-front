@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { getTypography, Typography } from '@/theme/typography'
 import {
   getVerticalSpacingAsPixels,
   getUnitAsPixels,
   VerticalSpacingType,
 } from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const Container = styled.div`
   margin: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)} 0;

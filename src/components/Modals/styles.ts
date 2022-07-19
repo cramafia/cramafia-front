@@ -1,5 +1,6 @@
 import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
+
 import { Color, getColor, ThemeType } from '../../theme/color'
 import {
   getUnitAsPixels,
@@ -29,20 +30,16 @@ export const ModalInput = styled(Form.Control)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_200)
-      : getColor(Color.WHITE)};
+    theme.background.modal.input};
   border-color: ${getColor(Color.DARK_LIGHT_200)};
   font-weight: 550;
   :focus {
     border-color: ${getColor(Color.DARK_LIGHT_200)};
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_LIGHT_200)
-        : getColor(Color.WHITE)};
+      theme.background.modal.input};
   }
-  ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+  ${({ errorText }: { errorText: string; theme: ThemeType }) =>
     !!errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
 `
 
@@ -81,7 +78,7 @@ export const SubmiteButton = styled(Button)`
     color: ${getColor(Color.BLACK)};
     border-color: ${getColor(Color.GREEN_100)};
   }
-  ${({ isLoading, theme }: { isLoading: boolean; theme: ThemeType }) =>
+  ${({ isLoading }: { isLoading: boolean; theme: ThemeType }) =>
     isLoading &&
     `background-color:${getColor(Color.GRAY_200)}; 
         :hover, focus{ 

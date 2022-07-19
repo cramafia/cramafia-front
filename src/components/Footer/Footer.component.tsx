@@ -1,4 +1,7 @@
 import React from 'react'
+import { LogoText } from 'src/styles'
+
+import { getIcon, IconType } from '../Icon'
 
 import {
   BottomFooter,
@@ -14,8 +17,6 @@ import {
   CheckButton,
   SocialLinks,
 } from './Footer.styles'
-import { LogoText } from 'src/styles'
-import { getIcon, IconType } from '../Icon'
 
 export const Footer: React.FC = () => {
   return (

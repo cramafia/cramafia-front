@@ -1,4 +1,7 @@
 import React from 'react'
+
+import { getImage, ImageType } from '../Image'
+
 import {
   MainContainer,
   Heading,
@@ -11,7 +14,6 @@ import {
   ProcessHeading,
   ProcessSubHeading,
 } from './Main.styles'
-import { getImage, ImageType } from '../Image'
 
 export const Main: React.FC = () => {
   return (

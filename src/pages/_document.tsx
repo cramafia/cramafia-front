@@ -6,42 +6,43 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
-export default class AppDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+const MyDocument = (): ReactNode => {
+  return (
+    <Html lang="en">
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
 
-    ctx.renderPage = () =>
-      originalRenderPage({
-        enhanceApp: (App: any) => (props: any) =>
-          sheet.collectStyles(<App {...props} />),
-      })
+MyDocument.getInitialProps = async (
+  ctx: DocumentContext
+): Promise<DocumentInitialProps> => {
+  const sheet = new ServerStyleSheet()
+  const originalRenderPage = ctx.renderPage
 
-    const initialProps = await Document.getInitialProps(ctx)
-    return {
-      ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          {sheet.getStyleElement()}
-        </>
-      ) as any,
-    }
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+    })
+
+  const initialProps = await Document.getInitialProps(ctx)
+
+  return {
+    ...initialProps,
+    styles: (
+      <>
+        {initialProps.styles}
+        {sheet.getStyleElement()}
+      </>
+    ) as unknown as DocumentInitialProps['styles'],
   }
 }
+
+export default MyDocument

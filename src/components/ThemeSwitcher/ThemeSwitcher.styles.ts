@@ -44,9 +44,7 @@ export const SwitchItem = styled.span`
   height: ${getUnitAsPixels(3.75)};
   border-radius: ${getUnitAsPixels(2)};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_200)
-      : getColor(Color.WHITE_300)};
+    theme.background.themeSwitcher};
   cursor: pointer;
   transition: 0.6s;
   z-index: 2;

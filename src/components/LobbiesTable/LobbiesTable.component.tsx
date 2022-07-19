@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
-
-import { TableContainer } from './LobbiesTable.styles'
-import { getAllLobbies } from '../Socket/emitters/lobbies.emitters'
-import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { StateType } from 'src/redux/store'
 
-export const LobbiesTable = () => {
+import { getAllLobbies } from '../Socket/emitters/lobbies.emitters'
+
+import { TableContainer } from './LobbiesTable.styles'
+
+import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+
+export const LobbiesTable: React.FC = () => {
   const { allLobbies } = useSelector((state: StateType) => state.lobbies)
   const { emit } = useSocketEmitters()
   const router = useRouter()
-  const linkTo = (lobbyId: string) => {
-    router.push(`/lobby/${lobbyId}`)
+  const linkTo = (lobbyId: string): void => {
+    router
+      .push(`/lobby/${lobbyId}`)
+      .then(() => {})
+      .catch(() => {})
   }
 
   useEffect(() => {

@@ -1,23 +1,18 @@
-import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
+import styled from 'styled-components'
 
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
-  getColor,
-  Color,
-  ThemeType,
-  getColorWithOpacity,
-  Opacity,
-} from '@/theme/color'
-import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
+  getMediaQuery,
+  getUnitAsPixels,
+  ScreenSize,
+  getVerticalSpacingAsPixels,
+  VerticalSpacingType,
+} from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { getVerticalSpacingAsPixels, VerticalSpacingType } from '@/theme/layout'
 
 export const Container = styled.div`
-  border: 1px solid
-    ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColorWithOpacity(Color.WHITE, Opacity._10)
-        : getColorWithOpacity(Color.BLACK, Opacity._10)};
+  border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.color.border};
   border-radius: ${getUnitAsPixels()};
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   padding: ${getUnitAsPixels(3)};
@@ -59,34 +54,28 @@ export const Button = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: ${({ theme }: { theme: ThemeType }) => theme.background.opposite};
+  color: ${getColor(Color.WHITE)};
 `
 
 export const PlayerButton = styled(Button)`
   background: ${({ active, theme }: { active: boolean; theme: ThemeType }) =>
     active
       ? getColor(Color.GREEN_100)
-      : theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_500)
-      : getColor(Color.GRAY_100)};
+      : theme.background.gameSearch.defaultButton};
 `
 
 export const GameButton = styled(Button)`
   background: ${({ active, theme }: { active: boolean; theme: ThemeType }) =>
     active
       ? getColor(Color.PURPLE_200)
-      : theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_500)
-      : getColor(Color.GRAY_100)};
+      : theme.background.gameSearch.defaultButton};
 `
 
 export const SearchButton = styled(Button)`
   ${getTypography(Typography.BODY_SMALL)}
   width: 100%;
   background: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_500)
-      : getColor(Color.GRAY_100)};
+    theme.background.gameSearch.defaultButton};
   padding: ${getUnitAsPixels(3)} ${getUnitAsPixels()};
 
   :hover {

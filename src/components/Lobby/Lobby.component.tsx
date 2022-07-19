@@ -1,29 +1,34 @@
+import { useMeeting, UseMeeting } from '@videosdk.live/react-sdk'
+import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-//@ts-ignore
-import { useMeeting } from '@videosdk.live/react-sdk'
 import { useDispatch } from 'react-redux'
 
-import { toggleLoaderState } from 'src/redux/reducers/global.reducer'
 import { Video } from '../Video'
+
 import { Container } from './Lobby.styles'
 
-export const Lobby = () => {
+import { toggleLoaderState } from '@/reducers/global.reducer'
+
+export const Lobby: React.FC = () => {
   const dispatch = useDispatch()
+  const router = useRouter()
   const {
     meetingId,
     leave,
-    muteMic,
-    unmuteMic,
     toggleMic,
-    disableWebcam,
-    enableWebcam,
     toggleWebcam,
     participants,
-    end,
-  } = useMeeting({
+  }: UseMeeting = useMeeting({
     onMeetingJoined: () => dispatch(toggleLoaderState(false)),
-    onParticipantLeft: () => console.log('left'),
   })
+
+  const onLeave = (): void => {
+    leave()
+    router
+      .push('/game-search')
+      .then(() => {})
+      .catch(() => {})
+  }
 
   useEffect(() => {
     dispatch(toggleLoaderState(true))
@@ -33,19 +38,13 @@ export const Lobby = () => {
     <Container>
       <div>
         <div>
-          <button className={'button red'} onClick={leave}>
-            LEAVE
-          </button>
-          <button className={'button blue'} onClick={toggleMic}>
-            toggleMic
-          </button>
-          <button className={'button blue'} onClick={toggleWebcam}>
-            toggleWebcam
-          </button>
+          <div onClick={onLeave}>LEAVE</div>
+          <div onClick={toggleMic}>toggleMic</div>
+          <div onClick={toggleWebcam}>toggleWebcam</div>
         </div>
         <h1>Meeting id is : {meetingId}</h1>
         {[...participants.keys()].map((id) => (
-          <Video key={id} videoId={id} />
+          <Video key={id} participantId={id} />
         ))}
       </div>
     </Container>

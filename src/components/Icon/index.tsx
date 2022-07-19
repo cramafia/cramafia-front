@@ -1,26 +1,31 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { ReactNode } from 'react'
+
 import Alcohol from '@/assets/icons/alcohol.svg'
+import ArrowToTop from '@/assets/icons/arrowToTop.svg'
+import Astronaut from '@/assets/icons/astronaut.svg'
 import Camera from '@/assets/icons/camera.svg'
+import Checked from '@/assets/icons/checked.svg'
+import Cross from '@/assets/icons/cross.svg'
 import Doctor from '@/assets/icons/doctor.svg'
 import Don from '@/assets/icons/don.svg'
+import Facebook from '@/assets/icons/facebook.svg'
+import Instagram from '@/assets/icons/instagram.svg'
 import Mafia from '@/assets/icons/mafia.svg'
+import Mastercard from '@/assets/icons/mastercard.svg'
 import Network from '@/assets/icons/network.svg'
 import Over18 from '@/assets/icons/over18.svg'
 import Peace from '@/assets/icons/peace.svg'
 import Promotion from '@/assets/icons/promotion.svg'
 import Reward from '@/assets/icons/reward.svg'
 import Sheriff from '@/assets/icons/sheriff.svg'
-import Cross from '@/assets/icons/cross.svg'
-import Facebook from '@/assets/icons/facebook.svg'
-import Instagram from '@/assets/icons/instagram.svg'
-import Mastercard from '@/assets/icons/mastercard.svg'
 import Telegram from '@/assets/icons/telegram.svg'
 import Twitch from '@/assets/icons/twitch.svg'
 import Visa from '@/assets/icons/visa.svg'
 import Vk from '@/assets/icons/vk.svg'
 import Youtube from '@/assets/icons/youtube.svg'
-import ArrowToTop from '@/assets/icons/arrowToTop.svg'
-import Checked from '@/assets/icons/checked.svg'
-import Astronaut from '@/assets/icons/astronaut.svg'
+
+type Icon = () => ReactNode
 
 export enum IconType {
   ALCOHOL = 'ALCOHOL',
@@ -48,11 +53,11 @@ export enum IconType {
   ASTRONAUT = 'ASTRONAUT',
 }
 
-export const getIcon = (t: IconType): Function => {
+export const getIcon = (t: IconType): Icon => {
   return icons[t]
 }
 
-const icons: { [key in IconType]: Function } = {
+const icons: { [key in IconType]: Icon } = {
   [IconType.ALCOHOL]: Alcohol,
   [IconType.CAMERA]: Camera,
   [IconType.DOCTOR]: Doctor,

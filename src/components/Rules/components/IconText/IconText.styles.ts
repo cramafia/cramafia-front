@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { ThemeType, getColor, Color } from '@/theme/color'
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
@@ -7,7 +8,6 @@ import {
   getMediaQuery,
   ScreenSize,
 } from '@/theme/layout'
-import { ThemeType, getColor, Color } from '@/theme/color'
 import { getTypography, Typography } from '@/theme/typography'
 
 export const Container = styled.div`

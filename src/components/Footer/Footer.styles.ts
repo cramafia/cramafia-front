@@ -61,10 +61,7 @@ export const ListItem = styled.li`
 
 export const ListHeader = styled.li`
   ${getTypography(Typography.BODY_SMALL)}
-  color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.GRAY_200)
-      : getColor(Color.BLACK)};
+  color: ${({ theme }: { theme: ThemeType }) => theme.color.footer.listHeader};
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
@@ -130,7 +127,7 @@ export const MessageButton = styled(Button)`
     background: ${({ theme }: { theme: ThemeType }) =>
       theme.background.primary};
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
-    border-color: ${getColor(Color.WHITE)};
+    border-color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   }
 `
 

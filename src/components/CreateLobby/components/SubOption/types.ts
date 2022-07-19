@@ -5,5 +5,5 @@ export interface SubOptionProps {
   gameType: OptionType
   activeSubOptions: SubOptionId[]
   id: SubOptionId
-  onClick: Function
+  onClick: (id: SubOptionId, canEdit: boolean) => void
 }

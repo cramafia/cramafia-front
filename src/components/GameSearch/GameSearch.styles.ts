@@ -1,18 +1,12 @@
 import styled from 'styled-components'
 
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
   getUnitAsPixels,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import {
-  getColor,
-  Color,
-  ThemeType,
-  getColorWithOpacity,
-  Opacity,
-} from '@/theme/color'
 
 export const GameSearchContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
@@ -23,10 +17,7 @@ export const LivePlayers = styled.div`
   padding: ${getUnitAsPixels(3)};
   ${getTypography(Typography.BODY_SMALL)}
   border: 1px solid
-    ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColorWithOpacity(Color.WHITE, Opacity._10)
-      : getColorWithOpacity(Color.BLACK, Opacity._10)};
+    ${({ theme }: { theme: ThemeType }) => theme.color.border};
   border-radius: ${getUnitAsPixels()};
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
 `
@@ -45,7 +36,8 @@ export const NewGame = styled.div`
   border: 1px solid ${getColor(Color.GREEN_100)};
   border-radius: ${getUnitAsPixels()};
   background: ${getColor(Color.GREEN_100)};
-  padding: ${getUnitAsPixels()} ${getUnitAsPixels(9)};
+  padding: ${getUnitAsPixels(1.5)} ${getUnitAsPixels(9)};
+  color: ${getColor(Color.WHITE)};
   cursor: pointer;
   :hover {
     background: ${({ theme }: { theme: ThemeType }) =>
@@ -60,7 +52,7 @@ export const ToLobbie = styled.div`
   display: flex;
   border-radius: ${getUnitAsPixels()};
   background: ${({ theme }: { theme: ThemeType }) => theme.background.primary};
-  padding: ${getUnitAsPixels()} ${getUnitAsPixels(9)};
+  padding: ${getUnitAsPixels(1.5)} ${getUnitAsPixels(9)};
   border: 1px solid ${getColor(Color.DARK_LIGHT_500)};
   color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
   cursor: pointer;

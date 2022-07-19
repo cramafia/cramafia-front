@@ -1,26 +1,32 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { getIcon, IconType } from '@/components/Icon'
 import { IconContainer, OptionText, SubOptionContainer } from '../styles'
+
 import { SubOptionProps } from './types'
 
-export const SubOption = ({
+import { getIcon, IconType } from '@/components/Icon'
+
+export const SubOption: React.FC<SubOptionProps> = ({
   text,
   id,
   onClick,
   gameType,
   activeSubOptions,
-}: SubOptionProps) => {
+}) => {
   const selected = useMemo(
     () => activeSubOptions.includes(id),
     [activeSubOptions, id]
   )
   const canEdit = useMemo(() => gameType.canEdit.includes(id), [gameType, id])
 
+  const onSelect = (): void => {
+    onClick(id, canEdit)
+  }
+
   return (
     <SubOptionContainer
       selected={selected}
-      onClick={onClick.bind(this, id, canEdit)}
+      onClick={onSelect}
       canEdit={canEdit}
     >
       <IconContainer>{getIcon(IconType.CHECKED)()}</IconContainer>

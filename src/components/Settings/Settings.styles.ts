@@ -1,7 +1,7 @@
 import styled from 'styled-components'
+
+import { ThemeType, getColor, Color } from '@/theme/color'
 import { getUnitAsPixels } from '@/theme/layout'
-import { ThemeType } from '@/theme/color'
-import { getColor, Color } from '@/theme/color'
 
 export const Container = styled.div<{ isVisible: boolean }>`
   top: ${({ isVisible }) => (isVisible ? '0' : '-100vh')};

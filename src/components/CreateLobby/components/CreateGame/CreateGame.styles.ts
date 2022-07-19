@@ -1,7 +1,7 @@
+import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import { Button, Form } from 'react-bootstrap'
-
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -9,7 +9,6 @@ import {
   ScreenSize,
   VerticalSpacingType,
 } from '@/theme/layout'
-import { getColor, Color, ThemeType } from '@/theme/color'
 import { getTypography, Typography } from '@/theme/typography'
 
 export const CreateGameContainer = styled.div`
@@ -49,21 +48,17 @@ export const GameNameInput = styled(Form.Control)`
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   border-radius: ${getUnitAsPixels()};
   background-color: ${({ theme }: { theme: ThemeType }) =>
-    theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.DARK_LIGHT_200)
-      : getColor(Color.WHITE)};
+    theme.background.createLobby.gameNameInput};
   border: none;
-  ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+  ${({ errorText }: { errorText: string; theme: ThemeType }) =>
     errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
   font-weight: 550;
   :focus {
     border-color: ${getColor(Color.DARK_LIGHT_200)};
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.background.primary === getColor(Color.BLACK)
-        ? getColor(Color.DARK_LIGHT_200)
-        : getColor(Color.WHITE)};
-    ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+      theme.background.createLobby.gameNameInput};
+    ${({ errorText }: { errorText: string; theme: ThemeType }) =>
       errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
   }
 `

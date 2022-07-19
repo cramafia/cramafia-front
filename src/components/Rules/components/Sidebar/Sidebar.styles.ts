@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
+import { StyledScroll } from '../../../../styles'
+
 import { show } from '@/theme/animation'
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -9,8 +12,6 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { getColor, Color, ThemeType } from '@/theme/color'
-import { StyledScroll } from '../../../../styles'
 
 export const Wrapper = styled.div`
   height: calc(100vh - ${getUnitAsPixels(10.5)});
@@ -26,7 +27,7 @@ export const Content = styled.div`
   top: 100px;
   animation: ${show} 1s ease;
 `
-//rgba(196, 196, 196, 0)
+
 export const Heading = styled.div`
   ${getTypography(Typography.HEADING_3)}
   margin-bottom: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)}
@@ -47,11 +48,7 @@ export const ListItem = styled.li`
 export const ListItemLink = styled.a`
   font-weight: 550;
   color: ${({ active, theme }: { active: boolean; theme: ThemeType }) =>
-    active
-      ? getColor(Color.GREEN_100)
-      : theme.background.primary === getColor(Color.BLACK)
-      ? getColor(Color.GRAY_100)
-      : getColor(Color.DARK_LIGHT_300)};
+    active ? getColor(Color.GREEN_100) : theme.color.sidebar.listItem};
   :hover {
     color: ${getColor(Color.GREEN_100)};
   }

@@ -1,7 +1,8 @@
-import { baseApi } from '../base.api'
-import { ResponseUserDto } from './dto/response-user.dto'
 import { ApiUrl } from '../apiUrl'
 import { AuthDto } from '../authApi/dto/auth.dto'
+import { baseApi } from '../base.api'
+
+import { ResponseUserDto } from './dto/response-user.dto'
 
 const apiUrl = new ApiUrl('users')
 

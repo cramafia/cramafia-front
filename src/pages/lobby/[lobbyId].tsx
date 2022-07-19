@@ -1,6 +1,6 @@
-import React from 'react'
 import { NextPage } from 'next'
 import dynamic from 'next/dynamic'
+import React from 'react'
 
 const Meeting = dynamic(() => import('../../components/Meeting'), {
   ssr: false,

@@ -1,7 +1,8 @@
+import styled from 'styled-components'
+
 import { getColor, Color } from '@/theme/color'
 import { getUnitAsPixels } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import styled from 'styled-components'
 
 export const UserInformationContainer = styled.div`
   display: flex;

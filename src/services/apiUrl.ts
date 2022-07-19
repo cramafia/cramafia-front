@@ -4,7 +4,7 @@ export class ApiUrl {
     this.baseUrl = url
   }
 
-  get(path: string) {
+  get(path: string): string {
     return `${this.baseUrl}/${path}`
   }
 }
