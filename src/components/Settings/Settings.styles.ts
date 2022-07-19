@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
 import { ThemeType, getColor, Color } from '@/theme/color'
-import { getUnitAsPixels } from '@/theme/layout'
+import {
+  getUnitAsPixels,
+  getVerticalSpacingAsPixels,
+  VerticalSpacingType,
+} from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const Container = styled.div<{ isVisible: boolean }>`
   top: ${({ isVisible }) => (isVisible ? '0' : '-100vh')};
@@ -23,6 +28,7 @@ export const SettingsBar = styled.div`
     theme.background.primary};
   box-shadow: 0px 0px 50px -10px ${({ theme }: { theme: ThemeType }) => theme.color.settingsShadow};
   border-radius: ${getUnitAsPixels()};
+  padding: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
 `
 
 export const CloseButton = styled.div`
@@ -42,4 +48,19 @@ export const CloseButton = styled.div`
     }
   }
   cursor: pointer;
+`
+
+export const Title = styled.span`
+  ${getTypography(Typography.HEADING_2)};
+`
+
+export const SettingsContainer = styled.div`
+  border-right: 10px solid
+    ${({ theme }: { theme: ThemeType }) => theme.color.border};
+  height: 100%;
+  width: 30%;
+`
+
+export const SettingTitle = styled.div`
+  ${getTypography(Typography.BODY_REGULAR)}
 `

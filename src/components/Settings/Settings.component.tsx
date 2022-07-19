@@ -4,7 +4,14 @@ import { StateType } from 'src/redux/store'
 
 import { getIcon, IconType } from '../Icon'
 
-import { SettingsBar, CloseButton, Container } from './Settings.styles'
+import {
+  SettingsBar,
+  CloseButton,
+  Container,
+  Title,
+  SettingsContainer,
+  SettingTitle,
+} from './Settings.styles'
 
 import { toggleSettingsState } from '@/reducers/global.reducer'
 
@@ -18,6 +25,11 @@ export const Settings: React.FC = () => {
   return (
     <Container onClick={handleCloseSettings} isVisible={isVisible}>
       <SettingsBar onClick={(e) => e.stopPropagation()}>
+        <SettingsContainer>
+          <Title>Настройки</Title>
+          <SettingTitle>Аудио</SettingTitle>
+          <SettingTitle>Видео</SettingTitle>
+        </SettingsContainer>
         <CloseButton onClick={handleCloseSettings}>
           {getIcon(IconType.CROSS)()}
         </CloseButton>
