@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { TextProps } from './Text.types'
 import { TextContainer } from './Text.styles'
+import { TextProps } from './Text.types'
 
-export const Text = ({ children }: TextProps) => {
+export const Text: React.FC<TextProps> = ({ children }) => {
   return <TextContainer>{children}</TextContainer>
 }

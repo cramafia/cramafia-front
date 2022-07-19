@@ -1,9 +1,10 @@
-import styled from 'styled-components'
 import NextImage from 'next/image'
 import { Button } from 'react-bootstrap'
+import styled from 'styled-components'
+
+import { PositionProps } from './Main.types'
 
 import { getColor, Color } from '@/theme/color'
-import { getTypography, Typography } from '@/theme/typography'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -15,7 +16,7 @@ import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
 } from '@/theme/normilize'
-import { PositionProps } from './Main.types'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const MainContainer = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.LARGE)};
@@ -33,14 +34,14 @@ export const Slogan = styled.div`
 
 export const Heading = styled.div`
   ${getTypography(Typography.HEADING_2)}
-  text-align: ${({ align }: PositionProps) => align || 'flex-start'};
+  text-align: ${({ align }: PositionProps) => align ?? 'flex-start'};
 `
 
 export const SubHeading = styled.div`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.SMALL)};
   ${getTypography(Typography.SUB_HEADING_1)};
   opacity: 0.8;
-  text-align: ${({ align }: PositionProps) => align || 'flex-start'};
+  text-align: ${({ align }: PositionProps) => align ?? 'flex-start'};
 `
 
 export const Action = styled(Button)`
@@ -48,7 +49,7 @@ export const Action = styled(Button)`
   margin-top: ${getVerticalSpacingAsPixels(VerticalSpacingType.MEDIUM)};
   ${getTypography(Typography.BODY_REGULAR)}
   display: flex;
-  align-self: ${({ align }: PositionProps) => align || 'flex-start'};
+  align-self: ${({ align }: PositionProps) => align ?? 'flex-start'};
   border: 1px solid ${getColor(Color.RED_100)};
   border-radius: ${getUnitAsPixels()};
   background: ${getColor(Color.RED_100)};

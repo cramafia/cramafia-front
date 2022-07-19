@@ -1,22 +1,13 @@
+import { Button, Form, Navbar, Offcanvas, Container } from 'react-bootstrap'
 import styled from 'styled-components'
-import {
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Form,
-  Navbar,
-  Offcanvas,
-  Container,
-} from 'react-bootstrap'
 
-import { Opacity, ThemeType } from '@/theme/color'
-import { getTypography, Typography } from '@/theme/typography'
-import { getColor, Color, getColorWithOpacity } from '@/theme/color'
+import { ThemeType, getColor, Color } from '@/theme/color'
 import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 import {
   getNormilizeComponentAsStyle,
   NormilizeComponents,
 } from '@/theme/normilize'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const HeaderContainer = styled.div`
   display: flex;

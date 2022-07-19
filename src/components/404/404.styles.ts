@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { scale } from '@/theme/animation'
 import { Color, getColor } from '@/theme/color'
-import { Font, getFont } from '@/theme/font'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -10,9 +10,8 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { scale } from '@/theme/animation'
 
-export const NotFoundContainer = styled.div`
+export const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
   padding: ${getUnitAsPixels(4)};
@@ -53,7 +52,7 @@ export const AdditionalInformation = styled.div`
   }
 `
 
-export const _404Container = styled.div`
+export const NotFoundContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +61,7 @@ export const _404Container = styled.div`
   }
 `
 
-export const _404Text = styled.span`
+export const NotFoundText = styled.span`
   ${getTypography(Typography._404)}
 `
 

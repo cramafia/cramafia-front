@@ -6,7 +6,7 @@ export class EventNameFactory {
     this._postfix = postfix
   }
 
-  getEventName(EN: EventName) {
+  getEventName(EN: EventName): string {
     return `${EN}${this._postfix}`
   }
 }

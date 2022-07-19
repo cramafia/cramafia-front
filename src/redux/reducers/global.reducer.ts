@@ -2,11 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Socket } from 'socket.io-client'
 
 import { AlertPayloadType, ModalPayloadType } from '../../types'
-import { ModalSize } from '@/theme/layout'
-import { Theme } from '@/theme/color'
-import { ResponseUserDto } from '@/services/usersApi/dto/response-user.dto'
 
-type initialStateType = {
+import { ResponseUserDto } from '@/services/usersApi/dto/response-user.dto'
+import { Theme } from '@/theme/color'
+import { ModalSize } from '@/theme/layout'
+
+interface InitialStateType {
   modal: ModalPayloadType | null
   theme: Theme
   alert: AlertPayloadType | null
@@ -16,7 +17,7 @@ type initialStateType = {
   showLoader: boolean
 }
 
-const initialState: initialStateType = {
+const initialState: InitialStateType = {
   modal: null,
   theme: Theme.BLACK,
   alert: null,
@@ -35,7 +36,7 @@ const globalReducer = createSlice({
         ...state,
         modal: {
           ModalContent: action.payload.ModalContent,
-          size: action.payload.size || ModalSize.SMALL,
+          size: action.payload.size ?? ModalSize.SMALL,
         },
       }
     },
@@ -57,7 +58,7 @@ const globalReducer = createSlice({
     switchTheme(state) {
       return {
         ...state,
-        theme: state.theme == 'BLACK' ? Theme.WHITE : Theme.BLACK,
+        theme: state.theme === Theme.BLACK ? Theme.WHITE : Theme.BLACK,
       }
     },
 
@@ -76,7 +77,6 @@ const globalReducer = createSlice({
     },
 
     connectSocket(state, action: PayloadAction<Socket>) {
-      console.log(action.payload)
       return {
         ...state,
         socket: action.payload,

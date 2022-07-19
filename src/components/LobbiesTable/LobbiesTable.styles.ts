@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { Table } from 'react-bootstrap'
+import styled from 'styled-components'
 
 import { getColor, Color, ThemeType } from '@/theme/color'
 import { getUnitAsPixels } from '@/theme/layout'

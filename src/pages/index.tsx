@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
+
+import { Page } from '../layouts/Page'
 
 import { Main } from '@/components/Main'
-import { Page } from '../layouts/Page'
 
 const Home: NextPage = () => {
   return (

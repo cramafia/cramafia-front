@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { Color } from '@/theme/color'
-import { IconType } from '@/components/Icon'
-import { Container, Row, Col } from './Basic.styles'
-import { IconText } from '../IconText'
-import { Heading } from '../Heading'
 import { Spacer } from '../../Rules.styles'
+import { Heading } from '../Heading'
+import { IconText } from '../IconText'
+
+import { Container, Row } from './Basic.styles'
+
+import { IconType } from '@/components/Icon'
+import { Color } from '@/theme/color'
 
 export const Basic: React.FC = () => {
   return (
@@ -27,7 +29,7 @@ export const Basic: React.FC = () => {
         <IconText
           iconName={IconType.PEACE}
           title="Мирный"
-          isBorder={true}
+          isBorder
           borderColor={Color.RED_100}
         >
           Вы должны сделать все, чтобы вычислить и изжить Мафию из города путем
@@ -36,7 +38,7 @@ export const Basic: React.FC = () => {
         <IconText
           iconName={IconType.SHERIFF}
           title="Шериф"
-          isBorder={true}
+          isBorder
           borderColor={Color.RED_100}
         >
           Представитель мирного города. Просыпается ночью и проверяет любого
@@ -45,7 +47,7 @@ export const Basic: React.FC = () => {
         <IconText
           iconName={IconType.DOCTOR}
           title="Доктор"
-          isBorder={true}
+          isBorder
           borderColor={Color.RED_100}
         >
           Представитель мирного города. Просыпается ночью и может спасти игрока
@@ -54,11 +56,11 @@ export const Basic: React.FC = () => {
       </Row>
       <Spacer />
       <Row>
-        <IconText iconName={IconType.MAFIA} title="Мафия" isBorder={true}>
+        <IconText iconName={IconType.MAFIA} title="Мафия" isBorder>
           Победа Мафии наступает, когда число членов её команды в городе равно
           числу мирных жителей.
         </IconText>
-        <IconText iconName={IconType.DON} title="Дон" isBorder={true}>
+        <IconText iconName={IconType.DON} title="Дон" isBorder>
           Член мафии. Просыпается ночью и проверяет любого игрока на
           принадлежность к Шерифству.
         </IconText>

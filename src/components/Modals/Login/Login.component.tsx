@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { Spinner } from 'react-bootstrap'
 import { useFormik } from 'formik'
+import React, { useState, useEffect } from 'react'
+import { Spinner } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 
-import { authApi } from '@/services/authApi/auth.api'
-
-import AuthHelper from '@/helpers/auth.helper'
-
-import { CenteredContainer } from '../../../styles'
+import { ModalType, getModal } from '..'
 import {
   authorizeUser,
   closeModal,
   openModal,
 } from '../../../redux/reducers/global.reducer'
-import { ModalType } from '..'
-import { getModal } from '..'
+import { CenteredContainer } from '../../../styles'
 import {
   CheckBox,
   HelperButtons,
@@ -27,9 +22,13 @@ import {
   ErrorText,
 } from '../styles'
 
+import AuthHelper from '@/helpers/auth.helper'
+import { authApi } from '@/services/authApi/auth.api'
+import { Error } from '@/types/api.types'
+
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
-  const onOpen = (type: ModalType) => {
+  const onOpen = (type: ModalType): void => {
     dispatch(openModal(getModal(type)))
   }
   const [login, { data, error, isLoading }] = authApi.useLoginMutation()
@@ -42,8 +41,8 @@ export const Login: React.FC = () => {
     onSubmit: () => {},
   })
 
-  const handleSubmit = () => {
-    login(formik.values)
+  const handleSubmit = async (): Promise<void> => {
+    await login(formik.values)
   }
 
   const [errorText, setErrorText] = useState('')
@@ -54,9 +53,11 @@ export const Login: React.FC = () => {
       dispatch(authorizeUser(!!data.access_token))
       dispatch(closeModal())
     }
+
     if (error) {
-      const { data } = error as any
-      setErrorText(data?.message)
+      const { data: errorData } = error as Error
+
+      setErrorText(errorData.message)
     }
   }, [data, error, dispatch])
 
@@ -82,7 +83,7 @@ export const Login: React.FC = () => {
         />
         <ErrorText>{errorText}</ErrorText>
         <HelperButtons>
-          <MinText isButton={true}>Забыли пароль?</MinText>
+          <MinText isButton>Забыли пароль?</MinText>
           <CenteredContainer align="center">
             <CheckBox />
             <SubText>Запомнить меня</SubText>
@@ -99,10 +100,7 @@ export const Login: React.FC = () => {
       </form>
       <HelperButtons>
         <MinText>Нет аккаунта?</MinText>
-        <MinText
-          isButton={true}
-          onClick={onOpen.bind(this, ModalType.REGISTER)}
-        >
+        <MinText isButton onClick={() => onOpen(ModalType.REGISTER)}>
           Зарегистрировать аккаунт
         </MinText>
       </HelperButtons>

@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import globalReducer from './reducers/global.reducer'
+import lobbiesReducer from './reducers/lobbies.reducer'
 import rulesReducer from './reducers/rules.reducer'
 import socketReducer from './reducers/socket.reducer'
-import lobbiesReducer from './reducers/lobbies.reducer'
+
 import { baseApi } from '@/services/base.api'
 import { videosdkApi } from '@/services/videosdk/videosdk'
 

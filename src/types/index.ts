@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ModalSize } from '@/theme/layout'
 import { AlertType } from '@/components/Alert/Alert.types'
+import { ModalSize } from '@/theme/layout'
+
 export interface ModalPayloadType {
   ModalContent: React.FC
   size?: ModalSize

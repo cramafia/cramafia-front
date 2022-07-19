@@ -1,4 +1,5 @@
 import { MouseEventHandler } from 'react'
+
 import { OptionType } from '../../CreateLobby.types'
 
 export interface OptionProps {

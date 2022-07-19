@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 
 import { Watch } from '../../components/Watch'
 import { Page } from '../../layouts/Page'

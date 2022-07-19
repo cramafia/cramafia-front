@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 
 import { SubText } from '../../CreateLobby.styles'
+
 import {
   CreateGameContainer,
   CreateGameButton,
@@ -10,13 +11,13 @@ import {
 } from './CreateGame.styles'
 import { CreateGameProps } from './CreateGame.types'
 
-export const CreateGame = ({
+export const CreateGame: React.FC<CreateGameProps> = ({
   gameType,
   gameName,
   changeName,
   errorText,
   onCreate,
-}: CreateGameProps) => {
+}) => {
   return (
     <CreateGameContainer>
       <SubText>Тип игры: {gameType.text}</SubText>
@@ -26,7 +27,9 @@ export const CreateGame = ({
         placeholder="Название игры"
         type="text"
         value={gameName}
-        onChange={changeName}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          changeName(e.target.value)
+        }
         errorText={errorText}
       />
       <ErrorText>{errorText}</ErrorText>

@@ -1,7 +1,7 @@
+import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import { Button, Form } from 'react-bootstrap'
-
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -9,7 +9,6 @@ import {
   ScreenSize,
   VerticalSpacingType,
 } from '@/theme/layout'
-import { getColor, Color, ThemeType } from '@/theme/color'
 import { getTypography, Typography } from '@/theme/typography'
 
 export const CreateGameContainer = styled.div`
@@ -51,7 +50,7 @@ export const GameNameInput = styled(Form.Control)`
   background-color: ${({ theme }: { theme: ThemeType }) =>
     theme.background.createLobby.gameNameInput};
   border: none;
-  ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+  ${({ errorText }: { errorText: string; theme: ThemeType }) =>
     errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
   font-weight: 550;
   :focus {
@@ -59,7 +58,7 @@ export const GameNameInput = styled(Form.Control)`
     color: ${({ theme }: { theme: ThemeType }) => theme.color.primary};
     background-color: ${({ theme }: { theme: ThemeType }) =>
       theme.background.createLobby.gameNameInput};
-    ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+    ${({ errorText }: { errorText: string; theme: ThemeType }) =>
       errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
   }
 `

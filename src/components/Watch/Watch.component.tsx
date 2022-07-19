@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { LobbiesTable } from '../LobbiesTable'
+
 import {
   WatchContainer,
   MainText,
@@ -7,9 +9,7 @@ import {
   SubText,
   StreamsContainer,
 } from './Watch.styles'
-
 import { Streams } from './components/Streams'
-import { LobbiesTable } from '../LobbiesTable'
 
 export const Watch: React.FC = () => {
   return (

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
-import { Color, getColor, ThemeType } from '@/theme/color'
+import type { CenteredContainerProps } from './types'
+
+import { ThemeType } from '@/theme/color'
 import { getFont, Font } from '@/theme/font'
 import { getTypography, Typography } from '@/theme/typography'
-
-import type { CenteredContainerProps } from './types'
 
 export const CenteredContainer = styled.div`
   display: flex;
@@ -15,11 +15,11 @@ export const CenteredContainer = styled.div`
 
 export const StyledScroll = css`
   scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
-    `${theme.color.scrollbar} ${theme.background.primary}`};
+    `${theme.color.scrollbar.default} ${theme.background.primary}`};
   scrollbar-width: thin;
   :root {
     scrollbar-color: ${({ theme }: { theme: ThemeType }) =>
-      `${theme.color.scrollbar} ${theme.background.primary}`};
+      `${theme.color.scrollbar.default} ${theme.background.primary}`};
     scrollbar-width: thin;
   }
 

@@ -1,25 +1,26 @@
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { LogoText } from 'src/styles'
-import { ButtonLink } from '@/components/ButtonLink'
-import { useRouter } from 'next/router'
 
 import {
-  NotFoundContainer,
+  Wrapper,
   ContentContainer,
   TitleText,
   Content,
   AdditionalInformation,
-  _404Container,
-  _404Text,
+  NotFoundContainer,
+  NotFoundText,
   SubText,
   TimeContainer,
   HomePage,
   IconContainer,
   LogoContainer,
-} from './_404.styles'
+} from './404.styles'
+
+import { ButtonLink } from '@/components/ButtonLink'
 import { getIcon, IconType } from '@/components/Icon'
 
-export const _404: React.FC = () => {
+export const NotFoundComponent: React.FC = () => {
   const [time, setTime] = useState(9)
   const router = useRouter()
 
@@ -27,17 +28,22 @@ export const _404: React.FC = () => {
     const interval = setInterval(() => {
       setTime((prevTime) => prevTime - 1)
     }, 1000)
+
     return () => {
       clearInterval(interval)
     }
   }, [])
 
   useEffect(() => {
-    if (time === 0) router.push('/')
+    if (time === 0)
+      router
+        .push('/')
+        .then(() => {})
+        .catch(() => {})
   }, [time, router])
 
   return (
-    <NotFoundContainer>
+    <Wrapper>
       <LogoContainer>
         <LogoText>
           <ButtonLink href="/">CRAMAFIA</ButtonLink>
@@ -61,12 +67,12 @@ export const _404: React.FC = () => {
               <HomePage>HOME PAGE</HomePage>
             </ButtonLink>
           </AdditionalInformation>
-          <_404Container>
+          <NotFoundContainer>
             <IconContainer>{getIcon(IconType.ASTRONAUT)()}</IconContainer>
-            <_404Text>404</_404Text>
-          </_404Container>
+            <NotFoundText>404</NotFoundText>
+          </NotFoundContainer>
         </Content>
       </ContentContainer>
-    </NotFoundContainer>
+    </Wrapper>
   )
 }

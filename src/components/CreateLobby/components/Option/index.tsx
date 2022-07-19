@@ -1,15 +1,17 @@
 import React, { useMemo } from 'react'
 
-import { getIcon, IconType } from '@/components/Icon'
 import { OptionContainer, IconContainer, OptionText } from '../styles'
+
 import { OptionProps } from './types'
 
-export const Option = ({
+import { getIcon, IconType } from '@/components/Icon'
+
+export const Option: React.FC<OptionProps> = ({
   text,
   currentGameType,
   onClick,
   gameType,
-}: OptionProps) => {
+}) => {
   const selected = useMemo(
     () => currentGameType.type === gameType,
     [currentGameType, gameType]

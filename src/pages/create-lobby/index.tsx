@@ -1,9 +1,9 @@
-import React from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
 
-import { Page } from 'src/layouts/Page'
 import { CreateLobby } from '@/components/CreateLobby'
+import { Page } from '@/layouts/Page'
 
 const CreateLobbyPage: NextPage = () => {
   return (

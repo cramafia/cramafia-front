@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { ThemeType } from '../color'
 
 export const Wrapper = styled.div`

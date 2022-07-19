@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 
-import ToTopButton from '@/assets/icons/toTopButton.svg'
-import ArrowToTop from '@/assets/icons/arrowToTop.svg'
-
 import { ScrollContainer, Arrow } from './ButtonScrollToTop.styles'
 
 export const ButtonScrollToTop: React.FC = () => {
   const [isShow, setIsShow] = useState(false)
 
-  const onScroll = () => {
-    window.pageYOffset > 200 ? setIsShow(true) : setIsShow(false)
+  const onScroll = (): void => {
+    if (window.pageYOffset > 200) {
+      setIsShow(true)
+    } else setIsShow(false)
   }
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     window.scrollTo(0, 0)
   }
 

@@ -1,5 +1,6 @@
-import { baseApi } from '../base.api'
 import { ApiUrl } from '../apiUrl'
+import { baseApi } from '../base.api'
+
 import { AuthDto } from './dto/auth.dto'
 import { AuthResponseDto } from './dto/authResponse.dto'
 
