@@ -14,6 +14,7 @@ type initialStateType = {
   socket: Socket | null
   user: ResponseUserDto | null
   showLoader: boolean
+  showSettings: boolean
 }
 
 const initialState: initialStateType = {
@@ -24,6 +25,7 @@ const initialState: initialStateType = {
   socket: null,
   user: null,
   showLoader: false,
+  showSettings: false,
 }
 
 const globalReducer = createSlice({
@@ -94,6 +96,12 @@ const globalReducer = createSlice({
         showLoader: action.payload ?? !state.showLoader,
       }
     },
+    toggleSettingsState(state, action: PayloadAction<boolean | undefined>) {
+      return {
+        ...state,
+        showSettings: action.payload ?? !state.showSettings,
+      }
+    },
   },
 })
 
@@ -107,6 +115,7 @@ export const {
   connectSocket,
   setUser,
   toggleLoaderState,
+  toggleSettingsState,
 } = globalReducer.actions
 
 export default globalReducer.reducer

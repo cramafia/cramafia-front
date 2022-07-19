@@ -15,6 +15,7 @@ import { Socket } from '@/components/Socket'
 import { ErrorFallback } from '@/components/ErrorFallback'
 import { Loader } from '@/components/Loader'
 import { RenderedComponent } from '@/components/RenderedComponent'
+import { Settings } from '@/components/Settings'
 
 function MyApp(appProps: AppProps) {
   return (
@@ -34,6 +35,7 @@ function MyApp(appProps: AppProps) {
               <Loader />
               <Modal />
               <Alert />
+              <Settings />
               {/*TODO*/}
               {/*@ts-ignore*/}
               <GlobalStyles />

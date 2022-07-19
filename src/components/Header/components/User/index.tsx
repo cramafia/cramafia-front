@@ -3,9 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { usersApi } from '@/services/usersApi/users.api'
 import AuthHelper from '@/helpers/auth.helper'
-import { authorizeUser, setUser } from '@/reducers/global.reducer'
+import {
+  authorizeUser,
+  setUser,
+  toggleSettingsState,
+} from '@/reducers/global.reducer'
 import { StateType } from '@/store'
 import { ButtonLink } from '@/components/ButtonLink'
+import { Settings } from '@/components/Settings'
 
 import {
   UserContainer,
@@ -26,6 +31,10 @@ export const User: React.FC = () => {
     AuthHelper.logout()
     dispatch(authorizeUser(false))
     dispatch(setUser(null))
+  }
+
+  const handleOpenSettings = () => {
+    dispatch(toggleSettingsState(true))
   }
 
   useEffect(() => {
@@ -54,6 +63,7 @@ export const User: React.FC = () => {
               <ButtonLink href={`/users/${user?.username}`}>
                 <Option>Мой профиль</Option>
               </ButtonLink>
+              <Option onClick={handleOpenSettings}>Настройки</Option>
               <Option onClick={handleLogout}>Выйти</Option>
             </OptionsContainer>
           </UserInformation>
