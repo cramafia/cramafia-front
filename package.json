@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit && eslint --no-error-on-unmatched-pattern --ext .js,.ts,.tsx .",
+    "lint": "tsc --noEmit && eslint --no-error-on-unmatched-pattern --ext .js,.ts,.tsx . --fix",
     "prepare-husky": "husky install"
   },
   "dependencies": {
