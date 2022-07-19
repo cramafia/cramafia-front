@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { LobbyProps } from './Lobby.types'
 import { Container } from './Lobby.styles'
+import { LobbyProps } from './Lobby.types'
 
-export const Lobby = ({ children }: LobbyProps) => {
+export const Lobby: React.FC<LobbyProps> = ({ children }) => {
   return <Container>{children}</Container>
 }

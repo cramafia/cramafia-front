@@ -1,5 +1,3 @@
-import React, { ReactNode } from 'react'
-
 export enum AnchorType {
   BASIC = 'BASIC',
   LIST_1_1 = 'LIST_1_1',
@@ -18,7 +16,7 @@ export enum AnchorType {
   LIST_2_6 = 'LIST_2_6',
 }
 
-export type AnchorObjectType = {
+export interface AnchorObjectType {
   id: number
   title: string
   anchor: string
@@ -33,7 +31,7 @@ export const getAnchors = (): AnchorObjectType[] => {
   return Object.values(anchors)
 }
 
-export const sortByAnchorId = (arr: AnchorType[]) => {
+export const sortByAnchorId = (arr: AnchorType[]): AnchorType[] => {
   return arr.sort(
     (a: AnchorType, b: AnchorType) => getAnchor(a).id - getAnchor(b).id
   )

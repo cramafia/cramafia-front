@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { getTypography, Typography } from '@/theme/typography'
 import {
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
@@ -8,6 +7,7 @@ import {
   getMediaQuery,
   ScreenSize,
 } from '@/theme/layout'
+import { getTypography, Typography } from '@/theme/typography'
 
 export const RulesContainer = styled.div`
   ${getTypography(Typography.NAVIGATION)}

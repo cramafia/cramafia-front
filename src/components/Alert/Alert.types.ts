@@ -1,14 +1,12 @@
 import { Color, getColor } from '@/theme/color'
 
-export interface AlertProps {}
-
 export enum AlertType {
   DANGER = 'DANGER',
   WARNING = 'WARNING',
   SUCCESS = 'SUCCESS',
 }
 
-export const getAlertVariant = (type: AlertType) => {
+export const getAlertVariant = (type: AlertType): string => {
   return alertVariants[type]
 }
 

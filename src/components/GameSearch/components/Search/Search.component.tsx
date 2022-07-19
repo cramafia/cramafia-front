@@ -12,7 +12,7 @@ import {
   SearchButton,
 } from './Search.styles'
 
-export const Search = () => {
+export const Search: React.FC = () => {
   const [playerType, togglePlayerType] = useState(false)
   const [gameType, toggleGameType] = useState(false)
 
@@ -26,7 +26,7 @@ export const Search = () => {
             <Row>
               <Col>
                 <PlayerButton
-                  onClick={togglePlayerType.bind(this, false)}
+                  onClick={() => togglePlayerType(false)}
                   active={!playerType}
                 >
                   Игрок
@@ -34,7 +34,7 @@ export const Search = () => {
               </Col>
               <Col>
                 <PlayerButton
-                  onClick={togglePlayerType.bind(this, true)}
+                  onClick={() => togglePlayerType(true)}
                   active={playerType}
                 >
                   Судья
@@ -46,7 +46,7 @@ export const Search = () => {
             <Row>
               <Col>
                 <GameButton
-                  onClick={toggleGameType.bind(this, false)}
+                  onClick={() => toggleGameType(false)}
                   active={!gameType}
                 >
                   Классическая
@@ -54,7 +54,7 @@ export const Search = () => {
               </Col>
               <Col>
                 <GameButton
-                  onClick={toggleGameType.bind(this, true)}
+                  onClick={() => toggleGameType(true)}
                   active={gameType}
                 >
                   Кастомная

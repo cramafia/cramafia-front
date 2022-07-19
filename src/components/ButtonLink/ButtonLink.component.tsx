@@ -1,13 +1,16 @@
+import { useRouter } from 'next/router'
 import React from 'react'
-import { Button } from 'react-bootstrap'
 
 import { ButtonLinkProps } from './ButtonLink.types'
-import { useRouter } from 'next/router'
 
-export const ButtonLink = ({ children, href }: ButtonLinkProps) => {
+export const ButtonLink: React.FC<ButtonLinkProps> = ({ children, href }) => {
   const router = useRouter()
-  const linkTo = () => {
-    router.push(href)
+  const linkTo = (): void => {
+    router
+      .push(href)
+      .then(() => {})
+      .catch(() => {})
   }
+
   return <div onClick={linkTo}>{children}</div>
 }

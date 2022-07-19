@@ -1,5 +1,3 @@
-export interface LobbyProps {}
-
 export interface LobbyStateType {
   gameType: OptionType
   activeSubOptions: SubOptionId[]

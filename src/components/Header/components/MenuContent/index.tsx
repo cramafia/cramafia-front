@@ -1,21 +1,19 @@
-import { Theme, ThemeType } from '@/theme/color'
 import React from 'react'
-
 import { Navbar, Offcanvas, Nav } from 'react-bootstrap'
 import { LogoText } from 'src/styles'
-import { SideBar, SideBarTitle, MenuContainer } from './../../Header.styles'
-import { NavContent } from './../NavContent'
 
-export const MenuContent = ({
-  theme,
-  toggleExpanded,
-}: {
-  theme: Theme
-  toggleExpanded: Function
-}) => {
-  const handleToggle = (b: boolean) => {
+import { SideBar, SideBarTitle, MenuContainer } from '../../Header.styles'
+import { NavContent } from '../NavContent'
+
+import { Props } from './types'
+
+import { Theme } from '@/theme/color'
+
+export const MenuContent: React.FC<Props> = ({ theme, toggleExpanded }) => {
+  const handleToggle = (b: boolean): void => {
     toggleExpanded(b)
   }
+
   return (
     <MenuContainer fluid>
       <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -30,7 +28,7 @@ export const MenuContent = ({
         >
           <SideBarTitle
             id="offcanvasNavbarLabel"
-            onClick={handleToggle.bind(this, false)}
+            onClick={() => handleToggle(false)}
           >
             <LogoText>CRAMAFIA</LogoText>
           </SideBarTitle>

@@ -1,16 +1,15 @@
-import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
+import styled from 'styled-components'
 
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
-  getColor,
-  Color,
-  ThemeType,
-  getColorWithOpacity,
-  Opacity,
-} from '@/theme/color'
-import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
+  getMediaQuery,
+  getUnitAsPixels,
+  ScreenSize,
+  getVerticalSpacingAsPixels,
+  VerticalSpacingType,
+} from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { getVerticalSpacingAsPixels, VerticalSpacingType } from '@/theme/layout'
 
 export const Container = styled.div`
   border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.color.border};

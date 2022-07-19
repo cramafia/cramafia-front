@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type initialStateType = {
+interface InitialStateType {
   activeUsers: number
 }
 
-const initialState: initialStateType = {
+const initialState: InitialStateType = {
   activeUsers: 0,
 }
 

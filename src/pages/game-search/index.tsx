@@ -1,10 +1,9 @@
-import React from 'react'
 import { NextPage } from 'next'
-
 import Head from 'next/head'
+import React from 'react'
 
-import { Page } from 'src/layouts/Page'
 import { GameSearch } from '@/components/GameSearch'
+import { Page } from '@/layouts/Page'
 
 const GameSearchPage: NextPage = () => {
   return (

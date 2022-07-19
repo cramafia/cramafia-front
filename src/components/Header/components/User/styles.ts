@@ -1,12 +1,12 @@
-import styled from 'styled-components'
 import { Dropdown, Spinner } from 'react-bootstrap'
+import styled from 'styled-components'
 
+import { Color, getColor, ThemeType } from '@/theme/color'
 import {
   getUnitAsPixels,
   getVerticalSpacingAsPixels,
   VerticalSpacingType,
 } from '@/theme/layout'
-import { Color, getColor, ThemeType } from '@/theme/color'
 import { getTypography, Typography } from '@/theme/typography'
 
 export const UserContainer = styled.div`

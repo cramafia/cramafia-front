@@ -1,5 +1,6 @@
 import { Button, Form } from 'react-bootstrap'
 import styled from 'styled-components'
+
 import { Color, getColor, ThemeType } from '../../theme/color'
 import {
   getUnitAsPixels,
@@ -38,7 +39,7 @@ export const ModalInput = styled(Form.Control)`
     background-color: ${({ theme }: { theme: ThemeType }) =>
       theme.background.modal.input};
   }
-  ${({ errorText, theme }: { errorText: string; theme: ThemeType }) =>
+  ${({ errorText }: { errorText: string; theme: ThemeType }) =>
     !!errorText && `border: 1px solid ${getColor(Color.RED_100)}`};
 `
 
@@ -77,7 +78,7 @@ export const SubmiteButton = styled(Button)`
     color: ${getColor(Color.BLACK)};
     border-color: ${getColor(Color.GREEN_100)};
   }
-  ${({ isLoading, theme }: { isLoading: boolean; theme: ThemeType }) =>
+  ${({ isLoading }: { isLoading: boolean; theme: ThemeType }) =>
     isLoading &&
     `background-color:${getColor(Color.GRAY_200)}; 
         :hover, focus{ 

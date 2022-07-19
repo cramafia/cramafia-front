@@ -31,7 +31,7 @@ export enum Opacity {
   _10 = '_10',
 }
 
-export type ThemeType = {
+export interface ThemeType {
   background: {
     primary: string
     secondary: string
@@ -85,7 +85,7 @@ export const getOpacity = (_opacity: Opacity): string => {
 }
 
 export const getTheme = (theme: Theme): ThemeType => {
-  return themes[theme] || themes[Theme.WHITE]
+  return themes[theme]
 }
 
 const opacity: { [key in Opacity]: string } = {

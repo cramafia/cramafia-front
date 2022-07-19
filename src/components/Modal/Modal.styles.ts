@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import CrossIcon from '@/assets/icons/cross.svg'
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getUnitAsPixels,
   getModalSizeAsPixels,
@@ -7,8 +9,6 @@ import {
   getMediaQuery,
   ScreenSize,
 } from '@/theme/layout'
-import { getColor, Color, ThemeType } from '@/theme/color'
-import CrossIcon from '@/assets/icons/cross.svg'
 
 export const Wrapper = styled.div`
   display: flex;

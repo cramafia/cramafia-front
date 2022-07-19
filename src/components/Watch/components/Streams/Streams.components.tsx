@@ -1,7 +1,6 @@
-import React from 'react'
 import { nanoid } from 'nanoid'
+import React from 'react'
 
-import streams from '@/constants/streams.json'
 import {
   Stream,
   StreamIcon,
@@ -11,6 +10,8 @@ import {
   StreamName,
   UserName,
 } from './Streams.styles'
+
+import streams from '@/constants/streams.json'
 
 export const Streams: React.FC = () => {
   return (

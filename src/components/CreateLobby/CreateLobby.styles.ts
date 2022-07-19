@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { getColor, Color, ThemeType } from '@/theme/color'
+import { getColor, Color } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,

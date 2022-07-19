@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { AnchorType, sortByAnchorId } from '@/components/Rules/helpers/anchors'
 
-type InitialStateType = {
+interface InitialStateType {
   anchors: AnchorType[] | []
 }
 

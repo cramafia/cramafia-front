@@ -1,2 +1,2 @@
+// eslint-disable-next-line import/no-cycle
 export { Register } from './Register.component'
-export type { RegisterProps } from './Register.types'

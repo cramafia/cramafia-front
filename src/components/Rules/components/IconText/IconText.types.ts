@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
-import { Color } from '@/theme/color'
 import { IconType } from '@/components/Icon'
+import { Color } from '@/theme/color'
 
 export interface IconTextProps {
   iconName: IconType

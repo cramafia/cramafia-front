@@ -18,14 +18,14 @@
     "paths": {
       "@/assets/*": ["src/assets/*"],
       "@/components/*": ["src/components/*"],
-      "@/constants/*": ["src/constants/*"],      
+      "@/constants/*": ["src/constants/*"],
       "@/theme/*": ["src/theme/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/services/*": ["src/services/*"],
       "@/types/*": ["src/types/*"],
       "@/helpers/*": ["src/helpers/*"],
       "@/reducers/*": ["src/redux/reducers/*"],
-      "@/store": ["src/redux/store.ts"],
+      "@/layouts/*": ["src/layouts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

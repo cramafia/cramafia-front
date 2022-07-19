@@ -1,19 +1,17 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { io, Socket as SocketClient } from 'socket.io-client'
-
-import { StateType } from 'src/redux/store'
 import { connectSocket } from 'src/redux/reducers/global.reducer'
+
 import { commonHandlers } from './handlers/common.handlers'
 import { lobbiesHandlers } from './handlers/lobbies.handlers'
 
-let socket: SocketClient
+let socket: SocketClient | undefined
 
-export const Socket = () => {
+export const Socket: React.FC = () => {
   const dispatch = useDispatch()
-  const { socket: _socket } = useSelector((state: StateType) => state.global)
 
-  const socketInitializer = () => {
+  const socketInitializer = (): void => {
     if (socket) {
       commonHandlers(socket, dispatch)
       lobbiesHandlers(socket, dispatch)
@@ -22,7 +20,7 @@ export const Socket = () => {
 
   useEffect(() => {
     if (!socket) {
-      socket = io(process.env.NEXT_PUBLIC_API_URL || '')
+      socket = io(process.env.NEXT_PUBLIC_API_URL ?? '')
       socketInitializer()
       dispatch(connectSocket(socket))
     }

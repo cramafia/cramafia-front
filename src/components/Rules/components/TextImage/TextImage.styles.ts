@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { ImageFloat } from './TextImage.types'
+
 import { getMediaQuery, getUnitAsPixels, ScreenSize } from '@/theme/layout'
 
 export const Container = styled.div`

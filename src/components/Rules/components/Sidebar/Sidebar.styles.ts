@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
+import { StyledScroll } from '../../../../styles'
+
 import { show } from '@/theme/animation'
+import { getColor, Color, ThemeType } from '@/theme/color'
 import {
   getMediaQuery,
   getUnitAsPixels,
@@ -9,8 +12,6 @@ import {
   VerticalSpacingType,
 } from '@/theme/layout'
 import { getTypography, Typography } from '@/theme/typography'
-import { getColor, Color, ThemeType } from '@/theme/color'
-import { StyledScroll } from '../../../../styles'
 
 export const Wrapper = styled.div`
   height: calc(100vh - ${getUnitAsPixels(10.5)});

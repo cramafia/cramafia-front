@@ -1,5 +1,9 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
+import browser_with_game from '@/assets/images/browser-with-game.png'
+import first_night from '@/assets/images/first-night.png'
+import player_speech from '@/assets/images/player-speech.png'
+import positions from '@/assets/images/positions.png'
 import process_1 from '@/assets/images/process1.png'
 import process_2 from '@/assets/images/process2.png'
 import process_3 from '@/assets/images/process3.png'
@@ -12,10 +16,6 @@ import scoring_6 from '@/assets/images/scoring_06.png'
 import scoring_7 from '@/assets/images/scoring_07.png'
 import speeches from '@/assets/images/speeches.png'
 import voting from '@/assets/images/voting.png'
-import player_speech from '@/assets/images/player-speech.png'
-import browser_with_game from '@/assets/images/browser-with-game.png'
-import first_night from '@/assets/images/first-night.png'
-import positions from '@/assets/images/positions.png'
 import { getImageSizeAsPixels, ImageSize } from '@/theme/layout'
 
 export enum ImageType {
