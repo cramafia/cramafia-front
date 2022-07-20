@@ -98,7 +98,16 @@
       }
     ],
     "prefer-destructuring": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
     "react/prop-types": "off",
     "react/destructuring-assignment": "off",
     "no-underscore-dangle": "off",

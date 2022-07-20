@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { StateType } from 'src/redux/store'
 
+import { ResponseLobbyDto } from '../Socket/dto/lobby.dto'
 import { getAllLobbies } from '../Socket/emitters/lobbies.emitters'
 
 import { TableContainer } from './LobbiesTable.styles'
@@ -13,7 +14,7 @@ export const LobbiesTable: React.FC = () => {
   const { allLobbies } = useSelector((state: StateType) => state.lobbies)
   const { emit } = useSocketEmitters()
   const router = useRouter()
-  const linkTo = (lobbyId: string): void => {
+  const linkTo = (lobbyId: ResponseLobbyDto['lobbyId']): void => {
     router
       .push(`/lobby/${lobbyId}`)
       .then(() => {})
@@ -38,12 +39,17 @@ export const LobbiesTable: React.FC = () => {
 
       <tbody>
         {!!allLobbies.length &&
-          allLobbies.map(({ lobbyId }) => (
-            <tr onClick={linkTo.bind(this, lobbyId)} key={lobbyId}>
-              <th>{lobbyId}</th>
-              <th>сос</th>
-            </tr>
-          ))}
+          allLobbies.map(
+            ({ lobbyId, name, type, status, players }: ResponseLobbyDto) => (
+              <tr onClick={linkTo.bind(this, lobbyId)} key={lobbyId}>
+                <th>{lobbyId}</th>
+                <th>{name}</th>
+                <th>{type}</th>
+                <th>{status}</th>
+                <th>{players}</th>
+              </tr>
+            )
+          )}
       </tbody>
     </TableContainer>
   )
