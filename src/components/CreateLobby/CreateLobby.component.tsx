@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
+import { CreateLobbyDto } from '../Socket/dto/lobby.dto'
 import { createLobby } from '../Socket/emitters/lobbies.emitters'
 
 import {
@@ -14,7 +14,6 @@ import {
   SubText,
 } from './CreateLobby.styles'
 import {
-  OptionGameType,
   SubOptionId,
   SubOptionType,
   getAllSubOptions,
@@ -29,16 +28,17 @@ import { SubOption } from './components/SubOption'
 import { LobbiesTable } from '@/components/LobbiesTable'
 import { useSocketEmitters } from '@/hooks/useSocketEmitters'
 import { videosdkApi } from '@/services/videosdk/videosdk'
+import { LobbyGameType, LobbyGamePrivacy } from '@/types/lobby.types'
 
 export const CreateLobby: React.FC = () => {
   const [lobbyState, setLobbyState] = useState<LobbyStateType>({
-    gameType: getOption(OptionGameType.CLASSIC),
+    gameType: getOption(LobbyGameType.CLASSIC),
     activeSubOptions: [SubOptionId.PRIVATE],
     gameName: '',
     errorText: '',
   })
 
-  const handleChangeOption = (option: OptionGameType): void => {
+  const handleChangeOption = (option: LobbyGameType): void => {
     setLobbyState({
       ...lobbyState,
       gameType: getOption(option),
@@ -46,11 +46,10 @@ export const CreateLobby: React.FC = () => {
     })
   }
   const [createMeetings, { data }] = videosdkApi.useCreateMeetingMutation<{
-    data: {
+    data?: {
       meetingId?: string
     }
   }>()
-  const router = useRouter()
   const { emit } = useSocketEmitters()
 
   const onCreate = (): void => {
@@ -60,14 +59,13 @@ export const CreateLobby: React.FC = () => {
   }
 
   useEffect(() => {
-    if (data.meetingId) {
-      emit(createLobby, {
+    if (data?.meetingId) {
+      emit<CreateLobbyDto>(createLobby, {
         lobbyId: data.meetingId,
+        type: lobbyState.gameType.type,
+        name: lobbyState.gameName,
+        privacy: LobbyGamePrivacy.PUBLIC,
       })
-      router
-        .push(`/lobby/${data.meetingId}`)
-        .then(() => {})
-        .catch(() => {})
     }
   }, [data])
 

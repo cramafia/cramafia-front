@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { LobbyDto } from '@/components/Socket/dto/lobby.dto'
+import { ResponseLobbyDto } from '@/components/Socket/dto/lobby.dto'
 
 interface InitialStateType {
-  allLobbies: LobbyDto[]
+  allLobbies: ResponseLobbyDto[]
 }
 
 const initialState: InitialStateType = {
@@ -14,7 +14,7 @@ const socketReducer = createSlice({
   name: 'lobbies',
   initialState,
   reducers: {
-    setAllLobbies(state, action: PayloadAction<LobbyDto[]>) {
+    setAllLobbies(state, action: PayloadAction<ResponseLobbyDto[]>) {
       return {
         ...state,
         allLobbies: action.payload,

@@ -1,3 +1,5 @@
+import { LobbyGameType } from '@/types/lobby.types'
+
 export interface LobbyStateType {
   gameType: OptionType
   activeSubOptions: SubOptionId[]
@@ -6,7 +8,7 @@ export interface LobbyStateType {
 }
 export interface OptionType {
   text: string
-  type: OptionGameType
+  type: LobbyGameType
   canEdit: string[]
   additionalText: string
 }
@@ -48,29 +50,24 @@ const subOptions: { [key in SubOptionId]: SubOptionType } = {
   },
 }
 
-export enum OptionGameType {
-  CLASSIC = 'CLASSIC',
-  CUSTOM = 'CUSTOM',
-}
-
 export const getAllOptions = (): OptionType[] => {
   return Object.values(options)
 }
 
-export const getOption = (_gameType: OptionGameType): OptionType => {
+export const getOption = (_gameType: LobbyGameType): OptionType => {
   return options[_gameType]
 }
 
-const options: { [key in OptionGameType]: OptionType } = {
-  [OptionGameType.CLASSIC]: {
+const options: { [key in LobbyGameType]: OptionType } = {
+  [LobbyGameType.CLASSIC]: {
     text: 'Классика',
-    type: OptionGameType.CLASSIC,
+    type: LobbyGameType.CLASSIC,
     canEdit: [SubOptionId.PRIVATE],
     additionalText: 'Играйте по классическим правилам',
   },
-  [OptionGameType.CUSTOM]: {
+  [LobbyGameType.CUSTOM]: {
     text: 'Кастомная',
-    type: OptionGameType.CUSTOM,
+    type: LobbyGameType.CUSTOM,
     canEdit: getAllSubOptionsIds(),
     additionalText: 'Играйте по кастомным правилам',
   },
