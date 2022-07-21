@@ -19,7 +19,7 @@ interface InitialStateType {
 
 const initialState: InitialStateType = {
   modal: null,
-  theme: Theme.WHITE,
+  theme: Theme.BLACK,
   alert: null,
   isAuthorized: false,
   socket: null,
