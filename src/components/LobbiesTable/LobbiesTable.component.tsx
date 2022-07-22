@@ -40,13 +40,20 @@ export const LobbiesTable: React.FC = () => {
       <tbody>
         {!!allLobbies.length &&
           allLobbies.map(
-            ({ lobbyId, name, type, status, players }: ResponseLobbyDto) => (
+            ({
+              lobbyId,
+              name,
+              type,
+              status,
+              players,
+              maxPlayers,
+            }: ResponseLobbyDto) => (
               <tr onClick={linkTo.bind(this, lobbyId)} key={lobbyId}>
                 <th>{lobbyId}</th>
                 <th>{name}</th>
                 <th>{type}</th>
                 <th>{status}</th>
-                <th>{players}</th>
+                <th>{`${players}/${maxPlayers}`}</th>
               </tr>
             )
           )}

@@ -8,6 +8,7 @@ export interface CreateLobbyDto {
   lobbyId: string
   type: LobbyGameType
   name: string
+  maxPlayers: number
   privacy: LobbyGamePrivacy
 }
 

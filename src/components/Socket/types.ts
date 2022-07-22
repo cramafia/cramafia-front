@@ -10,4 +10,6 @@ export enum EventNamePostfix {
 export enum LobbiesEventName {
   GET_ALL_LOBBIES = 'getAllLobbies',
   CREATE_LOBBY = 'createLobby',
+  CONNECT_PLAYER_TO_LOBBY = 'connectPlayerToLobby',
+  DISCONNECT_PLAYER_FROM_LOBBY = 'disconnectPlayerFromLobby',
 }

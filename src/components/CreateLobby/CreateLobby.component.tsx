@@ -64,6 +64,7 @@ export const CreateLobby: React.FC = () => {
         lobbyId: data.meetingId,
         type: lobbyState.gameType.type,
         name: lobbyState.gameName,
+        maxPlayers: 10, // fix me
         privacy: LobbyGamePrivacy.PUBLIC,
       })
     }
