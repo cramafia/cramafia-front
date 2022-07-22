@@ -6,6 +6,7 @@ import { AlertPayloadType, ModalPayloadType } from '../../types'
 import { ResponseUserDto } from '@/services/usersApi/dto/response-user.dto'
 import { Theme } from '@/theme/color'
 import { ModalSize } from '@/theme/layout'
+import { MediaStreamTrackType } from '@/types/webRTC.types'
 
 interface InitialStateType {
   modal: ModalPayloadType | null
@@ -15,6 +16,8 @@ interface InitialStateType {
   socket: Socket | null
   user: ResponseUserDto | null
   showLoader: boolean
+  showSettings: boolean
+  mediaStreams: Record<MediaStreamTrackType, MediaStreamTrack | null>
 }
 
 const initialState: InitialStateType = {
@@ -25,6 +28,11 @@ const initialState: InitialStateType = {
   socket: null,
   user: null,
   showLoader: false,
+  showSettings: false,
+  mediaStreams: {
+    [MediaStreamTrackType.AUDIO]: null,
+    [MediaStreamTrackType.VIDEO]: null,
+  },
 }
 
 const globalReducer = createSlice({
@@ -94,6 +102,24 @@ const globalReducer = createSlice({
         showLoader: action.payload ?? !state.showLoader,
       }
     },
+    toggleSettingsState(state, action: PayloadAction<boolean | undefined>) {
+      return {
+        ...state,
+        showSettings: action.payload ?? !state.showSettings,
+      }
+    },
+    changeMediaStreams(
+      state,
+      action: PayloadAction<Partial<InitialStateType['mediaStreams']>>
+    ) {
+      return {
+        ...state,
+        mediaStreams: {
+          ...state.mediaStreams,
+          ...action.payload,
+        },
+      }
+    },
   },
 })
 
@@ -107,6 +133,8 @@ export const {
   connectSocket,
   setUser,
   toggleLoaderState,
+  toggleSettingsState,
+  changeMediaStreams,
 } = globalReducer.actions
 
 export default globalReducer.reducer

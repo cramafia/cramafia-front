@@ -58,6 +58,7 @@ export interface ThemeType {
     primary: string
     secondary: string
     opposite: string
+    settingsShadow: string
     footer: {
       listHeader: string
     }
@@ -144,6 +145,7 @@ const themes: { [key in Theme]: ThemeType } = {
       primary: getColor(Color.WHITE),
       secondary: getColor(Color.WHITE),
       opposite: getColor(Color.BLACK),
+      settingsShadow: getColor(Color.GRAY_100),
       footer: {
         listHeader: getColor(Color.GRAY_200),
       },
@@ -184,6 +186,7 @@ const themes: { [key in Theme]: ThemeType } = {
       primary: getColor(Color.BLACK),
       secondary: getColor(Color.BLACK),
       opposite: getColor(Color.WHITE),
+      settingsShadow: getColor(Color.GRAY_500),
       footer: {
         listHeader: getColor(Color.GRAY_200),
       },

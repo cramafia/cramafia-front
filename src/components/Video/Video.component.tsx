@@ -1,21 +1,26 @@
 /* eslint-disable no-console */
 import { useParticipant } from '@videosdk.live/react-sdk'
 import React, { useRef, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { StateType } from 'src/redux/store'
 
 import { Props } from './Video.types'
 
 export const Video: React.FC<Props> = ({ participantId }) => {
   const webcamRef = useRef<HTMLVideoElement>(null)
   const micRef = useRef<HTMLVideoElement>(null)
-  const { displayName, webcamStream, micStream, webcamOn, micOn, isLocal } =
+  const { displayName, webcamOn, micOn, isLocal } =
     useParticipant(participantId)
+  const mediaStreams = useSelector(
+    (state: StateType) => state.global.mediaStreams
+  )
 
   useEffect(() => {
     if (webcamRef.current) {
-      if (webcamOn) {
+      if (webcamOn && mediaStreams.video) {
         const mediaStream = new MediaStream()
 
-        mediaStream.addTrack(webcamStream.track)
+        mediaStream.addTrack(mediaStreams.video)
 
         webcamRef.current.srcObject = mediaStream
         webcamRef.current
@@ -27,14 +32,14 @@ export const Video: React.FC<Props> = ({ participantId }) => {
         webcamRef.current.srcObject = null
       }
     }
-  }, [webcamStream, webcamOn])
+  }, [webcamOn, mediaStreams.video])
 
   useEffect(() => {
     if (micRef.current) {
-      if (micOn) {
+      if (micOn && mediaStreams.audio) {
         const mediaStream = new MediaStream()
 
-        mediaStream.addTrack(micStream.track)
+        mediaStream.addTrack(mediaStreams.audio)
 
         micRef.current.srcObject = mediaStream
         micRef.current
@@ -46,7 +51,7 @@ export const Video: React.FC<Props> = ({ participantId }) => {
         micRef.current.srcObject = null
       }
     }
-  }, [micStream, micOn])
+  }, [micOn, mediaStreams.audio])
 
   return (
     <div>

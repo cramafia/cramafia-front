@@ -15,6 +15,7 @@ import { ErrorFallback } from '@/components/ErrorFallback'
 import { Loader } from '@/components/Loader'
 import { Modal } from '@/components/Modal'
 import { RenderedComponent } from '@/components/RenderedComponent'
+import { Settings } from '@/components/Settings'
 import { Socket } from '@/components/Socket'
 import { ThemeGlobal } from '@/theme/ThemeGlobal'
 
@@ -33,6 +34,7 @@ const MyApp: React.FC<AppProps> = (appProps) => {
               <Loader />
               <Modal />
               <Alert />
+              <Settings />
               <GlobalStyles />
               <RenderedComponent {...appProps} />
             </ThemeGlobal>

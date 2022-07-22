@@ -14,7 +14,11 @@ import {
 
 import { ButtonLink } from '@/components/ButtonLink'
 import AuthHelper from '@/helpers/auth.helper'
-import { authorizeUser, setUser } from '@/reducers/global.reducer'
+import {
+  authorizeUser,
+  setUser,
+  toggleSettingsState,
+} from '@/reducers/global.reducer'
 import { usersApi } from '@/services/usersApi/users.api'
 
 export const User: React.FC = () => {
@@ -26,6 +30,10 @@ export const User: React.FC = () => {
     AuthHelper.logout()
     dispatch(authorizeUser(false))
     dispatch(setUser(null))
+  }
+
+  const handleOpenSettings = (): void => {
+    dispatch(toggleSettingsState(true))
   }
 
   useEffect(() => {
@@ -56,6 +64,7 @@ export const User: React.FC = () => {
               <ButtonLink href={`/users/${user?.username ?? ''}`}>
                 <Option>Мой профиль</Option>
               </ButtonLink>
+              <Option onClick={handleOpenSettings}>Настройки</Option>
               <Option onClick={handleLogout}>Выйти</Option>
             </OptionsContainer>
           </UserInformation>
