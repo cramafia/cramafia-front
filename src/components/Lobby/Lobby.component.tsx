@@ -1,19 +1,19 @@
 import { useMeeting, UseMeeting } from '@videosdk.live/react-sdk'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { StateType } from 'src/redux/store'
-import { useSelector } from 'react-redux'
 
-import { Video } from '../Video'
 import {
   connectPlayerToLobby,
   disconnectPlayerFromLobby,
 } from '../Socket/emitters/lobbies.emitters'
+import { Video } from '../Video'
+
 import { Container } from './Lobby.styles'
 
-import { toggleLoaderState } from '@/reducers/global.reducer'
 import { useSocketEmitters } from '@/hooks/useSocketEmitters'
+import { toggleLoaderState } from '@/reducers/global.reducer'
 
 export const Lobby: React.FC = () => {
   const dispatch = useDispatch()
@@ -32,6 +32,7 @@ export const Lobby: React.FC = () => {
 
   const onLeave = (): void => {
     leave()
+
     if (user) {
       emit(disconnectPlayerFromLobby, {
         lobbyId: meetingId,
