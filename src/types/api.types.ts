@@ -10,7 +10,7 @@ export interface TokensDTO {
 
 export interface Error {
   status: number
-  data: {
+  data?: {
     message: string
   }
 }
