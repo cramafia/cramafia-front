@@ -23,10 +23,10 @@ import {
   ErrorText,
 } from '../styles'
 
+import { AlertType } from '@/components/Alert/Alert.types'
 import AuthHelper from '@/helpers/auth.helper'
 import { authApi } from '@/services/authApi/auth.api'
 import { Error } from '@/types/api.types'
-import { AlertType } from '@/components/Alert/Alert.types'
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch()
@@ -59,16 +59,17 @@ export const Login: React.FC = () => {
     if (error) {
       const { data: errorData } = error as Error
 
-      if(errorData?.message) {
-        setErrorText(errorData?.message)
+      if (errorData?.message) {
+        setErrorText(errorData.message)
       } else {
-        dispatch(addAlert({
-          type: AlertType.DANGER,
-          text: 'Oops! Something Went Wrong',
-          title: 'ERROR'
-        }))
+        dispatch(
+          addAlert({
+            type: AlertType.DANGER,
+            text: 'Oops! Something Went Wrong',
+            title: 'ERROR',
+          })
+        )
       }
-      
     }
   }, [data, error, dispatch])
 

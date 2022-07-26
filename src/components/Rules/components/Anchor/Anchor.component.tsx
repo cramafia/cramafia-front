@@ -27,9 +27,8 @@ export const Anchor: React.FC<Props> = ({ anchor }) => {
   }, [isVisible])
 
   return (
-    <>
+    <AnchorObserver as="div" ref={ref}>
       <a id={getAnchor(anchor).anchor} />
-      <AnchorObserver as="div" ref={ref} />
-    </>
+    </AnchorObserver>
   )
 }

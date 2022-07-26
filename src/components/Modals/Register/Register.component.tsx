@@ -73,14 +73,16 @@ export const Register: React.FC = () => {
     if (error) {
       const { data: errorData } = error as Error
 
-      if(errorData?.message) {
-        setErrorText(errorData?.message)
+      if (errorData?.message) {
+        setErrorText(errorData.message)
       } else {
-        dispatch(addAlert({
-          type: AlertType.DANGER,
-          text: 'Oops! Something Went Wrong',
-          title: 'ERROR'
-        }))
+        dispatch(
+          addAlert({
+            type: AlertType.DANGER,
+            text: 'Oops! Something Went Wrong',
+            title: 'ERROR',
+          })
+        )
       }
     }
   }, [data, error])
