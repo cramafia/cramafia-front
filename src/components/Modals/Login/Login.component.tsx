@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 
 import { ModalType, getModal } from '..'
 import {
+  addAlert,
   authorizeUser,
   closeModal,
   openModal,
@@ -22,6 +23,7 @@ import {
   ErrorText,
 } from '../styles'
 
+import { AlertType } from '@/components/Alert/Alert.types'
 import AuthHelper from '@/helpers/auth.helper'
 import { authApi } from '@/services/authApi/auth.api'
 import { Error } from '@/types/api.types'
@@ -57,7 +59,17 @@ export const Login: React.FC = () => {
     if (error) {
       const { data: errorData } = error as Error
 
-      setErrorText(errorData.message)
+      if (errorData?.message) {
+        setErrorText(errorData.message)
+      } else {
+        dispatch(
+          addAlert({
+            type: AlertType.DANGER,
+            text: 'Oops! Something Went Wrong',
+            title: 'ERROR',
+          })
+        )
+      }
     }
   }, [data, error, dispatch])
 
